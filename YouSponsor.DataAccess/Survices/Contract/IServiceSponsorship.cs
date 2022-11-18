@@ -17,5 +17,7 @@ namespace SponsorY.DataAccess.Survices.Contract
         Task<Sponsorship> GetSponsorsEditAsync(int id);
 
         Task EditSponsorshipAsync(int EditId, Sponsorship model);
+
+        Task<Sponsorship> GetSingelSponsorAsync(int SponsorId);
     }
 }

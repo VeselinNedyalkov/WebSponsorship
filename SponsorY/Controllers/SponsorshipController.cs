@@ -11,12 +11,14 @@ namespace SponsorY.Controllers
     [Authorize]
     public class SponsorshipController : Controller
     {
-
+        private readonly IServiceCategory categoryService;
         private readonly IServiceSponsorship sponsorService;
 
-        public SponsorshipController(IServiceSponsorship _sponsorService)
+        public SponsorshipController(IServiceSponsorship _sponsorService
+            , IServiceCategory _categoryService)
         {
             sponsorService = _sponsorService;
+            categoryService = _categoryService;
         }
         public async Task<IActionResult> Main()
         {
@@ -26,9 +28,14 @@ namespace SponsorY.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            AddSponsorViewModel model = new AddSponsorViewModel();
+            var category = await categoryService.GetAllCategoryAsync();
+
+            AddSponsorViewModel model = new AddSponsorViewModel
+            {
+                Categories = category
+            };
 
             return View(model);
         }

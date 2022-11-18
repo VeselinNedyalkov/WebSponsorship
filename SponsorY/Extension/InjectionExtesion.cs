@@ -12,6 +12,7 @@ namespace SponsorY.Extension
             services.AddScoped<IServiceUser, ServiceUser>();
             services.AddScoped<IServiceSponsorship, ServiceSponsorship>();
             services.AddScoped<IServiceCategory, ServiceCategory>();
+            services.AddScoped<IServiceTransaction, ServiceTransaction>();
 
             return services;
         }

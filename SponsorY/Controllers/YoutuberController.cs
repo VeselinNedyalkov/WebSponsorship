@@ -23,7 +23,7 @@ namespace SponsorY.Controllers
         public async Task<IActionResult> Main()
         {
 
-            IEnumerable<YouTubeViewModel> model = await userService.GetAllYoutubeChanlesAsync();
+            IEnumerable<YouTubeViewModel> model = await userService.GetAllYoutubeChanelsAsync();
 
             return View(model);
         }

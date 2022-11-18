@@ -17,7 +17,7 @@ namespace SponsorY.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Sponsorship> Sponsorships { get; set; }
-        public DbSet<Transfer> Transfers { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
         public DbSet<UserInfo> UsersInfo { get; set; }
         public DbSet<Youtuber> Youtubers { get; set; }
 

@@ -29,7 +29,7 @@
                 <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" asp-for="@Model.PricePerClip" />
                 <span asp-validation-for="@Model.PricePerClip" class="text-danger"></span>
             </div>
-             <div class="list-group mb-3">
+             <div class="list-group mb-3 text-center">
                 <label asp-for="@Model.CategoryId" class="form-label">Category</label>
                 <select asp-for="@Model.CategoryId" class="form-control">
                     @foreach (var category in Model.Categories)

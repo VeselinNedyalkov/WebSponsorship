@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SponsorY.Data;
 
@@ -11,9 +12,10 @@ using SponsorY.Data;
 namespace SponsorY.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221114125244_ChangeNameTransaction")]
+    partial class ChangeNameTransaction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,12 +247,7 @@ namespace SponsorY.DataAccess.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int?>("SponsorshipId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("SponsorshipId");
 
                     b.ToTable("Categories");
                 });
@@ -266,9 +263,6 @@ namespace SponsorY.DataAccess.Migrations
                     b.Property<string>("AppUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
@@ -454,13 +448,6 @@ namespace SponsorY.DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SponsorY.DataAccess.Models.Category", b =>
-                {
-                    b.HasOne("SponsorY.DataAccess.Models.Sponsorship", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("SponsorshipId");
-                });
-
             modelBuilder.Entity("SponsorY.DataAccess.Models.Sponsorship", b =>
                 {
                     b.HasOne("SponsorY.DataAccess.Models.AppUser", "AppUser")
@@ -529,8 +516,6 @@ namespace SponsorY.DataAccess.Migrations
 
             modelBuilder.Entity("SponsorY.DataAccess.Models.Sponsorship", b =>
                 {
-                    b.Navigation("Categories");
-
                     b.Navigation("Transfers");
                 });
 

@@ -30,7 +30,7 @@ namespace SponsorY.DataAccess.Models
 
         [ForeignKey(nameof(Transfer))]
         public int? TransferId { get; set; }
-        public Transfer? Transfer { get; set; }
+        public Transaction? Transfer { get; set; }
 
         [ForeignKey(nameof(AppUser))]
         public string AppUserId { get; set; }

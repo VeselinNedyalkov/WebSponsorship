@@ -15,18 +15,15 @@ namespace SponsorY.DataAccess.Survices
     public class ServiceSponsorship : IServiceSponsorship
     {
         private readonly ApplicationDbContext context;
+        private readonly IServiceCategory categoryService;
 
-        public ServiceSponsorship(ApplicationDbContext _context)
+        public ServiceSponsorship(ApplicationDbContext _context,
+            IServiceCategory _categoryService)
         {
             context = _context;
+            categoryService = _categoryService;
         }
 
-        /// <summary>
-        /// add user to DB
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="model"></param>
-        /// <returns></returns>
 
         public async Task AddSponsorshipAsync(string userId, AddSponsorViewModel model)
         {
@@ -54,6 +51,7 @@ namespace SponsorY.DataAccess.Survices
                 Product = model.Product,
                 Url = model.Url,
                 Wallet = model.Wallet,
+                CategoryId= original.CategoryId,
                 AppUserId = original.AppUserId,
                 Transfers = original.Transfers,
             };
@@ -62,13 +60,11 @@ namespace SponsorY.DataAccess.Survices
             context.SaveChanges();
         }
 
-        /// <summary>
-        /// Take all sponsorships 
-        /// </summary>
-        /// <returns></returns>
 
         public async Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync()
         {
+            var categories = categoryService.GetAllCategoryAsync();
+
             var result = await context.Sponsorships
                 .Select(x => new SponsorViewModel
                 {
@@ -83,12 +79,11 @@ namespace SponsorY.DataAccess.Survices
             return result;
         }
 
+        public async Task<Sponsorship> GetSingelSponsorAsync(int SponsorId)
+        {
+            return await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
+        }
 
-        /// <summary>
-        /// Take the user
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public async Task<Sponsorship> GetSponsorsEditAsync(int id)
         {
             var user = await context.Sponsorships.Where(x => x.Id == id)

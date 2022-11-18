@@ -32,6 +32,7 @@ builder.Services.AddAplicationServices();
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/User/Login";
+    options.LoginPath = "/User/Logout";
 });
 
 var app = builder.Build();

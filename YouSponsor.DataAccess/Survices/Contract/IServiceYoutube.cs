@@ -6,7 +6,8 @@ namespace SponsorY.DataAccess.Survices.Contract
 	public interface IServiceYoutub
 
 	{
-		Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanlesAsync();
+		Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync();
+		Task<IEnumerable<FindYoutuberViewModel>> FindAllYoutubersAsync();
 		
 
 		Task AddYoutubChanelAsync(string userId ,AddYoutViewModel model);
@@ -16,5 +17,8 @@ namespace SponsorY.DataAccess.Survices.Contract
 		Task EditYoutuberAsync(int EditId , YouTubeViewModel model);
 
 		void DeleteYoutuber(int DelteId);
-	}
+
+		Task<IEnumerable<YoutubersFilterCatViewModel>> GetChanelWithCategoryAsync(int categoryId);
+
+    }
 }

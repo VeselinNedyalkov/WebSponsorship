@@ -56,11 +56,20 @@ namespace SponsorY.Controllers
 
             var result = await userManager.CreateAsync(user, model.Password);
 
-            if (!result.Succeeded)
+            if (!result.Succeeded && model.IsDeleted)
             {
                 var error = new ErrorViewModel
                 {
                     RequestId = "The User is deleted"
+                };
+
+                return View("Error", error);
+            }
+            else if (!result.Succeeded)
+            {
+                var error = new ErrorViewModel
+                {
+                    RequestId = "The User is already registered!"
                 };
 
                 return View("Error", error);
@@ -71,7 +80,7 @@ namespace SponsorY.Controllers
                 ModelState.AddModelError("", item.Description);
             }
 
-            return View(model);
+            return RedirectToAction(nameof(Login));
         }
 
         [HttpGet]

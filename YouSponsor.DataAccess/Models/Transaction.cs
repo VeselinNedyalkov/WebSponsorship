@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SponsorY.DataAccess.Models
 {
-    public class Transfer
+    public class Transaction
     {
         [Key]
         public int Id { get; set; }

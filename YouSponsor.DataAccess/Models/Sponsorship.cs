@@ -24,8 +24,10 @@ namespace SponsorY.DataAccess.Models
         public decimal Wallet { get; set; } = 0;
 
 
-        public ICollection<Transfer> Transfers { get; set; } = new List<Transfer>();
+        public ICollection<Transaction> Transfers { get; set; } = new List<Transaction>();
+        public ICollection<Category> Categories { get; set; } = new List<Category>();
 
+        public int CategoryId { get; set; }
 
         [ForeignKey(nameof(AppUser))]
         public string AppUserId { get; set; }

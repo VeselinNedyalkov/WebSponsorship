@@ -25,7 +25,7 @@ namespace SponsorY.DataAccess.Survices
         /// Get all youtube chanels 
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanlesAsync()
+        public async Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync()
         {
             IEnumerable<Category> getCategories = await categorySerivece.GetAllCategoryAsync();
 
@@ -142,6 +142,42 @@ namespace SponsorY.DataAccess.Survices
 
             context.Youtubers.Remove(user);
             context.SaveChanges();
+        }
+
+		public async Task<IEnumerable<FindYoutuberViewModel>> FindAllYoutubersAsync()
+		{
+			var result = await context.Youtubers
+			   .Select(x => new FindYoutuberViewModel
+			   {
+				   Id = x.Id,
+				   ChanelName = x.ChanelName,
+				   Url = x.Url,
+				   Subscribers = x.Subscribers,
+				   PricePerClip = x.PricePerClip,
+			   })
+			   .ToListAsync();
+
+            return result;
+		}
+
+        public async Task<IEnumerable<YoutubersFilterCatViewModel>> GetChanelWithCategoryAsync(int categoryId)
+        {
+            var result = await context.Youtubers
+                .Where(x => x.CategoryId == categoryId)
+                .Select(x => new YoutubersFilterCatViewModel
+                {
+                    Id = x.Id,
+                    ChanelName = x.ChanelName,
+                    Url = x.Url,
+                    Subscribers = x.Subscribers,
+                    PricePerClip = x.PricePerClip,
+                    Wallet = x.Wallet,
+                    TransferId = x.TransferId,
+                    CategoryId = x.CategoryId,
+                    AppUserId = x.AppUserId,
+                }).ToListAsync();
+
+            return result;
         }
     }
 }
