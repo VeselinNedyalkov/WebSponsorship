@@ -53,7 +53,7 @@ namespace SponsorY.Controllers
 			return RedirectToAction("Search", model);
 		}
 
-		public IActionResult Sub()
+		public IActionResult Sub(int ChanelId , int SponsorId)
 		{
 			return View();
 		}
