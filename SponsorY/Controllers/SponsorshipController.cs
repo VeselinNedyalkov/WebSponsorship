@@ -85,7 +85,7 @@ namespace SponsorY.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int EditId, Sponsorship model)
+        public async Task<IActionResult> Edit(int EditId, SponsorViewModel model)
         {
 
             await sponsorService.EditSponsorshipAsync(EditId, model);

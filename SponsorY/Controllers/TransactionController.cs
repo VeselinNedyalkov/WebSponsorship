@@ -31,14 +31,15 @@ namespace SponsorY.Controllers
 			var category = await categoryService.GetAllCategoryAsync();
 			var sponsorCategory = await sponsorService.GetSingelSponsorAsync(SponsorId);
 			var youtubers = await youtubeService.GetChanelWithCategoryAsync(sponsorCategory.CategoryId);
-
+			string catName = await categoryService.GetCategoryNameAsync(sponsorCategory.CategoryId);
 
             FindChanelViewModel model = new FindChanelViewModel
 			{
 				Youtubers = youtubers,
 				Categories = category,
 				SponsorshipId = SponsorId,
-			};
+				CategoryName = catName
+            };
 
 			return View(model);
         }
@@ -52,7 +53,10 @@ namespace SponsorY.Controllers
 			return RedirectToAction("Search", model);
 		}
 
-
+		public IActionResult Sub()
+		{
+			return View();
+		}
 		
 	}
 }

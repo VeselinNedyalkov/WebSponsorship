@@ -14,9 +14,9 @@ namespace SponsorY.DataAccess.Survices.Contract
 
         Task AddSponsorshipAsync(string userId, AddSponsorViewModel model);
 
-        Task<Sponsorship> GetSponsorsEditAsync(int id);
+        Task<SponsorViewModel> GetSponsorsEditAsync(int id);
 
-        Task EditSponsorshipAsync(int EditId, Sponsorship model);
+        Task EditSponsorshipAsync(int EditId, SponsorViewModel model);
 
         Task<Sponsorship> GetSingelSponsorAsync(int SponsorId);
     }

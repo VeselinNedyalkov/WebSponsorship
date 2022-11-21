@@ -1,5 +1,5 @@
 ﻿@using SponsorY.DataAccess.Models
-@model Sponsorship
+@model SponsorViewModel
 
 @{
     ViewData["Title"] = "Update sponsorship";
@@ -35,7 +35,7 @@
                 <select asp-for="@Model.CategoryId" class="form-control">
                     @foreach (var category in Model.Categories)
                     {
-                                <option class="list-group" value="@category.Id">@category.CategoryName</option>
+                           <option class="list-group" value="@category.Id">@category.CategoryName</option>
                     }
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>

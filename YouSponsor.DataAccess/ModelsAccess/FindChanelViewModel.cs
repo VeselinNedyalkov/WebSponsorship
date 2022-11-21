@@ -15,5 +15,7 @@ namespace SponsorY.DataAccess.ModelsAccess
 
 		public IEnumerable<YoutubersFilterCatViewModel>? Youtubers { get; set; } = new List<YoutubersFilterCatViewModel>();
 
+		public string CategoryName { get; set; }
+
 	}
 }

@@ -21,6 +21,12 @@ namespace SponsorY.DataAccess.ModelsAccess
         [StringLength(ProductMaxLenght)]
         public string Product { get; set; }
 
+        public IEnumerable<Category>? Categories { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public string? CategoryName { get; set; }
+
         public string? Url { get; set; }
 
 

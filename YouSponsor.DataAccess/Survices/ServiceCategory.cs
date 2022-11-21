@@ -23,12 +23,17 @@ namespace SponsorY.DataAccess.Survices
             };
 
             await context.Categories.AddAsync(category);
-            //context.SaveChanges();
+            context.SaveChanges();
         }
 
         public async Task<IEnumerable<Category>> GetAllCategoryAsync()
         {
             return  await context.Categories.ToListAsync();
+        }
+
+        public async Task<string> GetCategoryNameAsync(int catId)
+        {
+            return await context.Categories.Where(x => x.Id == catId).Select(x => x.CategoryName).FirstOrDefaultAsync();
         }
     }
 }

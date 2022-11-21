@@ -13,5 +13,7 @@ namespace SponsorY.DataAccess.Survices.Contract
         Task AddCategoryAync(CategoryViewModel model);
 
         Task<IEnumerable<Category>> GetAllCategoryAsync();
+
+        Task<string> GetCategoryNameAsync(int catId);
     }
 }

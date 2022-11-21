@@ -29,20 +29,21 @@
                 <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" asp-for="@Model.Wallet" />
                 <span asp-validation-for="@Model.Wallet" class="text-danger"></span>
             </div>
-            <div class="text-center">
-                <button id="registerSubmit" type="submit" class="btn btn-primary text-muted">Register</button>
-                <a asp-controller="Sponsorship" asp-action="Main" class="btn btn-primary text-muted">Back to List</a>
-            </div>
-             <div class="list-group mb-3 text-center">
+            <div class="list-group mb-3 text-center">
                 <label asp-for="@Model.CategoryId" class="form-label">Select category:</label>
                 <select asp-for="@Model.CategoryId" class="form-control">
                     @foreach (var category in Model.Categories)
                     {
-                            <option class="list-group" value="@category.Id">@category.CategoryName</option>
+                        <option class="list-group" value="@category.Id">@category.CategoryName</option>
                     }
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
+            <div class="text-center">
+                <button id="registerSubmit" type="submit" class="btn btn-primary text-muted">Register</button>
+                <a asp-controller="Sponsorship" asp-action="Main" class="btn btn-primary text-muted">Back to List</a>
+            </div>
+            
         </form>
     </div>
 </div>

@@ -6,6 +6,7 @@ using SponsorY.DataAccess.Survices.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -34,13 +35,14 @@ namespace SponsorY.DataAccess.Survices
                 Url = model.Url,
                 Wallet = model.Wallet,
                 AppUserId = userId,
+                CategoryId = model.CategoryId
             };
 
             await context.Sponsorships.AddAsync(sponsor);
             context.SaveChanges();
         }
 
-        public async Task EditSponsorshipAsync(int EditId, Sponsorship model)
+        public async Task EditSponsorshipAsync(int EditId, SponsorViewModel model)
         {
             var original = await GetSponsorsEditAsync(EditId);
 
@@ -51,9 +53,8 @@ namespace SponsorY.DataAccess.Survices
                 Product = model.Product,
                 Url = model.Url,
                 Wallet = model.Wallet,
-                CategoryId= original.CategoryId,
+                CategoryId= model.CategoryId,
                 AppUserId = original.AppUserId,
-                Transfers = original.Transfers,
             };
 
             context.Sponsorships.Update(edit);
@@ -63,8 +64,6 @@ namespace SponsorY.DataAccess.Survices
 
         public async Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync()
         {
-            var categories = categoryService.GetAllCategoryAsync();
-
             var result = await context.Sponsorships
                 .Select(x => new SponsorViewModel
                 {
@@ -72,9 +71,15 @@ namespace SponsorY.DataAccess.Survices
                     CompanyName = x.CompanyName,
                     Product = x.Product,
                     Url = x.Url,
+                    CategoryId = x.CategoryId,
                     Wallet = x.Wallet,
                 }).ToListAsync();
 
+            foreach (var item in result)
+            {
+                item.CategoryName = await categoryService.GetCategoryNameAsync(item.CategoryId);
+
+			}
 
             return result;
         }
@@ -84,10 +89,10 @@ namespace SponsorY.DataAccess.Survices
             return await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
         }
 
-        public async Task<Sponsorship> GetSponsorsEditAsync(int id)
+        public async Task<SponsorViewModel> GetSponsorsEditAsync(int id)
         {
             var user = await context.Sponsorships.Where(x => x.Id == id)
-                .Select(x => new Sponsorship
+                .Select(x => new SponsorViewModel
                 {
                     Id = x.Id,
                     CompanyName = x.CompanyName,
@@ -95,8 +100,10 @@ namespace SponsorY.DataAccess.Survices
                     Url = x.Url,
                     Wallet = x.Wallet,
                     AppUserId = x.AppUserId,
-                    Transfers = x.Transfers
                 }).FirstOrDefaultAsync();
+
+            user.CategoryName = await categoryService.GetCategoryNameAsync(user.CategoryId);
+            user.Categories = await categoryService.GetAllCategoryAsync();
 
             return user!;
         }

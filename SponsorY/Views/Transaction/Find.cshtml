@@ -4,6 +4,8 @@
 	ViewData["Title"] = "Select category";
 }
 
+<h2>Youtube chanels base on - @Model.CategoryName</h2>
+
 <table class="table table-bordered table-hover" style="width:100%">
 	<thead class="text-muted">
 		<tr>
@@ -39,12 +41,9 @@
 					<center>@ch.PricePerClip</center>
 				</td>
 				<td>
-					@*<div class="w-75 btn-group" role="group">
-						<a class="btn btn-primary text-muted" asp-controller="Youtuber" asp-action="Edit" asp-route-EditId=@ch.Id><i class="bi bi-pencil-square"></i> Edit</a>
-					</div>
 					<div class="w-75 btn-group" role="group">
-						<a class="btn btn-primary text-muted" asp-controller="Youtuber" asp-action="Delete" asp-route-DelteId=@ch.Id><i class="bi bi-x-circle"></i> Delete</a>
-					</div>*@
+						<a class="btn btn-primary text-muted" asp-controller="Transaction" asp-action="Sub" asp-route-ChanelId=@ch.Id> Request sponsorship</a>
+					</div>
 
 				</td>
 			</tr>
