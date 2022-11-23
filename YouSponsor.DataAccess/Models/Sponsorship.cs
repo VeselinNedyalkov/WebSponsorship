@@ -11,13 +11,13 @@ namespace SponsorY.DataAccess.Models
 
         [Required]
         [StringLength(CompanyNameMaxLenght)]
-        public string CompanyName { get; set; }
+        public string CompanyName { get; set; } = null!;
 
-        [Required]
+		[Required]
         [StringLength(ProductMaxLenght)]
-        public string Product { get; set; }
+        public string Product { get; set; } = null!;
 
-        public string? Url { get; set; }
+		public string? Url { get; set; }
 
 
         [Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
@@ -29,7 +29,7 @@ namespace SponsorY.DataAccess.Models
         public int CategoryId { get; set; }
 
         [ForeignKey(nameof(AppUser))]
-        public string AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
-    }
+        public string AppUserId { get; set; } = null!;
+		public AppUser AppUser { get; set; } = null!;
+	}
 }

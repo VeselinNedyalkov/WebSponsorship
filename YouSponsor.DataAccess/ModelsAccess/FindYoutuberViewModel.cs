@@ -11,9 +11,9 @@ namespace SponsorY.DataAccess.ModelsAccess
 	{
 		public int Id { get; set; }
 
-		public string ChanelName { get; set; }
+		public string ChanelName { get; set; } = null!;
 
-		public string Url { get; set; }
+		public string Url { get; set; } = null!;
 
 		public int Subscribers { get; set; }
 

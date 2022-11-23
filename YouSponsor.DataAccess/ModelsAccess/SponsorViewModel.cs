@@ -15,13 +15,13 @@ namespace SponsorY.DataAccess.ModelsAccess
 
         [Required]
         [StringLength(CompanyNameMaxLenght)]
-        public string CompanyName { get; set; }
+        public string CompanyName { get; set; } = null!;
 
-        [Required]
+		[Required]
         [StringLength(ProductMaxLenght)]
-        public string Product { get; set; }
+        public string Product { get; set; } = null!;
 
-        public IEnumerable<Category>? Categories { get; set; }
+		public IEnumerable<Category>? Categories { get; set; }
 
         public int CategoryId { get; set; }
 
@@ -33,7 +33,7 @@ namespace SponsorY.DataAccess.ModelsAccess
         [Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
         public decimal Wallet { get; set; } = 0;
 
-        public string AppUserId { get; set; }
+        public string AppUserId { get; set; } = null!;
 
-    }
+	}
 }

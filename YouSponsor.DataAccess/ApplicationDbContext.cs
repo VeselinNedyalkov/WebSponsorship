@@ -15,11 +15,11 @@ namespace SponsorY.Data
             
         }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Sponsorship> Sponsorships { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
-        public DbSet<UserInfo> UsersInfo { get; set; }
-        public DbSet<Youtuber> Youtubers { get; set; }
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Sponsorship> Sponsorships { get; set; } = null!;
+		public DbSet<Transaction> Transactions { get; set; } = null!;
+		public DbSet<UserInfo> UsersInfo { get; set; } = null!;
+        public DbSet<Youtuber> Youtubers { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

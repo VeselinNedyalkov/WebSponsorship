@@ -11,12 +11,12 @@ namespace SponsorY.DataAccess.Models
 
         [Required]
         [StringLength(ChanelNameMaxLenght)]
-        public string ChanelName { get; set; }
+        public string ChanelName { get; set; } = null!;
 
-        [Required]
-        public string Url { get; set; }
+		[Required]
+        public string Url { get; set; } = null!;
 
-        [Required]
+		[Required]
         public int Subscribers { get; set; }
 
         [Required]
@@ -26,14 +26,14 @@ namespace SponsorY.DataAccess.Models
 
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category Category { get; set; } = null!;
 
-        [ForeignKey(nameof(Transfer))]
+		[ForeignKey(nameof(Transfer))]
         public int? TransferId { get; set; }
         public Transaction? Transfer { get; set; }
 
         [ForeignKey(nameof(AppUser))]
-        public string AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
-    }
+        public string AppUserId { get; set; } = null!;
+		public AppUser AppUser { get; set; } = null!;
+	}
 }

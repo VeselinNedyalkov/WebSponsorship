@@ -301,21 +301,27 @@ namespace SponsorY.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("AllUserSponsor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("HasAccepted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("NumberOfSponsorship")
+                    b.Property<int>("QuntityClips")
                         .HasColumnType("int");
 
                     b.Property<int>("SponsorshipId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("SubmiteToYoutuber")
+                        .HasColumnType("bit");
+
                     b.Property<decimal>("TransferMoveney")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("YoutuberId")
                         .HasColumnType("int");

@@ -11,12 +11,12 @@ namespace SponsorY.DataAccess.ModelsAccess
 
         [Required]
         [StringLength(ChanelNameMaxLenght)]
-        public string ChanelName { get; set; }
+        public string ChanelName { get; set; } = null!;
 
-        [Required]
-        public string Url { get; set; }
+		[Required]
+        public string Url { get; set; } = null!;
 
-        [Required]
+		[Required]
         public int Subscribers { get; set; }
 
         [Required]
@@ -26,12 +26,12 @@ namespace SponsorY.DataAccess.ModelsAccess
 
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();
 
-        public string Category { get; set; }
+        public string Category { get; set; } = null!;
 
-        public int? TransferId { get; set; }
+		public int? TransferId { get; set; }
 
         public int CategoryId { get; set; }
 
-        public string AppUserId { get; set; }
-    }
+        public string AppUserId { get; set; } = null!;
+	}
 }

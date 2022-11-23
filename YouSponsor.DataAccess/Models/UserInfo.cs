@@ -12,12 +12,12 @@ namespace SponsorY.DataAccess.Models
 
         
         [StringLength(FirstNameMaxLength, MinimumLength = FirstNameMinLength)]
-        public string? FirstName { get; set; }
+        public string? FirstName { get; set; } = null!;
 
-        [StringLength(LastNameMaxLength, MinimumLength = LastNameMinLength)]
-        public string? LastName { get; set; }
+		[StringLength(LastNameMaxLength, MinimumLength = LastNameMinLength)]
+        public string? LastName { get; set; } = null!;
 
-        [Range(AgeMin, AgeMax)]
+		[Range(AgeMin, AgeMax)]
         public int? Age { get; set; }
 
       
@@ -25,8 +25,8 @@ namespace SponsorY.DataAccess.Models
         public string? Country { get; set; }
 
         [ForeignKey(nameof(AppUser))]
-        public string AppUserId { get; set; }
-        public AppUser AppUser { get; set; } 
-    }
+        public string AppUserId { get; set; } = null!;
+		public AppUser AppUser { get; set; } = null!;
+	}
 
 }

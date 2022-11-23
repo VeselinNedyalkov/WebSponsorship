@@ -2,47 +2,33 @@
 using Microsoft.AspNetCore.Mvc;
 using SponsorY.DataAccess.ModelsAccess;
 using SponsorY.DataAccess.Survices.Contract;
+using System.Security.Claims;
 
 namespace SponsorY.Controllers
 {
-    [Authorize]
-    public class TransactionController : Controller
-    {
+	[Authorize]
+	public class TransactionController : Controller
+	{
 
 		private readonly IServiceTransaction tranService;
-		private readonly IServiceCategory categoryService;
-		private readonly IServiceYoutub youtubeService;
-		private readonly IServiceSponsorship sponsorService;
+		
 
-        public TransactionController(IServiceTransaction _tranService
-			, IServiceCategory _categoryService,
-			IServiceYoutub _youtubeService,
-			IServiceSponsorship _sponsorCategory)
+		public TransactionController(IServiceTransaction _tranService
+			
+			)
 		{
 			tranService = _tranService;
-			categoryService = _categoryService;
-			youtubeService = _youtubeService;
-			sponsorService = _sponsorCategory;
+		
+			
 		}
 
 		[AllowAnonymous]
-        public async Task<IActionResult> Find(int SponsorId)
-        {
-			var category = await categoryService.GetAllCategoryAsync();
-			var sponsorCategory = await sponsorService.GetSingelSponsorAsync(SponsorId);
-			var youtubers = await youtubeService.GetChanelWithCategoryAsync(sponsorCategory.CategoryId);
-			string catName = await categoryService.GetCategoryNameAsync(sponsorCategory.CategoryId);
-
-            FindChanelViewModel model = new FindChanelViewModel
-			{
-				Youtubers = youtubers,
-				Categories = category,
-				SponsorshipId = SponsorId,
-				CategoryName = catName
-            };
+		public async Task<IActionResult> Find(int SponsorId)
+		{
+			FindChanelViewModel model = await tranService.GetFindModelAsync(SponsorId);
 
 			return View(model);
-        }
+		}
 
 		[AllowAnonymous]
 		[HttpPost]
@@ -53,29 +39,67 @@ namespace SponsorY.Controllers
 			return RedirectToAction("Search", model);
 		}
 
-		public async Task<IActionResult> Details(int ChanelId , int SponsorId)
+		[AllowAnonymous]
+		public async Task<IActionResult> Details(int ChanelId, int SponsorId)
 		{
-			var youtub = await youtubeService.TakeYoutuberAsync(ChanelId);
-			var sponsor = await sponsorService.GetSponsorsEditAsync(SponsorId);
+			TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(ChanelId, SponsorId);
 
-			TransactionViewModel model = new TransactionViewModel
-			{
-				SponsorId = SponsorId,
-				CompanyName = sponsor.CompanyName,
-				Product = sponsor.Product,
-				CompanyUrl = sponsor.Url,
-				CompanyBudget = sponsor.Wallet,
-				ChanelId = ChanelId,
-				ChanelName = youtub.ChanelName,
-				ChanelUrl = youtub.Url,
-				Subscribers = youtub.Subscribers,
-				PricePerClip = youtub.PricePerClip,
-				SponroshipsClipsNum = 1,
-			};
+			decimal Total = tranService.GetTotalPrice(model.QuantityClips, model.PricePerClip);
+
+			model.TotalPrice = Total;
+
+			var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+			var transaction = await tranService.CreateTransactionAsync(model, userId);
+
+			model.TransactionId = transaction.Id;
 
 			return View(model);
 		}
-		
 
+		[AllowAnonymous]
+		[HttpPost]
+		public async Task<IActionResult> Details(int TranslId)
+		{
+
+			return RedirectToAction("Main" , "Sponsorship");
+		}
+
+		public async Task<IActionResult> Plus(int TranslId)
+		{
+			var transaction = await tranService.GetTransactionAsync(TranslId);
+			transaction.QuntityClips += 1;
+
+			TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(transaction.YoutuberId, transaction.SponsorshipId);
+
+			model.QuantityClips = transaction.QuntityClips;
+			model.TransactionId = transaction.Id;
+
+			decimal Total = tranService.GetTotalPrice(model.QuantityClips, model.PricePerClip);
+
+			model.TotalPrice = Total;
+			transaction.TransferMoveney = Total;
+
+			await tranService.UpdateTransaction(transaction);
+			return View(nameof(Details), model);
+		}
+
+		public async Task<IActionResult> Minus(int TranslId)
+		{
+			var transaction = await tranService.GetTransactionAsync(TranslId);
+			transaction.QuntityClips -= 1;
+
+			TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(transaction.YoutuberId, transaction.SponsorshipId);
+
+			model.QuantityClips = transaction.QuntityClips;
+			model.TransactionId = transaction.Id;
+
+			decimal Total = tranService.GetTotalPrice(model.QuantityClips, model.PricePerClip);
+
+			model.TotalPrice = Total;
+			transaction.TransferMoveney = Total;
+
+			await tranService.UpdateTransaction(transaction);
+			return View(nameof(Details), model);
+		}
 	}
 }

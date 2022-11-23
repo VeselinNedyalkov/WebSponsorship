@@ -15,18 +15,22 @@ namespace SponsorY.DataAccess.Models
 
         [Required]
         [Range(0, int.MaxValue)]
-        public int NumberOfSponsorship { get; set; }
+        public int QuntityClips { get; set; }
 
        
         public int SponsorshipId { get; set; }
         [ForeignKey(nameof(SponsorshipId))]
-        public virtual Sponsorship Sponsorship { get; set; }
+        public virtual Sponsorship Sponsorship { get; set; } = null!;
 
-        public int YoutuberId { get; set; }
+		public int YoutuberId { get; set; }
         [ForeignKey(nameof(YoutuberId))]
-        public Youtuber Youtuber { get; set; }
+        public Youtuber Youtuber { get; set; } = null!;
 
-        public string UserId { get; set; }
+		public string AllUserSponsor { get; set; } = null!;
+
+        public bool SubmiteToYoutuber { get; set; }
+
+        public bool HasAccepted { get; set; }
 
         public bool IsCompleted { get; set; } = false;
     }

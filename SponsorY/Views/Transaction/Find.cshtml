@@ -1,7 +1,7 @@
 ﻿@model FindChanelViewModel
 
 @{
-	ViewData["Title"] = "Select category";
+	ViewData["Title"] = "Find Chanel";
 }
 
 <h2>Youtube chanels base on - @Model.CategoryName</h2>
@@ -42,7 +42,9 @@
 				</td>
 				<td>
 					<div class="w-75 btn-group" role="group">
-						<a class="btn btn-primary text-muted" asp-controller="Transaction" asp-action="Details" asp-route-ChanelId=@ch.Id asp-route-SponsorId=@Model.SponsorshipId> Details</a>
+						<a class="btn btn-primary text-muted" asp-controller="Transaction" asp-action="Details" asp-route-ChanelId=@ch.Id
+					   asp-route-SponsorId=@Model.SponsorshipId> Details</a>
+
 					</div>
 
 				</td>
@@ -50,6 +52,9 @@
 		}
 	</tbody>
 </table>
+<div class="row pt-4 btn-group" role="group">
+	<a class="btn btn-primary text-muted" asp-controller="Sponsorship" asp-action="Main"> Back</a>
+</div>
 
 
 

@@ -11,13 +11,13 @@ namespace SponsorY.DataAccess.ModelsAccess
 
         [Required]
         [StringLength(CompanyNameMaxLenght)]
-        public string CompanyName { get; set; }
+        public string CompanyName { get; set; } = null!;
 
-        [Required]
+		[Required]
         [StringLength(ProductMaxLenght)]
-        public string Product { get; set; }
+        public string Product { get; set; } = null!;
 
-        public string? Url { get; set; }
+		public string? Url { get; set; } 
 
 
         [Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
@@ -26,5 +26,5 @@ namespace SponsorY.DataAccess.ModelsAccess
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();
 
         public int CategoryId { get; set; }
-    }
+	}
 }
