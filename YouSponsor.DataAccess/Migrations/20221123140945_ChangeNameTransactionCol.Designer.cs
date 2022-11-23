@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SponsorY.Data;
 
@@ -11,9 +12,10 @@ using SponsorY.Data;
 namespace SponsorY.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221123140945_ChangeNameTransactionCol")]
+    partial class ChangeNameTransactionCol
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -301,6 +303,10 @@ namespace SponsorY.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("AllUserSponsorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("HasAccepted")
                         .HasColumnType("bit");
 
@@ -318,10 +324,6 @@ namespace SponsorY.DataAccess.Migrations
 
                     b.Property<decimal>("TransferMoveney")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("UserSponsorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("YoutuberId")
                         .HasColumnType("int");

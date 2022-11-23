@@ -26,7 +26,7 @@ namespace SponsorY.DataAccess.Models
         [ForeignKey(nameof(YoutuberId))]
         public Youtuber Youtuber { get; set; } = null!;
 
-		public string AllUserSponsor { get; set; } = null!;
+		public string UserSponsorId { get; set; } = null!;
 
         public bool SubmiteToYoutuber { get; set; }
 

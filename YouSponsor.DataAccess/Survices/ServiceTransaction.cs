@@ -64,7 +64,7 @@ namespace SponsorY.DataAccess.Survices
 				QuntityClips = model.QuantityClips,
 				SponsorshipId = model.SponsorId,
 				YoutuberId = model.ChanelId,
-				AllUserSponsor = userId,
+				UserSponsorId = userId,
 				SubmiteToYoutuber = false,
 				HasAccepted = false,
 			};
@@ -73,6 +73,25 @@ namespace SponsorY.DataAccess.Survices
 			await context.SaveChangesAsync();
 
 			return addModel;
+		}
+
+		public async Task<IEnumerable<NotAcceptedTransactionViewModel>> GetAllUnaceptedTransaction(string userId)
+		{
+			IEnumerable<NotAcceptedTransactionViewModel> model = await context.Transactions
+				.Where(x => x.UserSponsorId == userId)
+				.Select(x => new NotAcceptedTransactionViewModel
+				{
+					Id = x.Id,
+					TransferMoveney = x.TransferMoveney,
+					QuntityClips = x.QuntityClips,
+					SponsorshipId = x.SponsorshipId,
+					YoutuberId = x.YoutuberId,
+					UserSponsorId = x.UserSponsorId
+				})
+				.ToListAsync();
+
+
+				return model;
 		}
 
 		public async Task<FindChanelViewModel> GetFindModelAsync(int SponsorId)

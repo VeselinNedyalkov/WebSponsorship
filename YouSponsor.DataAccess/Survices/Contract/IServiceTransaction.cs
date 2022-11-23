@@ -17,5 +17,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 		Task UpdateTransaction(Transaction model);
 		Task<FindChanelViewModel> GetFindModelAsync(int SponsorId);
 		Task<Transaction> CreateTransactionAsync(TransactionViewModel model,string userId);
+
+		Task<IEnumerable<NotAcceptedTransactionViewModel>> GetAllUnaceptedTransaction(string userId);
 	}
 }

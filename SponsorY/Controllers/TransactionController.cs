@@ -56,12 +56,26 @@ namespace SponsorY.Controllers
 			return View(model);
 		}
 
-		[AllowAnonymous]
-		[HttpPost]
-		public async Task<IActionResult> Details(int TranslId)
+		public async Task<IActionResult> Submit(int TranslId, int SponsorId)
 		{
+			var transaction = await tranService.GetTransactionAsync(TranslId);
 
-			return RedirectToAction("Main" , "Sponsorship");
+			transaction.IsCompleted = true;
+
+
+
+
+			await tranService.UpdateTransaction(transaction);
+
+			return RedirectToAction(nameof(Requested));
+		}
+
+		public async Task<IActionResult> Requested()
+		{
+			var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+			var model = await tranService.GetAllUnaceptedTransaction(userId);
+
+			return View(model);
 		}
 
 		public async Task<IActionResult> Plus(int TranslId)
