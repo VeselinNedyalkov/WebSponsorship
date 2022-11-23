@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SponsorY.DataAccess.ModelsAccess;
 using SponsorY.DataAccess.Survices.Contract;
+using SponsorY.Models;
+using System.Diagnostics;
 using System.Security.Claims;
 
 namespace SponsorY.Controllers
@@ -11,15 +13,15 @@ namespace SponsorY.Controllers
 	{
 
 		private readonly IServiceTransaction tranService;
+		private readonly IServiceSponsorship sponsorService;
 		
 
-		public TransactionController(IServiceTransaction _tranService
-			
+		public TransactionController(IServiceTransaction _tranService,
+			IServiceSponsorship _sponsorService
 			)
 		{
 			tranService = _tranService;
-		
-			
+			sponsorService= _sponsorService;
 		}
 
 		[AllowAnonymous]
@@ -59,13 +61,18 @@ namespace SponsorY.Controllers
 		public async Task<IActionResult> Submit(int TranslId, int SponsorId)
 		{
 			var transaction = await tranService.GetTransactionAsync(TranslId);
+			var sponsor = await sponsorService.GetSponsorsEditAsync(SponsorId);
 
-			transaction.IsCompleted = true;
+			if (sponsor.Wallet < transaction.TransferMoveney)
+			{
 
+				return View(new ErrorViewModel { RequestId = $"{sponsor.Wallet} Not enought! You need to increase your money for sponsorship!" });
+			}
 
-
-
+			transaction.SubmiteToYoutuber = true;
 			await tranService.UpdateTransaction(transaction);
+
+			await tranService.DeleteNotCompletedTransactions();
 
 			return RedirectToAction(nameof(Requested));
 		}

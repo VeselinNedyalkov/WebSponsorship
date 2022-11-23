@@ -5,6 +5,7 @@ using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.Survices.Contract;
 using SponsorY.DataAccess.Survices;
 using SponsorY.Extension;
+using SponsorY.ModelBinders.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,9 +36,14 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/User/Logout";
 });
 
+builder.Services.AddControllersWithViews().AddMvcOptions(options =>
+{
+	options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+	options.ModelBinderProviders.Insert(0, new DoubleModelBinderProvider());
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -46,7 +52,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

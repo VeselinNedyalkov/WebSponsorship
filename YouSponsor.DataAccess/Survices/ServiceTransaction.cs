@@ -5,6 +5,7 @@ using SponsorY.DataAccess.ModelsAccess;
 using SponsorY.DataAccess.Survices.Contract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -75,9 +76,23 @@ namespace SponsorY.DataAccess.Survices
 			return addModel;
 		}
 
+		public async Task DeleteNotCompletedTransactions()
+		{
+			var transactions = await context.Transactions.Where(x => x.SubmiteToYoutuber == false).ToListAsync();
+
+			foreach (var item in transactions)
+			{
+				context.Transactions.Remove(item);
+			}
+
+			await context.SaveChangesAsync();
+		}
+
 		public async Task<IEnumerable<NotAcceptedTransactionViewModel>> GetAllUnaceptedTransaction(string userId)
 		{
+
 			IEnumerable<NotAcceptedTransactionViewModel> model = await context.Transactions
+				.Include(x => x.Youtuber)
 				.Where(x => x.UserSponsorId == userId)
 				.Select(x => new NotAcceptedTransactionViewModel
 				{
@@ -85,8 +100,8 @@ namespace SponsorY.DataAccess.Survices
 					TransferMoveney = x.TransferMoveney,
 					QuntityClips = x.QuntityClips,
 					SponsorshipId = x.SponsorshipId,
-					YoutuberId = x.YoutuberId,
-					UserSponsorId = x.UserSponsorId
+					YoutubeChanelName = x.Youtuber.ChanelName,
+					ChanelSubscribers = x.Youtuber.Subscribers
 				})
 				.ToListAsync();
 

@@ -19,5 +19,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 		Task<Transaction> CreateTransactionAsync(TransactionViewModel model,string userId);
 
 		Task<IEnumerable<NotAcceptedTransactionViewModel>> GetAllUnaceptedTransaction(string userId);
+
+		Task DeleteNotCompletedTransactions();
 	}
 }

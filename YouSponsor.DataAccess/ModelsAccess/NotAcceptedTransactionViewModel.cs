@@ -15,8 +15,8 @@ namespace SponsorY.DataAccess.ModelsAccess
 
 		public int SponsorshipId { get; set; }
 
-		public int YoutuberId { get; set; }
+		public string YoutubeChanelName { get; set; } = null!;
 
-		public string UserSponsorId { get; set; } = null!;
+		public int ChanelSubscribers { get; set; }
 	}
 }
