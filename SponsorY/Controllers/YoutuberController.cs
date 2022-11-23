@@ -75,7 +75,7 @@ namespace SponsorY.Controllers
                 return NotFound();
             }
 
-            var model = await userService.GetYoutuberEditAsync(EditId);
+            var model = await userService.TakeYoutuberAsync(EditId);
             return View(model);
         }
 

@@ -86,7 +86,7 @@ namespace SponsorY.DataAccess.Survices
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<YouTubeViewModel> GetYoutuberEditAsync(int id)
+        public async Task<YouTubeViewModel> TakeYoutuberAsync(int id)
         {
             var cat = await categorySerivece.GetAllCategoryAsync();
 
@@ -117,7 +117,7 @@ namespace SponsorY.DataAccess.Survices
 
         public async Task EditYoutuberAsync(int EditId, YouTubeViewModel model)
         {
-            var userYoutub = await GetYoutuberEditAsync(EditId);
+            var userYoutub = await TakeYoutuberAsync(EditId);
 
 
             var updated = new Youtuber

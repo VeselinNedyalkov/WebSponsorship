@@ -53,10 +53,29 @@ namespace SponsorY.Controllers
 			return RedirectToAction("Search", model);
 		}
 
-		public IActionResult Sub(int ChanelId , int SponsorId)
+		public async Task<IActionResult> Details(int ChanelId , int SponsorId)
 		{
-			return View();
+			var youtub = await youtubeService.TakeYoutuberAsync(ChanelId);
+			var sponsor = await sponsorService.GetSponsorsEditAsync(SponsorId);
+
+			TransactionViewModel model = new TransactionViewModel
+			{
+				SponsorId = SponsorId,
+				CompanyName = sponsor.CompanyName,
+				Product = sponsor.Product,
+				CompanyUrl = sponsor.Url,
+				CompanyBudget = sponsor.Wallet,
+				ChanelId = ChanelId,
+				ChanelName = youtub.ChanelName,
+				ChanelUrl = youtub.Url,
+				Subscribers = youtub.Subscribers,
+				PricePerClip = youtub.PricePerClip,
+				SponroshipsClipsNum = 1,
+			};
+
+			return View(model);
 		}
 		
+
 	}
 }

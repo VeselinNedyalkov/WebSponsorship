@@ -12,7 +12,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 
 		Task AddYoutubChanelAsync(string userId ,AddYoutViewModel model);
 
-		Task<YouTubeViewModel> GetYoutuberEditAsync(int id);
+		Task<YouTubeViewModel> TakeYoutuberAsync(int id);
 
 		Task EditYoutuberAsync(int EditId , YouTubeViewModel model);
 
@@ -20,5 +20,5 @@ namespace SponsorY.DataAccess.Survices.Contract
 
 		Task<IEnumerable<YoutubersFilterCatViewModel>> GetChanelWithCategoryAsync(int categoryId);
 
-    }
+	}
 }
