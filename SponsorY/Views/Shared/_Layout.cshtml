@@ -23,15 +23,15 @@
 						@if (User?.Identity?.IsAuthenticated ?? false)
 						{
 							<li class="nav-item">
-								<a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Main">Main</a>
+								<a class="nav-link text-muted" asp-area="Home" asp-controller="Home" asp-action="Main">Main</a>
 							</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 								Youtubers
 							</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
-								<a class="dropdown-item" asp-controller="Category" asp-action="Add"> Add category</a>
+								<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
+									<a class="dropdown-item" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -39,15 +39,16 @@
 								Sponsorhips
 							</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
-								<a class="dropdown-item" asp-controller="Category" asp-action="Add"> Add category</a>
+									<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
+									<a class="dropdown-item" asp-area="Transaction" asp-controller="Transaction" asp-action="Requested"> Request transaction</a>
+									<a class="dropdown-item" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
 							</div>
 						</li>
 						}
 						else
 						{
 							<li class="nav-item">
-								<a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+								<a class="nav-link text-muted" asp-area="Home" asp-controller="Home" asp-action="Index">Home</a>
 							</li>
 						}
 					</ul>
@@ -67,9 +68,9 @@
 									Menu
 								</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" asp-controller="Menu" asp-action="AddUserInfo"> <i class="bi bi-info-square"></i> User Info</a>
-									<a class="dropdown-item" asp-controller="Menu" asp-action="Settings"><i class="bi bi-gear text-muted"></i>	Setting</a>
-									<a class="dropdown-item" asp-controller="Menu" asp-action="Delete"> <i class="bi bi-x-circle"></i> Delete account</a>
+									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="AddUserInfo"> <i class="bi bi-info-square"></i> User Info</a>
+									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="Settings"><i class="bi bi-gear text-muted"></i>	Setting</a>
+									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="Delete"> <i class="bi bi-x-circle"></i> Delete account</a>
 								</div>
 							</li>
 						</ul>

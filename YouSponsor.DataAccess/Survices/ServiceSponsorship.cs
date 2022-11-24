@@ -62,9 +62,10 @@ namespace SponsorY.DataAccess.Survices
         }
 
 
-        public async Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync()
+        public async Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync(string userId)
         {
             var result = await context.Sponsorships
+                .Where(x => x.AppUserId == userId)
                 .Select(x => new SponsorViewModel
                 {
                     Id = x.Id,

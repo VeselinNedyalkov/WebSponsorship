@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Main Page";
+}
+
+<partial name="_TempData" />
+
+<div class="text-center">
+    <h1 class="display-4">CHOOSE A SECTION:</h1>
+</div>
+<div>
+     <table class="table table-bordered table-striped text-center">
+        <thead>
+              <tr class="text-muted align-content-center">
+                 <th><h2>Youtubers</h2></th>
+                 <th><h2>Sponsorships</h2></th>
+             </tr>
+         </thead>
+         <tbody class="align-content-center">
+             <tr>
+                <td>
+                    <a asp-area="Youtube" asp-controller="Youtuber" asp-action="Main" method="get"><img src=/Pic/YoutubLogo.jpg alt="Youtubers" width="400" height="400" /> </a>
+                </td>
+                <td>
+                    <a asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main" method="get"><img src=/Pic/Sponsor.jpg alt="Sponsor" width="400" height="400" /> </a>
+                </td>
+            </tr>
+         </tbody>
+    </table>
+</div>
+

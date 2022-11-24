@@ -1,0 +1,72 @@
+﻿@using SponsorY.DataAccess.ModelsAccess;
+@model IEnumerable<YouTubeViewModel>
+
+@{
+	ViewData["Title"] = "Yotubers";
+}
+<partial name="_TempData" />
+<h1>YouTube chanels:</h1>
+
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="wrapper">
+			<div data-inline="true">
+				<a asp-controller="Youtuber" asp-action="Add" class="btn btn-primary">
+					<div class="text-muted"> <i class="bi bi-plus-circle"></i> Add Youtube chanel</div></a>
+			</div>
+			<div data-inline="true">
+				<a asp-area="Category" asp-controller="Category" asp-action="Add" class="btn btn-primary"> <div class="text-muted"><i class="bi bi-plus-circle"></i>Add category</div></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<table class="table table-bordered table-hover" style="width:100%">
+	<thead class="text-muted">
+		<tr>
+			<th>
+				Chanel
+			</th>
+			<th>
+				Chanel Name
+			</th>
+			<th>
+				Subscribers
+			</th>
+			<th>
+				Category
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody class="text-muted">
+		@foreach (var ch in Model)
+		{
+			<tr class="table-active text-muted text-center">
+				<td>
+					<a class="text-muted text-center" href="@ch.Url" target="_blank">Visit the chanel</a>
+				</td>
+				<td>
+					<center>@ch.ChanelName </center>
+				</td>
+				<td>
+					<center>@ch.Subscribers</center>
+				</td>
+				<td>
+					<center>@ch.Category</center>
+				</td>
+				<td>
+					<div class="w-75 btn-group" role="group">
+						<a class="btn btn-primary text-muted" asp-area="Youtube" asp-controller="Youtuber" asp-action="Edit" asp-route-EditId=@ch.Id><i class="bi bi-pencil-square"></i> Edit</a>
+					</div>
+					<div class="w-75 btn-group" role="group">
+						<a class="btn btn-primary text-muted" asp-area="Youtube" asp-controller="Youtuber" asp-action="Delete" asp-route-DelteId=@ch.Id><i class="bi bi-x-circle"></i> Delete</a>
+					</div>
+
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

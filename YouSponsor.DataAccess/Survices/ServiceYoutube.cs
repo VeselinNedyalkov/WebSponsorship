@@ -25,11 +25,12 @@ namespace SponsorY.DataAccess.Survices
         /// Get all youtube chanels 
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync()
+        public async Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync(string userId)
         {
             IEnumerable<Category> getCategories = await categorySerivece.GetAllCategoryAsync();
 
             var result = await context.Youtubers
+                .Where(x => x.AppUserId == userId)
                 .Select(x => new YouTubeViewModel
                 {
                     Id = x.Id,

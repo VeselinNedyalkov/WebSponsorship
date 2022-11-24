@@ -6,7 +6,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 	public interface IServiceYoutub
 
 	{
-		Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync();
+		Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync(string userId);
 		Task<IEnumerable<FindYoutuberViewModel>> FindAllYoutubersAsync();
 		
 

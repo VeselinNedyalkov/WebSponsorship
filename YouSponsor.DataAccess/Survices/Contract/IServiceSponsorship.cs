@@ -10,7 +10,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 {
     public interface IServiceSponsorship
     {
-        Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync();
+        Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync(string userId);
 
         Task AddSponsorshipAsync(string userId, AddSponsorViewModel model);
 

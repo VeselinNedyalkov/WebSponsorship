@@ -1,0 +1,25 @@
+﻿@using SponsorY.DataAccess.ModelsAccess;
+@model CategoryViewModel
+
+@{
+    ViewData["Title"] = "Add new Category";
+}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form method="post">
+            <h2 class="text-muted">Add Category</h2>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="text-center mb-3">
+                <label asp-for="@Model.CategoryName">Category Name</label>
+                <input class="form-control " autocomplete="CategoryName" aria-required="true" asp-for="@Model.CategoryName" />
+                <span asp-validation-for="@Model.CategoryName" class="text-danger"></span>
+            </div>
+            <div class="text-center">
+                <button id="registerSubmit" type="submit" class="btn btn-primary text-muted">Add category</button>
+                <a asp-area="Home" asp-controller="Home" asp-action="Main" class="btn btn-primary text-muted">Back to main</a>
+            </div>
+        </form>
+    </div>
+</div>
+

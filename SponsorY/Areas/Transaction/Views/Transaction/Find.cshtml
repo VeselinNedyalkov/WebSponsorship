@@ -1,0 +1,63 @@
+﻿@using SponsorY.DataAccess.ModelsAccess;
+@model FindChanelViewModel
+
+@{
+	ViewData["Title"] = "Find Chanel";
+}
+
+<h2>Youtube chanels base on - @Model.CategoryName</h2>
+
+<table class="table table-bordered table-hover" style="width:100%">
+	<thead class="text-muted">
+		<tr>
+			<th>
+				Chanel Url
+			</th>
+			<th>
+				Chanel Name
+			</th>
+			<th>
+				Subscribers
+			</th>
+			<th>
+				Price per clip
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody class="text-muted">
+		@foreach (var ch in Model.Youtubers)
+		{
+			<tr class="table-active text-muted text-center">
+				<td>
+					<a class="text-muted text-center" href="@ch.Url" target="_blank">Visit the chanel</a>
+				</td>
+				<td>
+					<center>@ch.ChanelName </center>
+				</td>
+				<td>
+					<center>@ch.Subscribers</center>
+				</td>
+				<td>
+					<center>@ch.PricePerClip</center>
+				</td>
+				<td>
+					<div class="w-75 btn-group" role="group">
+						<a class="btn btn-primary text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Details" asp-route-ChanelId=@ch.Id
+					   asp-route-SponsorId=@Model.SponsorshipId> Details</a>
+
+					</div>
+
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<div class="row pt-4 btn-group" role="group">
+	<a class="btn btn-primary text-muted" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main"> Back</a>
+</div>
+
+
+
+
+

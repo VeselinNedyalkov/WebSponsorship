@@ -5,7 +5,7 @@ using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.Survices.Contract;
 using SponsorY.DataAccess.Survices;
 using SponsorY.Extension;
-using SponsorY.ModelBinders.Contracts;
+using SponsorY.ModelBinders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +39,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddControllersWithViews().AddMvcOptions(options =>
 {
 	options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
-	options.ModelBinderProviders.Insert(0, new DoubleModelBinderProvider());
+	options.ModelBinderProviders.Insert(1, new DoubleModelBinderProvider());
 });
 
 var app = builder.Build();
@@ -65,7 +65,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=Home}/{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();
