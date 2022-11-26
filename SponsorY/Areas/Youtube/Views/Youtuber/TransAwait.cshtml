@@ -31,31 +31,31 @@
 	<tbody class="text-muted">
 		@foreach (var ch in Model)
 		{
-			<tr class="table-active text-muted text-center">
-				<td>
-					<a class="text-muted text-center" href="@ch.ProductUrl" target="_blank">Visit the chanel</a>
-				</td>
-				<td>
-					<center>@ch.CompanyName </center>
-				</td>
-				<td>
-					<center>@ch.Product</center>
-				</td>
-				<td>
-					<center>@ch.QuntityClips</center>
-				</td>
-				<td>
-					<center>@ch.MoneyOffer</center>
-				</td>
-				<td>
-					<div class="w-75 btn-group" role="group">
-						<a class="btn btn-success text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Accept"><i class="bi bi-bookmark-check"></i> Accept</a>
-					</div>
-					<div class="w-75 btn-group" role="group">
-						<a class="btn btn-danger text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Denial"><i class="bi bi-bookmark-x"></i> Denial</a>
-					</div>
-				</td>
-			</tr>
+				<tr class="table-active text-muted text-center">
+					<td>
+						<img src="@ch.">
+					</td>
+					<td>
+						<center>@ch.CompanyName </center>
+					</td>
+					<td>
+						<center>@ch.Product</center>
+					</td>
+					<td>
+						<center>@ch.QuntityClips</center>
+					</td>
+					<td>
+						<center>@ch.MoneyOffer</center>
+					</td>
+					<td>
+						<div class="w-75 btn-group" role="group">
+							<a class="btn btn-success text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Accept"><i class="bi bi-bookmark-check"></i> Accept</a>
+						</div>
+						<div class="w-75 btn-group" role="group">
+							<a class="btn btn-danger text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Denial"><i class="bi bi-bookmark-x"></i> Denial</a>
+						</div>
+					</td>
+				</tr>
 		}
 	</tbody>
 </table>
