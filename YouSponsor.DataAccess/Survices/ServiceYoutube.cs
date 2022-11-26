@@ -4,6 +4,7 @@ using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess;
 using SponsorY.DataAccess.Survices.Contract;
 using System.Collections.Generic;
+using System.Data;
 
 namespace SponsorY.DataAccess.Survices
 {
@@ -182,7 +183,7 @@ namespace SponsorY.DataAccess.Survices
 
 
 			var model = await context.Transactions
-                .Where(x => x.YoutuberId == youtubeId)
+                .Where(x => x.YoutuberId == youtubeId && x.HasAccepted == false)
                 .Select( x => new YoutuberAwaitTransactionViewModel
                 {
                     MoneyOffer = x.TransferMoveney,
@@ -195,6 +196,39 @@ namespace SponsorY.DataAccess.Survices
                 .ToListAsync();
 
             return model;
+		}
+
+		public async Task TransactionCompletedAsync(int transactionId)
+		{
+			var transaction = await context.Transactions.FirstOrDefaultAsync(x => x.Id == transactionId);
+
+            transaction.HasAccepted = true;
+            transaction.IsCompleted = true;
+
+            context.Transactions.Update(transaction);
+
+            var youtuber = await context.Youtubers.FirstOrDefaultAsync(x => x.Id == transaction.YoutuberId);
+            var sponsor = await context.Sponsorships.FirstOrDefaultAsync(x => x.Id == transaction.SponsorshipId);
+
+            if (sponsor.Wallet - transaction.TransferMoveney < 0)
+            {
+                throw new ArgumentException("Not enought money");
+			}
+
+            sponsor.Wallet -= transaction.TransferMoveney;
+            youtuber.Wallet += transaction.TransferMoveney;
+
+			context.Sponsorships.Update(sponsor);
+			context.Youtubers.Update(youtuber);
+            await context.SaveChangesAsync();
+		}
+
+		public async Task TransactionDenialAsync(int transactionId)
+		{
+			var transaction = await context.Transactions.FirstOrDefaultAsync(x => x.Id == transactionId);
+
+            context.Transactions.Remove(transaction);
+			await context.SaveChangesAsync();
 		}
 	}
 }

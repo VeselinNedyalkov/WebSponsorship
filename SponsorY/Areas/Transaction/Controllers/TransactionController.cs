@@ -132,7 +132,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             {
 				 model = await tranService.EditTransactionAsync(TransId);
 			}
-            catch(Exception ex)
+            catch
             {
 				return View(new ErrorViewModel { RequestId = $"Transaction has a problem" });
 			}
@@ -151,7 +151,7 @@ namespace SponsorY.Areas.Transaction.Controllers
 				TempData["success"] = "Transaction edith successful";
 
 			}
-			catch (Exception ex) 
+			catch
             {
 				return View(new ErrorViewModel { RequestId = $"Edith not successful" });
 			}
@@ -159,7 +159,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return RedirectToAction(nameof(Requested));
 		}
 
-		public async Task<IActionResult> Delete(int TransId)
+		public IActionResult Delete(int TransId)
 		{
 			try
 			{
@@ -168,7 +168,7 @@ namespace SponsorY.Areas.Transaction.Controllers
 				TempData["success"] = "Transaction deleted";
 
 			}
-			catch (Exception ex)
+			catch
 			{
 				return View(new ErrorViewModel { RequestId = $"Problem with deleting the transaction" });
 			}

@@ -22,5 +22,8 @@ namespace SponsorY.DataAccess.Survices.Contract
 
 		Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetAllTransactionsAwaitingAsync(string userId);
 
+		Task TransactionCompletedAsync(int transactionId);
+
+		Task TransactionDenialAsync(int transactionId);
 	}
 }

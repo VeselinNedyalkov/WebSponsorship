@@ -34,7 +34,7 @@ namespace SponsorY.Areas.Menu.Controllers
 				TempData["success"] = "User information updated";
 
 			}
-			catch (Exception ex)
+			catch 
             {
 				return View(new ErrorViewModel { RequestId = $"Information about user was not updated" });
 
