@@ -1,0 +1,61 @@
+﻿@using SponsorY.DataAccess.ModelsAccess;
+@model IEnumerable<YoutuberAwaitTransactionViewModel>
+
+@{
+	ViewData["Title"] = "Awaiting transactions";
+}
+<partial name="_TempData" />
+<h1>Sponsorships offered:</h1>
+
+<table class="table table-bordered table-hover" style="width:100%">
+	<thead class="text-muted">
+		<tr>
+			<th>
+				Product 
+			</th>
+			<th>
+				Company Name
+			</th>
+			<th>
+				Product Name
+			</th>
+			<th>
+				Requestet numbers of clips
+			</th>
+			<th>
+				Money offer
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody class="text-muted">
+		@foreach (var ch in Model)
+		{
+			<tr class="table-active text-muted text-center">
+				<td>
+					<a class="text-muted text-center" href="@ch.ProductUrl" target="_blank">Visit the chanel</a>
+				</td>
+				<td>
+					<center>@ch.CompanyName </center>
+				</td>
+				<td>
+					<center>@ch.Product</center>
+				</td>
+				<td>
+					<center>@ch.QuntityClips</center>
+				</td>
+				<td>
+					<center>@ch.MoneyOffer</center>
+				</td>
+				<td>
+					<div class="w-75 btn-group" role="group">
+						<a class="btn btn-success text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Accept"><i class="bi bi-bookmark-check"></i> Accept</a>
+					</div>
+					<div class="w-75 btn-group" role="group">
+						<a class="btn btn-danger text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Denial"><i class="bi bi-bookmark-x"></i> Denial</a>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

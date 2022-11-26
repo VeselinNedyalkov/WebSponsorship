@@ -36,12 +36,17 @@ namespace SponsorY.Data
                 .HasMaxLength(EmailMaxlength)
                 .IsRequired();
 
-            builder.Entity<Youtuber>()
-                .HasOne(e => e.Transfer)
-                .WithOne(c => c.Youtuber)
+            builder.Entity<Transaction>()
+                .HasOne(e => e.Youtuber)
+                .WithOne(e => e.Transaction)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            base.OnModelCreating(builder);
+			builder.Entity<Transaction>()
+				.HasOne(e => e.Sponsorship)
+				.WithOne(e => e.Transaction)
+				.OnDelete(DeleteBehavior.Restrict);
+
+			base.OnModelCreating(builder);
         }
     }
 }

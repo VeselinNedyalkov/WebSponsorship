@@ -13,17 +13,35 @@ namespace SponsorY.Areas.Menu.Controllers
     public class MenuController : Controller
     {
         private readonly IServiceUser userService;
+        private readonly IServiceMenu serviceMenu;
 
-        public MenuController(IServiceUser _userService)
+        public MenuController(IServiceUser _userService,
+			IServiceMenu _serviceMenu)
         {
             userService = _userService;
-        }
+            serviceMenu = _serviceMenu;
 
-        public IActionResult AddUserInfo()
+		}
+
+        public async Task<IActionResult> AddUserInfo()
         {
-            var model = new UserInfoViewModel();
+			var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            UserInfoViewModel model = null;
 
-            return View(model);
+            try
+            {
+				model = await serviceMenu.GetUserInfo(userId);
+				TempData["success"] = "User information updated";
+
+			}
+			catch (Exception ex)
+            {
+				return View(new ErrorViewModel { RequestId = $"Information about user was not updated" });
+
+			}
+
+
+			return View(model);
         }
 
         [HttpPost]
@@ -49,14 +67,12 @@ namespace SponsorY.Areas.Menu.Controllers
 
                 return View("Error", error);
             }
+			return RedirectToAction("Main", "Home", new { area = "Home" });
 
+		}
 
-
-            return RedirectToAction(nameof(AddUserInfo));
-        }
-
-        //TO DO
-        public IActionResult Delete()
+		//TO DO
+		public IActionResult Delete()
         {
 
             return View();

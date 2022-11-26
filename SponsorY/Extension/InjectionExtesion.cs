@@ -13,6 +13,7 @@ namespace SponsorY.Extension
             services.AddScoped<IServiceSponsorship, ServiceSponsorship>();
             services.AddScoped<IServiceCategory, ServiceCategory>();
             services.AddScoped<IServiceTransaction, ServiceTransaction>();
+            services.AddScoped<IServiceMenu, ServiceMenu>();
 
             return services;
         }

@@ -120,8 +120,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Transaction/Views/Transaction/Accept.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cQWNjZXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Transaction/Views/Transaction/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Transaction/Views/Transaction/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Transaction/Views/Transaction/Find.cshtml]

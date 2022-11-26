@@ -102,5 +102,26 @@ namespace SponsorY.Areas.Youtube.Controllers
             TempData["success"] = "Youtube chanel deleted!";
             return RedirectToAction(nameof(Main));
         }
-    }
+
+        public async Task<IActionResult> TransAwait()
+        {
+			IEnumerable<YoutuberAwaitTransactionViewModel> model = null;
+			var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+			try
+			{
+                model = await userService.GetAllTransactionsAwaitingAsync(userId);
+
+			}
+            catch (Exception ex)
+            {
+				return View(new ErrorViewModel { RequestId = "Ops something go wrong" });
+
+			}
+
+			return View(model);
+        }
+
+        
+	}
 }

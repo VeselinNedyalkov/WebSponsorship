@@ -28,7 +28,7 @@ namespace SponsorY.DataAccess.Models
 
 		public string UserSponsorId { get; set; } = null!;
 
-        public bool SubmiteToYoutuber { get; set; }
+        public bool SuccessfulCreated { get; set; }
 
         public bool HasAccepted { get; set; }
 

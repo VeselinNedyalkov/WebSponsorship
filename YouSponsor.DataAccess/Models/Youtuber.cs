@@ -24,13 +24,14 @@ namespace SponsorY.DataAccess.Models
 
         public decimal Wallet { get; set; }
 
+		[ForeignKey(nameof(Transaction))]
+		public int? TransactionId { get; set; }
+        public Transaction? Transaction { get; set; }
+
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
 
-		[ForeignKey(nameof(Transfer))]
-        public int? TransferId { get; set; }
-        public Transaction? Transfer { get; set; }
 
         [ForeignKey(nameof(AppUser))]
         public string AppUserId { get; set; } = null!;

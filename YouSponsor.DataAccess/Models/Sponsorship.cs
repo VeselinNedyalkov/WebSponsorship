@@ -23,10 +23,11 @@ namespace SponsorY.DataAccess.Models
         [Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
         public decimal Wallet { get; set; } = 0;
 
+		[ForeignKey(nameof(Transaction))]
+		public int? TransactionId { get; set; }
+		public Transaction? Transaction { get; set; }
 
-        public ICollection<Category> Categories { get; set; } = new List<Category>();
-
-        public int CategoryId { get; set; }
+		public int CategoryId { get; set; }
 
         [ForeignKey(nameof(AppUser))]
         public string AppUserId { get; set; } = null!;

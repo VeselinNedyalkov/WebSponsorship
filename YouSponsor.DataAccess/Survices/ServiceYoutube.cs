@@ -40,7 +40,6 @@ namespace SponsorY.DataAccess.Survices
                     PricePerClip = x.PricePerClip,
                     Wallet = x.Wallet,
                     Category = x.Category.CategoryName,
-                    TransferId = x.TransferId,
                     CategoryId = x.CategoryId,
                     AppUserId = x.AppUserId,
                 })
@@ -74,7 +73,6 @@ namespace SponsorY.DataAccess.Survices
                 PricePerClip = model.PricePerClip,
                 Wallet = 0,
                 CategoryId = model.CategoryId,
-                TransferId = null,
                 AppUserId = userId
             };
 
@@ -103,7 +101,6 @@ namespace SponsorY.DataAccess.Survices
                     PricePerClip = x.PricePerClip,
                     Wallet = x.Wallet,
                     Category = x.Category.CategoryName,
-                    TransferId = x.TransferId,
                     CategoryId = x.CategoryId,
                     AppUserId = x.AppUserId
                 })
@@ -130,7 +127,6 @@ namespace SponsorY.DataAccess.Survices
                 PricePerClip = model.PricePerClip,
                 Wallet = userYoutub.Wallet,
                 CategoryId = userYoutub.CategoryId,
-                TransferId = userYoutub.TransferId,
                 AppUserId = userYoutub.AppUserId
             };
             context.Youtubers.Update(updated);
@@ -173,12 +169,32 @@ namespace SponsorY.DataAccess.Survices
                     Subscribers = x.Subscribers,
                     PricePerClip = x.PricePerClip,
                     Wallet = x.Wallet,
-                    TransferId = x.TransferId,
                     CategoryId = x.CategoryId,
                     AppUserId = x.AppUserId,
                 }).ToListAsync();
 
             return result;
         }
-    }
+
+		public async Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetAllTransactionsAwaitingAsync(string userId)
+		{
+            int youtubeId = await context.Youtubers.Where(x => x.AppUserId== userId).Select(x => x.Id).FirstOrDefaultAsync();
+
+
+			var model = await context.Transactions
+                .Where(x => x.YoutuberId == youtubeId)
+                .Select( x => new YoutuberAwaitTransactionViewModel
+                {
+                    MoneyOffer = x.TransferMoveney,
+                    QuntityClips = x.QuntityClips,
+                    TransactionId = x.Id,
+                    CompanyName = x.Sponsorship.CompanyName,
+                   Product = x.Sponsorship.Product,
+                   ProductUrl = x.Sponsorship.Url
+                })
+                .ToListAsync();
+
+            return model;
+		}
+	}
 }

@@ -20,5 +20,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 
 		Task<IEnumerable<YoutubersFilterCatViewModel>> GetChanelWithCategoryAsync(int categoryId);
 
+		Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetAllTransactionsAwaitingAsync(string userId);
+
 	}
 }

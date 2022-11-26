@@ -58,8 +58,8 @@ namespace SponsorY.DataAccess.Survices
             };
 
             context.Sponsorships.Update(edit);
-            context.SaveChanges();
-        }
+			await context.SaveChangesAsync();
+		}
 
 
         public async Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync(string userId)

@@ -68,10 +68,12 @@ namespace SponsorY.Areas.Transaction.Controllers
                 return View(new ErrorViewModel { RequestId = $"{sponsor.Wallet} Not enought! You need to increase your money for sponsorship!" });
             }
 
-            transaction.SubmiteToYoutuber = true;
+            transaction.SuccessfulCreated = true;
             await tranService.UpdateTransaction(transaction);
 
             await tranService.DeleteNotCompletedTransactions();
+
+            TempData["success"] = "Transaction send for acceptance";
 
             return RedirectToAction(nameof(Requested));
         }
@@ -121,5 +123,59 @@ namespace SponsorY.Areas.Transaction.Controllers
             await tranService.UpdateTransaction(transaction);
             return View(nameof(Details), model);
         }
-    }
+
+        public async Task<IActionResult> Edit(int TransId)
+        {
+            TransactionViewModel model = null;
+
+			try
+            {
+				 model = await tranService.EditTransactionAsync(TransId);
+			}
+            catch(Exception ex)
+            {
+				return View(new ErrorViewModel { RequestId = $"Transaction has a problem" });
+			}
+
+            return View(model);
+		}
+
+        [HttpPost]
+		public async Task<IActionResult> Edit(TransactionViewModel model)
+		{
+            try
+            {
+				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+				await tranService.EditSaveAsync(model , userId);
+				TempData["success"] = "Transaction edith successful";
+
+			}
+			catch (Exception ex) 
+            {
+				return View(new ErrorViewModel { RequestId = $"Edith not successful" });
+			}
+
+            return RedirectToAction(nameof(Requested));
+		}
+
+		public async Task<IActionResult> Delete(int TransId)
+		{
+			try
+			{
+                tranService.DeleteTransactionAsync(TransId);
+
+				TempData["success"] = "Transaction deleted";
+
+			}
+			catch (Exception ex)
+			{
+				return View(new ErrorViewModel { RequestId = $"Problem with deleting the transaction" });
+			}
+
+			return RedirectToAction(nameof(Requested));
+		}
+	}
+
+	
 }

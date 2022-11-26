@@ -25,25 +25,26 @@
 							<li class="nav-item">
 								<a class="nav-link text-muted" asp-area="Home" asp-controller="Home" asp-action="Main">Main</a>
 							</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-								Youtubers
-							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+									Youtubers
+								</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
+									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="TransAwait"> Transaction Awaiting</a>
 									<a class="dropdown-item" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-								Sponsorhips
-							</a>
-							<div class="dropdown-menu">
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+									Sponsorhips
+								</a>
+								<div class="dropdown-menu">
 									<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
 									<a class="dropdown-item" asp-area="Transaction" asp-controller="Transaction" asp-action="Requested"> Request transaction</a>
 									<a class="dropdown-item" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
-							</div>
-						</li>
+								</div>
+							</li>
 						}
 						else
 						{
@@ -63,8 +64,8 @@
 					@if (User?.Identity?.IsAuthenticated ?? false)
 					{
 						<ul>
-								<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 									Menu
 								</a>
 								<div class="dropdown-menu">
