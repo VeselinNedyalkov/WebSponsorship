@@ -71,5 +71,15 @@ namespace SponsorY.DataAccess.Survices
             var isD = await context.Users.FirstOrDefaultAsync(x => x.UserName == userName);
             return  isD.IsDeleted;
         }
-    }
+
+		public async Task DeleteUserAsync(string userId)
+		{
+			var user = await context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            user.IsDeleted = true;
+
+            context.Users.Update(user);
+            await context.SaveChangesAsync();
+		}
+	}
 }

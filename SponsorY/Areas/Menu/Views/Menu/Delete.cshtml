@@ -1,0 +1,23 @@
+﻿
+@{
+	ViewData["Title"] = "Delete user";
+}
+<partial name="_TempData" />
+
+
+
+<div class="row">
+	<div class="col-md-4 offset-md-4">
+		<h2 class="text-danger text-center" >Are you sure you want to delete your account ?</h2>
+		<form id="registerForm" method="post">
+			<div class="text-center">
+				<a class="btn btn-primary" asp-area="Menu" asp-controller="Menu" asp-action="DeleteUser">Yes</a>
+				<a class="btn btn-primary" asp-area="Home" asp-controller="Home" asp-action="Main">No</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+		<partial name="_ValidationScriptsPartial" />
+}

@@ -246,5 +246,20 @@ namespace SponsorY.DataAccess.Survices
 
 			return usersFinances;
 		}
+
+		public async Task WithdrawMOneyAsync(string userId, YoutubeFinancesViewModel model)
+		{
+			var user = await context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+			if (user.Wallet < model.Wallet)
+			{
+				throw new InvalidOperationException("Not possible to transfer more money than you have in your account");
+			}
+
+			user.Wallet -= model.Wallet;
+
+			context.Users.Update(user);
+			await context.SaveChangesAsync();
+		}
 	}
 }

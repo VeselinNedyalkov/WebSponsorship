@@ -75,11 +75,28 @@ namespace SponsorY.Areas.Menu.Controllers
 		public IActionResult Delete()
         {
 
-            return View();
+
+			return View();
         }
 
-        //TO DO
-        public IActionResult Settings()
+		public async Task<IActionResult> DeleteUser()
+		{
+            try
+            {
+				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+                await userService.DeleteUserAsync(userId);
+			}
+            catch
+            {
+				return View(new ErrorViewModel { RequestId = $"Someting go wrong" });
+
+			}
+
+			return RedirectToAction("Logout", "User", new { area = "User" });
+		}
+
+		//TO DO
+		public IActionResult Settings()
         {
 
 

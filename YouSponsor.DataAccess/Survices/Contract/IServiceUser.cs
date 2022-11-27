@@ -11,5 +11,8 @@ namespace SponsorY.DataAccess.Survices.Contract
     {
         Task<bool> IsUserDeletedAsync(string userName);
         Task UpdateUserInfoAsync(string userId, UserInfoViewModel model);
-    }
+
+        Task DeleteUserAsync(string userId);
+
+	}
 }

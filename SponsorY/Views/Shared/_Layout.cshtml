@@ -34,7 +34,7 @@
 									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
 									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="TransAwait"> Transaction Awaiting</a>
 									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Finances"> Finances</a>
-									<a class="dropdown-item" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
+									
 								</div>
 							</li>
 							<li class="nav-item dropdown">
@@ -44,8 +44,10 @@
 								<div class="dropdown-menu">
 									<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
 									<a class="dropdown-item" asp-area="Transaction" asp-controller="Transaction" asp-action="Requested"> Request transaction</a>
-									<a class="dropdown-item" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
 								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-muted" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
 							</li>
 
 						}
@@ -64,10 +66,11 @@
 					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 					</form>*@
 
-					<p class="text-lg-end">@User.Identity.Name is login </p>
+					
 
 					@if (User?.Identity?.IsAuthenticated ?? false)
 					{
+						<p class="nav-item">User @User.Identity.Name is login </p>
 						<ul>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

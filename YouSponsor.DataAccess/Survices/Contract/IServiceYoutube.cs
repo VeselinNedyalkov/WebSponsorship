@@ -27,5 +27,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 		Task TransactionDenialAsync(int transactionId);
 
 		Task<YoutubeFinancesViewModel> GetAllFinancesaAsync(string userId);
+
+		Task WithdrawMOneyAsync(string userId, YoutubeFinancesViewModel model);
 	}
 }

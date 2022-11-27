@@ -128,7 +128,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 			try
 			{
 				await youtubService.TransactionCompletedAsync(TransId);
-
+				TempData["success"] = "You accept a offer from sponsor";
 			}
 			catch (Exception ex)
 			{
@@ -143,6 +143,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 			try
 			{
 				await youtubService.TransactionDenialAsync(TransId);
+				TempData["success"] = "The offer was denial";
 			}
 			catch (Exception ex)
 			{
@@ -169,6 +170,24 @@ namespace SponsorY.Areas.Youtube.Controllers
 
 
 			return View(model);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Finances(YoutubeFinancesViewModel model)
+		{
+			try
+			{
+				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+				youtubService.WithdrawMOneyAsync(userId , model);
+				TempData["success"] = "The money are now in your account";
+			}
+			catch (Exception e)
+			{
+				return View(new ErrorViewModel { RequestId = e.Message });
+
+			}
+
+			return View();
 		}
 	}
 }
