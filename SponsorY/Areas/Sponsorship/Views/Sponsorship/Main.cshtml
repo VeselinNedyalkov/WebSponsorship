@@ -23,7 +23,7 @@
 	{
 		<div class="card col-4" style="width: 20rem; ">
 			<img class="card-img-top" style="width: 18rem;"
-			 src="@spon.Url" alt="Product">
+			 src="@spon.Url" alt="Product" width="200" height="200">
 			<div class="card-body">
 
 				<h5 class="card-title mt-1">@spon.CompanyName</h5>
@@ -35,6 +35,9 @@
 				</div>
 				<div class="w-75 btn-group" role="group">
 					<a class="btn btn-primary text-muted" asp-area="Transaction" asp-controller="Transaction" asp-action="Find" asp-route-SponsorId=@spon.Id><i class="bi bi-youtube"></i> Find chanel</a>
+				</div>
+				<div class="w-75 btn-group" role="group">
+					<a class="btn btn-primary text-muted" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Finances" asp-route-SponsorId=@spon.Id>$ Finances</a>
 				</div>
 				<div class="w-75 btn-group" role="group">
 					<a class="btn btn-primary text-muted" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Delete" asp-route-DelteId=@spon.Id><i class="bi bi-x-circle"></i> Delete</a>

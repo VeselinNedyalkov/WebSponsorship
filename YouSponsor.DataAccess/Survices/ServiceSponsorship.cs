@@ -25,8 +25,16 @@ namespace SponsorY.DataAccess.Survices
             categoryService = _categoryService;
         }
 
+		public async Task AddMoneyToSponsorAsync(int SponsorId, SponsorViewModel model)
+		{
+			var sponsor = await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
 
-        public async Task AddSponsorshipAsync(string userId, AddSponsorViewModel model)
+            sponsor.Wallet += model.Wallet;
+
+            await context.SaveChangesAsync();
+		}
+
+		public async Task AddSponsorshipAsync(string userId, AddSponsorViewModel model)
         {
             Sponsorship sponsor = new Sponsorship
             {
@@ -108,5 +116,19 @@ namespace SponsorY.DataAccess.Survices
 
             return user!;
         }
-    }
+
+		public async Task RemoveMoneyFromSponsorAsync(int SponsorId, SponsorViewModel model)
+		{
+			var sponsor = await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
+
+			sponsor.Wallet -= model.Wallet;
+
+            if (sponsor.Wallet < 0)
+            {
+                throw new InvalidOperationException("You don`t have enough money!");
+            }
+
+			await context.SaveChangesAsync();
+		}
+	}
 }

@@ -19,9 +19,8 @@ namespace SponsorY.DataAccess.Models
 
 		public string? Url { get; set; }
 
-
-        [Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
-        public decimal Wallet { get; set; } = 0;
+		[Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
+		public decimal Wallet { get; set; } = 0;
 
 		[ForeignKey(nameof(Transaction))]
 		public int? TransactionId { get; set; }

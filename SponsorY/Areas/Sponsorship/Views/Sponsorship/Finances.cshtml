@@ -1,0 +1,43 @@
+﻿@using SponsorY.DataAccess.ModelsAccess;
+
+@model SponsorViewModel
+
+@{
+	ViewData["Title"] = "Update finances";
+}
+
+<div class="row">
+	<div class="col-md-4 offset-md-4">
+		<div class="card col-4" style="width: 20rem; ">
+			<img class="card-img-top" style="width: 18rem;"
+				 src="@Model.Url" alt="productUrl">
+			<div class="card-body">
+				<h5 class="card-title mt-1">@Model.CompanyName</h5>
+				<p class="mb-0">Product name: @Model.Product</p>
+				<p class="mb-0">Product actual capital: @Model.Wallet</p>
+
+				<form method="post">
+					<div class="text-center mb-3">
+
+						<label asp-for="@Model.Wallet">Add / Remove $</label>
+						<input class="form-control" type="number" autocomplete="Wallet" aria-required="true" asp-for="@Model.Wallet" />
+						<span asp-validation-for="@Model.Wallet" class="text-danger"></span>
+
+					</div>
+
+					<div class="text-center">
+
+						<button id="registerSubmit" type="submit" class="btn btn-primary text-muted">Add</button>
+						<button id="registerSubmit" type="submit" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Remove"
+								asp-route-SponsorId="@Model.Id" class="btn btn-primary text-muted">
+							Remove
+						</button>
+
+						<a asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main" class="btn btn-primary text-muted">Back to List</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

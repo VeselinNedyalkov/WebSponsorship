@@ -108,6 +108,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Sponsorship/Views/Sponsorship/Finances.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcRmluYW5jZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Sponsorship/Views/Sponsorship/Main.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcTWFpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -170,6 +174,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Youtube/Views/Youtuber/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Youtube/Views/Youtuber/Finances.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxGaW5hbmNlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Youtube/Views/Youtuber/Main.cshtml]

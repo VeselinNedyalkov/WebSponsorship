@@ -105,7 +105,60 @@ namespace SponsorY.Areas.Sponsorship.Controllers
             TempData["success"] = "Sponsorship updated!";
             return RedirectToAction(nameof(Main));
         }
-    }
+
+        public async Task<IActionResult> Finances(int SponsorId)
+        {
+			if (SponsorId == 0)
+			{
+				return NotFound();
+			}
+
+			var model = await sponsorService.GetSponsorsEditAsync(SponsorId);
+
+			return View(model);
+        }
+
+        [HttpPost]
+		public async Task<IActionResult> Finances(int SponsorId,SponsorViewModel model)
+		{
+			try
+			{
+				await sponsorService.AddMoneyToSponsorAsync(SponsorId ,model);
+			}
+			catch (Exception e)
+			{
+				var error = new ErrorViewModel
+				{
+					RequestId = e.Message
+				};
+
+				return View("Error", error);
+			}
+
+			TempData["success"] = "Sponsorship finances updated!";
+			return RedirectToAction(nameof(Main));
+		}
+
+        public async Task<IActionResult> Remove(int SponsorId, SponsorViewModel model)
+        {
+			try
+			{
+				await sponsorService.RemoveMoneyFromSponsorAsync(SponsorId, model);
+			}
+			catch (Exception e)
+			{
+				var error = new ErrorViewModel
+				{
+					RequestId = e.Message
+				};
+
+				return View("Error", error);
+			}
+
+			TempData["success"] = "Sponsorship finances updated!";
+			return RedirectToAction(nameof(Main));
+		}
+	}
 
 
 }

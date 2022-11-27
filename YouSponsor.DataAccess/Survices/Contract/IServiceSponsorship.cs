@@ -19,5 +19,10 @@ namespace SponsorY.DataAccess.Survices.Contract
         Task EditSponsorshipAsync(int EditId, SponsorViewModel model);
 
         Task<Sponsorship> GetSingelSponsorAsync(int SponsorId);
-    }
+
+        Task AddMoneyToSponsorAsync(int SponsorId, SponsorViewModel model);
+
+		Task RemoveMoneyFromSponsorAsync(int SponsorId, SponsorViewModel model);
+
+	}
 }

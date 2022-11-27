@@ -1,0 +1,53 @@
+﻿@model YoutubeFinancesViewModel
+
+@{
+	ViewData["Title"] = "Finances";
+}
+<partial name="_TempData" />
+
+
+
+
+<div class="row">
+	<div class="col-md-4 offset-md-4">
+		<h2 class="text-bg-info align-content-center">PAYMENT DETAILS</h2>
+		<form id="registerForm" method="post">
+			<hr />
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="text-center mb-3">
+				<label>Card Number</label>
+				<input class="form-control" autocomplete="Card Number" aria-required="true" />
+				<span class="text-danger"></span>
+			</div>
+			<span class="adyen-checkout__card__brands">
+				<span class="adyen-checkout__card__brands__brand-wrapper">
+					<img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/visa.svg" alt="" class="adyen-checkout__image adyen-checkout__image--loaded">
+				</span>
+				<span class="adyen-checkout__card__brands__brand-wrapper">
+					<img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/mc.svg" alt="" class="adyen-checkout__image adyen-checkout__image--loaded">
+				</span>
+				<span class="adyen-checkout__card__brands__brand-wrapper">
+					<img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/maestro.svg" alt="" class="adyen-checkout__image adyen-checkout__image--loaded">
+				</span>
+			</span>
+			<div class="text-center mb-3">
+				<label>Exparation date</label>
+				<input class="form-control " autocomplete="MM/YY" aria-required="true" />
+				<span class="text-danger"></span>
+			</div>
+			<div class="text-center mb-3">
+				<label>CVC / CVV / CID </label>
+				<input class="form-control " autocomplete="3 digits" aria-required="true" />
+				<span class="text-danger"></span>
+			</div>
+			<div class="text-center">
+				<button id="registerSubmit" type="submit" class="btn btn-primary">Register</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
+

@@ -152,7 +152,7 @@ namespace SponsorY.DataAccess.Survices
 
 			IEnumerable<NotAcceptedTransactionViewModel> model = await context.Transactions
 				.Include(x => x.Youtuber)
-				.Where(x => x.UserSponsorId == userId)
+				.Where(x => x.UserSponsorId == userId && x.HasAccepted == false)
 				.Select(x => new NotAcceptedTransactionViewModel
 				{
 					Id = x.Id,

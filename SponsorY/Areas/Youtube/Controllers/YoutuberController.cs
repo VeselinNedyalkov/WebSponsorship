@@ -151,5 +151,24 @@ namespace SponsorY.Areas.Youtube.Controllers
 
 			return RedirectToAction(nameof(TransAwait));
 		}
+
+		public async Task<IActionResult> Finances()
+		{
+			YoutubeFinancesViewModel model = null;
+			try
+			{
+				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+				model = await youtubService.GetAllFinancesaAsync(userId);
+			}
+			catch
+			{
+				return View(new ErrorViewModel { RequestId = "Something go wrong" });
+
+			}
+
+
+			return View(model);
+		}
 	}
 }
