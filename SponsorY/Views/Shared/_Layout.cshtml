@@ -24,21 +24,22 @@
 						@if (User?.Identity?.IsAuthenticated ?? false)
 						{
 							<li class="nav-item">
-								<a class="nav-link text-muted" asp-area="Home" asp-controller="Home" asp-action="Main">Main</a>
+								<a class="nav-link " asp-area="Home" asp-controller="Home" asp-action="Main">Main</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 									Youtubers
 								</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
 									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="TransAwait"> Transaction Awaiting</a>
+									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="History"> Transaction history</a>
 									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Finances"> Finances</a>
 									
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 									Sponsorhips
 								</a>
 								<div class="dropdown-menu">
@@ -47,14 +48,14 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link text-muted" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
+								<a class="nav-link" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
 							</li>
 
 						}
 						else
 						{
 							<li class="nav-item">
-								<a class="nav-link text-muted" asp-area="Home" asp-controller="Home" asp-action="Index">Home</a>
+								<a class="nav-link" asp-area="Home" asp-controller="Home" asp-action="Index">Home</a>
 							</li>
 						}
 					</ul>
@@ -70,15 +71,15 @@
 
 					@if (User?.Identity?.IsAuthenticated ?? false)
 					{
-						<p class="nav-item">User @User.Identity.Name is login </p>
+						<p class="nav-item text-secondary">User @User.Identity.Name is login </p>
 						<ul>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle text-muted" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 									Menu
 								</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="AddUserInfo"> <i class="bi bi-info-square"></i> User Info</a>
-									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="Settings"><i class="bi bi-gear text-muted"></i>	Setting</a>
+									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="Settings"><i class="bi bi-gear"></i>	Setting</a>
 									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="Delete"> <i class="bi bi-x-circle"></i> Delete account</a>
 								</div>
 							</li>
@@ -117,8 +118,8 @@
 			@RenderBody()
 		</main>
 	</div>
-	<footer class="border-top footer text-muted bg-primary position: fixed-bottom">
-		<div class="container" text-muted>
+	<footer class="border-top footer bg-primary position: fixed-bottom">
+		<div class="container text-secondary">
 			&copy; - SponsorYou -  @DateTime.Now.Year
 		</div>
 	</footer>

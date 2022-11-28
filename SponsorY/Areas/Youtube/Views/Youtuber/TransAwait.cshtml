@@ -10,28 +10,28 @@
 <table class="table table-bordered table-hover" style="width:100%">
 	<thead class="text-muted">
 		<tr>
-			<th>
+			<th scope="col">
 				Product 
-			</th>
-			<th>
+			</th >
+			<th scope="col">
 				Company Name
-			</th>
-			<th>
+			</th >
+			<th scope="col">
 				Product Name
 			</th>
-			<th>
+			<th scope="col">
 				Requestet numbers of clips
 			</th>
-			<th>
+			<th scope="col">
 				Money offer
 			</th>
-			<th></th>
+			<th ></th>
 		</tr>
 	</thead>
 	<tbody class="text-muted">
 		@foreach (var ch in Model)
 		{
-				<tr class="table-active text-muted text-center">
+				<tr class="table-info text-muted text-center">
 					<td>
 						<img src="@ch.ProductUrl">
 					</td>

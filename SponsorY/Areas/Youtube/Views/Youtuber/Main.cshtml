@@ -23,41 +23,41 @@
 
 
 
-<table class="table table-bordered table-hover" style="width:100%">
-	<thead class="text-muted">
+<table class="table table-bordered table-hover">
+	<thead>
 		<tr>
-			<th>
+			<th scope="col">
 				Chanel
 			</th>
-			<th>
+			<th scope="col">
 				Chanel Name
 			</th>
-			<th>
+			<th scope="col">
 				Subscribers
 			</th>
-			<th>
+			<th scope="col">
 				Category
 			</th>
-			<th></th>
+			<th scope="col"></th>
 		</tr>
 	</thead>
-	<tbody class="text-muted">
+	<tbody >
 		@foreach (var ch in Model)
 		{
-			<tr class="table-active text-muted text-center">
+			<tr class="table-info text-muted text-center">
 				<td>
 					<a class="text-muted text-center" href="@ch.Url" target="_blank" width="200" height="200">Visit the chanel</a>
 				</td>
 				<td>
 					<center>@ch.ChanelName </center>
 				</td>
-				<td>
+				<td >
 					<center>@ch.Subscribers</center>
 				</td>
-				<td>
+				<td >
 					<center>@ch.Category</center>
 				</td>
-				<td>
+				<td >
 					<div class="w-75 btn-group" role="group">
 						<a class="btn btn-info" asp-area="Youtube" asp-controller="Youtuber" asp-action="Edit" asp-route-EditId=@ch.Id><i class="bi bi-pencil-square"></i> Edit</a>
 					</div>

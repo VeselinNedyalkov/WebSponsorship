@@ -29,5 +29,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 		Task<YoutubeFinancesViewModel> GetAllFinancesaAsync(string userId);
 
 		Task WithdrawMOneyAsync(string userId, YoutubeFinancesViewModel model);
+
+		Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetallCompletedTransactionsAsync(string userId);
 	}
 }

@@ -261,5 +261,23 @@ namespace SponsorY.DataAccess.Survices
 			context.Users.Update(user);
 			await context.SaveChangesAsync();
 		}
+
+		public async Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetallCompletedTransactionsAsync(string userId)
+		{
+			var model = await context.Transactions
+			.Where(x => x.Youtuber.AppUserId == userId && x.IsCompleted == true)
+			.Select(x => new YoutuberAwaitTransactionViewModel
+			{
+				MoneyOffer = x.TransferMoveney,
+				QuntityClips = x.QuntityClips,
+				TransactionId = x.Id,
+				CompanyName = x.Sponsorship.CompanyName,
+				Product = x.Sponsorship.Product,
+				ProductUrl = x.Sponsorship.Url
+			})
+			.ToListAsync();
+
+			return model;
+		}
 	}
 }

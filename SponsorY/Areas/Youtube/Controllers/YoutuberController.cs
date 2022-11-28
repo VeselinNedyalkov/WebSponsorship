@@ -189,5 +189,23 @@ namespace SponsorY.Areas.Youtube.Controllers
 
 			return View();
 		}
+
+		public async Task<IActionResult> History()
+		{
+			IEnumerable<YoutuberAwaitTransactionViewModel> model = null;
+
+			try
+			{
+				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+				model = await youtubService.GetallCompletedTransactionsAsync(userId);
+			}
+			catch (Exception e)
+			{
+
+			}
+
+
+			return View(model);	
+		}
 	}
 }
