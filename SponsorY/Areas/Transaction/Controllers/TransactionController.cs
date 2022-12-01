@@ -57,7 +57,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Submit(int TranslId, int SponsorId)
+        public async Task<IActionResult> Submit(Guid TranslId, int SponsorId , int ChanelId)
         {
             var transaction = await tranService.GetTransactionAsync(TranslId);
             var sponsor = await sponsorService.GetSponsorsEditAsync(SponsorId);
@@ -68,8 +68,10 @@ namespace SponsorY.Areas.Transaction.Controllers
                 return View(new ErrorViewModel { RequestId = $"{sponsor.Wallet} Not enought! You need to increase your money for sponsorship!" });
             }
 
+            await tranService.RemoveMoneyFromSponsorAsync(SponsorId, transaction.TransferMoveney);
+
             transaction.SuccessfulCreated = true;
-            await tranService.UpdateTransaction(transaction);
+            await tranService.UpdateCompletedTransactionAsync(transaction, SponsorId ,  ChanelId);
 
             await tranService.DeleteNotCompletedTransactions();
 
@@ -86,12 +88,14 @@ namespace SponsorY.Areas.Transaction.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Plus(int TranslId)
+        public async Task<IActionResult> Plus(Guid TranslId, int SponsorId, int ChanelId)
         {
+            
             var transaction = await tranService.GetTransactionAsync(TranslId);
             transaction.QuntityClips += 1;
 
-            TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(transaction.YoutuberId, transaction.SponsorshipId);
+
+			TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(ChanelId, SponsorId);
 
             model.QuantityClips = transaction.QuntityClips;
             model.TransactionId = transaction.Id;
@@ -101,16 +105,17 @@ namespace SponsorY.Areas.Transaction.Controllers
             model.TotalPrice = Total;
             transaction.TransferMoveney = Total;
 
-            await tranService.UpdateTransaction(transaction);
+            await tranService.UpdateTransactionAsync(transaction);
             return View(nameof(Details), model);
         }
 
-        public async Task<IActionResult> Minus(int TranslId)
+        public async Task<IActionResult> Minus(Guid TranslId, int SponsorId, int ChanelId)
         {
             var transaction = await tranService.GetTransactionAsync(TranslId);
             transaction.QuntityClips -= 1;
 
-            TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(transaction.YoutuberId, transaction.SponsorshipId);
+
+			TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(ChanelId, SponsorId);
 
             model.QuantityClips = transaction.QuntityClips;
             model.TransactionId = transaction.Id;
@@ -120,11 +125,11 @@ namespace SponsorY.Areas.Transaction.Controllers
             model.TotalPrice = Total;
             transaction.TransferMoveney = Total;
 
-            await tranService.UpdateTransaction(transaction);
+            await tranService.UpdateTransactionAsync(transaction);
             return View(nameof(Details), model);
         }
 
-        public async Task<IActionResult> Edit(int TransId)
+        public async Task<IActionResult> Edit(Guid TransId)
         {
             TransactionViewModel model = null;
 
@@ -159,7 +164,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return RedirectToAction(nameof(Requested));
 		}
 
-		public IActionResult Delete(int TransId)
+		public IActionResult Delete(Guid TransId)
 		{
 			try
 			{

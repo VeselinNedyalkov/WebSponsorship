@@ -24,11 +24,9 @@ namespace SponsorY.DataAccess.Models
 
         public decimal Wallet { get; set; }
 
-		[ForeignKey(nameof(Transaction))]
-		public int? TransactionId { get; set; }
-        public Transaction? Transaction { get; set; }
+		public virtual ICollection<YoutuberTransaction> YoutuberTransactions { get; set; } = new List<YoutuberTransaction>();
 
-        [ForeignKey(nameof(Category))]
+		[ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
 

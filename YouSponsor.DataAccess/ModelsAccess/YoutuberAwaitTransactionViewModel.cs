@@ -10,7 +10,7 @@ namespace SponsorY.DataAccess.ModelsAccess
 	{
 		public decimal MoneyOffer { get; set; }
 		public int QuntityClips { get; set; }
-		public int TransactionId { get; set; }
+		public Guid TransactionId { get; set; }
 		public string CompanyName { get; set; }
 		public string Product { get; set; }
 

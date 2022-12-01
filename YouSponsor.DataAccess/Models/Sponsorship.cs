@@ -22,13 +22,14 @@ namespace SponsorY.DataAccess.Models
 		[Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
 		public decimal Wallet { get; set; } = 0;
 
-		[ForeignKey(nameof(Transaction))]
-		public int? TransactionId { get; set; }
-		public Transaction? Transaction { get; set; }
+		public virtual ICollection<SponsorshipTransaction> SponsorshipTransactions { get; set; } = new List<SponsorshipTransaction>();
 
+
+		[ForeignKey(nameof(Category))]
 		public int CategoryId { get; set; }
+		public Category Category { get; set; } = null!;
 
-        [ForeignKey(nameof(AppUser))]
+		[ForeignKey(nameof(AppUser))]
         public string AppUserId { get; set; } = null!;
 		public AppUser AppUser { get; set; } = null!;
 	}

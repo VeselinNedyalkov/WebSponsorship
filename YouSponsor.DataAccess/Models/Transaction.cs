@@ -7,7 +7,7 @@ namespace SponsorY.DataAccess.Models
     public class Transaction
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [Range(typeof(decimal), "0.0", "79228162514264337593543950335M", ConvertValueInInvariantCulture = true)]
@@ -17,17 +17,14 @@ namespace SponsorY.DataAccess.Models
         [Range(0, int.MaxValue)]
         public int QuntityClips { get; set; }
 
-       
-        public int SponsorshipId { get; set; }
-        [ForeignKey(nameof(SponsorshipId))]
-        public virtual Sponsorship Sponsorship { get; set; } = null!;
 
-		public int YoutuberId { get; set; }
-        [ForeignKey(nameof(YoutuberId))]
-        public Youtuber Youtuber { get; set; } = null!;
+		public virtual ICollection<SponsorshipTransaction> SponsorshipTransactions { get; set; } = new List<SponsorshipTransaction>();
 
-		public string UserSponsorId { get; set; } = null!;
 
+		public virtual ICollection<YoutuberTransaction> YoutuberTransactions { get; set; } = new List<YoutuberTransaction>();
+
+
+		public string? UserSponsorId { get; set; } 
         public bool SuccessfulCreated { get; set; }
 
         public bool HasAccepted { get; set; }

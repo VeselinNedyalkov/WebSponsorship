@@ -144,6 +144,7 @@ namespace SponsorY.Areas.Sponsorship.Controllers
 			try
 			{
 				await sponsorService.RemoveMoneyFromSponsorAsync(SponsorId, model);
+				TempData["success"] = "Sponsorship finances updated!";
 			}
 			catch (Exception e)
 			{
@@ -154,10 +155,25 @@ namespace SponsorY.Areas.Sponsorship.Controllers
 
 				return View("Error", error);
 			}
-
-			TempData["success"] = "Sponsorship finances updated!";
+                
 			return RedirectToAction(nameof(Main));
 		}
+
+        public async Task<IActionResult> Delete(int DeleteId)
+        {
+            try
+            {
+                await sponsorService.DeleteSponsorshipOfferAsync(DeleteId);
+				TempData["success"] = "Sponsor deleted";
+			}
+            catch
+            {
+				return View(new ErrorViewModel { RequestId = "Something go wrong!" });
+
+			}
+
+			return RedirectToAction(nameof(Main));
+        }
 	}
 
 

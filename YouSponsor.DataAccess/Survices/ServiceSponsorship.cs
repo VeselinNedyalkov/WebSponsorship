@@ -50,7 +50,16 @@ namespace SponsorY.DataAccess.Survices
             context.SaveChanges();
         }
 
-        public async Task EditSponsorshipAsync(int EditId, SponsorViewModel model)
+		public async Task DeleteSponsorshipOfferAsync(int DeletedId)
+		{
+            var deleteItem = await context.Sponsorships
+                .FirstOrDefaultAsync(x => x.Id == DeletedId);
+
+            context.Sponsorships.Remove(deleteItem);
+            await context.SaveChangesAsync();
+		}
+
+		public async Task EditSponsorshipAsync(int EditId, SponsorViewModel model)
         {
             var original = await GetSponsorsEditAsync(EditId);
 

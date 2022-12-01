@@ -71,13 +71,6 @@ namespace SponsorY.Areas.Menu.Controllers
 
 		}
 
-		//TO DO
-		public IActionResult Delete()
-        {
-
-
-			return View();
-        }
 
 		public async Task<IActionResult> DeleteUser()
 		{

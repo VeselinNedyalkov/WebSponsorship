@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,12 +61,14 @@ namespace SponsorY.DataAccess.Survices
 		public async Task<Transaction> CreateTransactionAsync(TransactionViewModel model, string userId)
 		{
 
+			var sponsor = await context.Sponsorships.Where(x => x.Id == model.ChanelId).Select(x => x.Id).FirstOrDefaultAsync();
+			var youtuber = await context.Youtubers.Where(x => x.Id == model.ChanelId).Select(x => x.Id).FirstOrDefaultAsync();
+
+			//check
 			Transaction addModel = new Transaction
 			{
 				TransferMoveney = model.TotalPrice,
 				QuntityClips = model.QuantityClips,
-				SponsorshipId = model.SponsorId,
-				YoutuberId = model.ChanelId,
 				UserSponsorId = userId,
 				SuccessfulCreated = false,
 				HasAccepted = false,
@@ -73,8 +77,39 @@ namespace SponsorY.DataAccess.Survices
 			await context.Transactions.AddAsync(addModel);
 			await context.SaveChangesAsync();
 
+
 			return addModel;
 		}
+
+		public async Task EditSaveAsync(TransactionViewModel model, string userId)
+		{
+			var trans = await context.Transactions
+				.Where(x => x.Id == model.TransactionId)
+				.FirstOrDefaultAsync();
+
+			var sponsor = await context.Sponsorships.Where(x => x.Id == model.ChanelId).Select(x => x.Id).FirstOrDefaultAsync();
+			var youtuber = await context.Youtubers.Where(x => x.Id == model.ChanelId).Select(x => x.Id).FirstOrDefaultAsync();
+
+			//check
+			Transaction edit = new Transaction
+			{
+				Id = trans.Id,
+				TransferMoveney = model.TotalPrice,
+				QuntityClips = model.QuantityClips,
+				UserSponsorId = userId,
+				SuccessfulCreated = trans.SuccessfulCreated,
+				SponsorshipTransactions = trans.SponsorshipTransactions,
+				YoutuberTransactions = trans.YoutuberTransactions,
+				HasAccepted = trans.HasAccepted,
+				IsCompleted = trans.IsCompleted,
+			};
+
+
+
+			context.Transactions.Update(edit);
+			await context.SaveChangesAsync();
+		}
+
 
 		public async Task DeleteNotCompletedTransactions()
 		{
@@ -88,7 +123,7 @@ namespace SponsorY.DataAccess.Survices
 			await context.SaveChangesAsync();
 		}
 
-		public void DeleteTransactionAsync(int TransId)
+		public void DeleteTransactionAsync(Guid TransId)
 		{
 			Transaction tr = context.Transactions.Single(x => x.Id == TransId);
 
@@ -96,48 +131,27 @@ namespace SponsorY.DataAccess.Survices
 			context.SaveChanges();
 		}
 
-		public async Task EditSaveAsync(TransactionViewModel model, string userId)
+		
+
+		public async Task<TransactionViewModel> EditTransactionAsync(Guid TransId)
 		{
-			var trans = await context.Transactions
-				.Where(x => x.Id == model.TransactionId)
-				.FirstOrDefaultAsync();
 
-
-			Transaction edit = new Transaction
-			{
-				Id = trans.Id,
-				TransferMoveney = model.TotalPrice,
-				QuntityClips = model.QuantityClips,
-				SponsorshipId = model.SponsorId,
-				YoutuberId = model.ChanelId,
-				UserSponsorId = userId,
-				SuccessfulCreated = trans.SuccessfulCreated,
-				HasAccepted = trans.HasAccepted,
-				IsCompleted = trans.IsCompleted,
-			};
-
-			context.Transactions.Update(edit);
-			await context.SaveChangesAsync();
-		}
-
-		public async Task<TransactionViewModel> EditTransactionAsync(int TransId)
-		{
+			//check
 
 			TransactionViewModel model = await context.Transactions
-				.Include(x => x.Sponsorship)
 				.Where(x => x.Id == TransId)
 				.Select(x => new TransactionViewModel
 				{
-					SponsorId = x.SponsorshipId,
-					CompanyName = x.Sponsorship.CompanyName,
-					Product = x.Sponsorship.Product,
-					CompanyUrl = x.Sponsorship.Url,
-					CompanyBudget = x.Sponsorship.Wallet,
+					SponsorId = x.SponsorshipTransactions.Select(x => x.SponsorId).FirstOrDefault(),
+					CompanyName = x.SponsorshipTransactions.Select(x => x.Sponsorship.CompanyName).FirstOrDefault(),
+					Product = x.SponsorshipTransactions.Select(x => x.Sponsorship.Product).FirstOrDefault(),
+					CompanyUrl = x.SponsorshipTransactions.Select(x => x.Sponsorship.Url).FirstOrDefault(),
+					CompanyBudget = x.SponsorshipTransactions.Select(x => x.Sponsorship.Wallet).FirstOrDefault(),
 					QuantityClips = x.QuntityClips,
-					ChanelId = x.Youtuber.Id,
-					ChanelName = x.Youtuber.ChanelName,
-					ChanelUrl = x.Youtuber.Url,
-					Subscribers = x.Youtuber.Subscribers,
+					ChanelId = x.YoutuberTransactions.Select(x => x.YoutuberId).FirstOrDefault(),
+					ChanelName = x.YoutuberTransactions.Select(x => x.Youtuber.ChanelName).FirstOrDefault(),
+					ChanelUrl = x.YoutuberTransactions.Select(x => x.Youtuber.Url).FirstOrDefault(),
+					Subscribers = x.YoutuberTransactions.Select(x => x.Youtuber.Subscribers).FirstOrDefault(),
 					SponroshipsClipsNum = x.QuntityClips,
 					TotalPrice = x.TransferMoveney,
 					TransactionId = x.Id
@@ -150,17 +164,17 @@ namespace SponsorY.DataAccess.Survices
 		public async Task<IEnumerable<NotAcceptedTransactionViewModel>> GetAllUnaceptedTransaction(string userId)
 		{
 
+			//check
 			IEnumerable<NotAcceptedTransactionViewModel> model = await context.Transactions
-				.Include(x => x.Youtuber)
 				.Where(x => x.UserSponsorId == userId && x.HasAccepted == false)
 				.Select(x => new NotAcceptedTransactionViewModel
 				{
 					Id = x.Id,
 					TransferMoveney = x.TransferMoveney,
 					QuntityClips = x.QuntityClips,
-					SponsorshipId = x.SponsorshipId,
-					YoutubeChanelName = x.Youtuber.ChanelName,
-					ChanelSubscribers = x.Youtuber.Subscribers
+					SponsorshipId = x.SponsorshipTransactions.Select(x => x.SponsorId).FirstOrDefault(),
+					YoutubeChanelName = x.YoutuberTransactions.Select(x => x.Youtuber.ChanelName).FirstOrDefault(),
+					ChanelSubscribers = x.YoutuberTransactions.Select(x => x.Youtuber.Subscribers).FirstOrDefault(),
 				})
 				.ToListAsync();
 
@@ -190,17 +204,51 @@ namespace SponsorY.DataAccess.Survices
 			return quantity * PricePerClip;
 		}
 
-		public async Task<Transaction> GetTransactionAsync(int TranslId)
+		public async Task<Transaction> GetTransactionAsync(Guid TranslId)
 		{
-			return await context.Transactions.FirstOrDefaultAsync(x => x.Id == TranslId);
+			return await context.Transactions.Where(x => x.Id == TranslId)
+				.Include(x => x.YoutuberTransactions)
+				.Include(x => x.SponsorshipTransactions)
+				.FirstOrDefaultAsync();
 		}
 
-		public async Task UpdateTransaction(Transaction model)
+		public async Task UpdateCompletedTransactionAsync(Transaction model, int SponsorId, int ChanelId)
+		{
+			SponsorshipTransaction addSponsor = new SponsorshipTransaction
+			{
+				TransactionId = model.Id,
+				SponsorId = SponsorId
+			};
+
+			YoutuberTransaction addYoutube = new YoutuberTransaction
+			{
+				TransactionId = model.Id,
+				YoutuberId = ChanelId
+			};
+
+			
+			model.SponsorshipTransactions.Add(addSponsor);
+			model.YoutuberTransactions.Add(addYoutube);
+
+
+			context.Transactions.Update(model);
+			await context.SaveChangesAsync();
+		}
+
+		public async Task UpdateTransactionAsync(Transaction model)
 		{
 			context.Transactions.Update(model);
 			await context.SaveChangesAsync();
 		}
 
+		public async Task RemoveMoneyFromSponsorAsync(int SponsorId,decimal Amount)
+		{
+			var sponsor = await context.Sponsorships.FirstOrDefaultAsync(x => x.Id == SponsorId);
 
+			sponsor.Wallet -= Amount;
+
+			context.Sponsorships.Update(sponsor);
+			await context.SaveChangesAsync();
+		}
 	}
 }

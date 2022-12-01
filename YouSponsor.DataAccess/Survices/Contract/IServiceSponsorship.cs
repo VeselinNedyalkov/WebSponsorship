@@ -24,5 +24,6 @@ namespace SponsorY.DataAccess.Survices.Contract
 
 		Task RemoveMoneyFromSponsorAsync(int SponsorId, SponsorViewModel model);
 
+        Task DeleteSponsorshipOfferAsync(int DeletedId);
 	}
 }

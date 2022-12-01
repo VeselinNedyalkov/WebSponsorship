@@ -8,7 +8,7 @@ namespace SponsorY.DataAccess.ModelsAccess
 {
 	public class NotAcceptedTransactionViewModel
 	{
-		public int Id { get; set; }
+		public Guid Id { get; set; }
 		public decimal TransferMoveney { get; set; }
 
 		public int QuntityClips { get; set; }

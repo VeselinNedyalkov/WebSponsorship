@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SponsorY.Areas.User.Models;
+using SponsorY.DataAccess.ModelsAccess;
 using System.Diagnostics;
 
 namespace SponsorY.Areas.Home.Controllers
@@ -33,5 +34,8 @@ namespace SponsorY.Areas.Home.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
+
+        
+
+	}
 }

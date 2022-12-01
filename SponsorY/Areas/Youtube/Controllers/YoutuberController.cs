@@ -122,7 +122,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 			return View(model);
 		}
 
-		public async Task<IActionResult> Accept(int TransId)
+		public async Task<IActionResult> Accept(Guid TransId)
 		{
 
 			try
@@ -138,7 +138,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 			return RedirectToAction(nameof(TransAwait));
 		}
 
-		public async Task<IActionResult> Denial(int TransId)
+		public async Task<IActionResult> Denial(Guid TransId)
 		{
 			try
 			{
@@ -178,7 +178,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 			try
 			{
 				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-				youtubService.WithdrawMOneyAsync(userId , model);
+				await youtubService.WithdrawMOneyAsync(userId , model);
 				TempData["success"] = "The money are now in your account";
 			}
 			catch (Exception e)
@@ -187,7 +187,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 
 			}
 
-			return View();
+			return RedirectToAction(nameof(Main));
 		}
 
 		public async Task<IActionResult> History()
@@ -199,13 +199,19 @@ namespace SponsorY.Areas.Youtube.Controllers
 				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
 				model = await youtubService.GetallCompletedTransactionsAsync(userId);
 			}
-			catch (Exception e)
+			catch
 			{
+				return View(new ErrorViewModel { RequestId = "Something go wrong"});
 
 			}
 
 
 			return View(model);	
 		}
+
+
+		
+
+		
 	}
 }

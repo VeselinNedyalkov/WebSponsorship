@@ -28,7 +28,7 @@ namespace SponsorY.DataAccess.ModelsAccess
 
         public string Category { get; set; } = null!;
 
-		public int? TransferId { get; set; }
+		public Guid? TransferId { get; set; }
 
         public int CategoryId { get; set; }
 

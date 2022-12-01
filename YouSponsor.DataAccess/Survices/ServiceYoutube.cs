@@ -3,6 +3,7 @@ using SponsorY.Data;
 using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess;
 using SponsorY.DataAccess.Survices.Contract;
+using System.Collections.Generic;
 using System.Data;
 
 namespace SponsorY.DataAccess.Survices
@@ -106,7 +107,12 @@ namespace SponsorY.DataAccess.Survices
 				})
 				.FirstOrDefaultAsync();
 
-			model!.Categories = cat;
+
+			if (model.Categories.Count() == 0)
+			{
+				model.Categories = cat;
+			}
+		
 
 			return model;
 		}
@@ -178,34 +184,41 @@ namespace SponsorY.DataAccess.Survices
 
 		public async Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetAllTransactionsAwaitingAsync(string userId)
 		{
-
+			//check
 			var model = await context.Transactions
-			.Where(x => x.Youtuber.AppUserId == userId && x.HasAccepted == false)
+			.Where(x => x.YoutuberTransactions.Select(x => x.Youtuber.AppUserId).FirstOrDefault() == userId && x.HasAccepted == false)
 			.Select(x => new YoutuberAwaitTransactionViewModel
 			{
 				MoneyOffer = x.TransferMoveney,
 				QuntityClips = x.QuntityClips,
 				TransactionId = x.Id,
-				CompanyName = x.Sponsorship.CompanyName,
-				Product = x.Sponsorship.Product,
-				ProductUrl = x.Sponsorship.Url
+				CompanyName = x.SponsorshipTransactions.Select(x => x.Sponsorship.CompanyName).FirstOrDefault(),
+				Product = x.SponsorshipTransactions.Select(x => x.Sponsorship.Product).FirstOrDefault(),
+				ProductUrl = x.SponsorshipTransactions.Select(x => x.Sponsorship.Url).FirstOrDefault(),
 			})
 			.ToListAsync();
 
 			return model;
 		}
 
-		public async Task TransactionCompletedAsync(int transactionId)
+		public async Task TransactionCompletedAsync(Guid transactionId)
 		{
-			var transaction = await context.Transactions.FirstOrDefaultAsync(x => x.Id == transactionId);
+			var transaction = await context.Transactions.Where(x => x.Id == transactionId).Include(x => x.YoutuberTransactions)
+				.Include(y => y.SponsorshipTransactions).FirstOrDefaultAsync();
+			var youtubeId = transaction.YoutuberTransactions.Select(x => x.YoutuberId).FirstOrDefault();
+			var sponsorId = transaction.SponsorshipTransactions.Select(x => x.SponsorId).FirstOrDefault();
 
 			transaction.HasAccepted = true;
 			transaction.IsCompleted = true;
 
 			context.Transactions.Update(transaction);
 
-			var youtuber = await context.Youtubers.FirstOrDefaultAsync(x => x.Id == transaction.YoutuberId);
-			var sponsor = await context.Sponsorships.FirstOrDefaultAsync(x => x.Id == transaction.SponsorshipId);
+			
+
+			var youtuber = await context.Youtubers.FirstOrDefaultAsync(x => x.Id == youtubeId);
+			var sponsor = await context.Sponsorships.FirstOrDefaultAsync(x => x.Id == sponsorId);
+
+
 
 			if (sponsor.Wallet - transaction.TransferMoveney < 0)
 			{
@@ -226,7 +239,7 @@ namespace SponsorY.DataAccess.Survices
 			await context.SaveChangesAsync();
 		}
 
-		public async Task TransactionDenialAsync(int transactionId)
+		public async Task TransactionDenialAsync(Guid transactionId)
 		{
 			var transaction = await context.Transactions.FirstOrDefaultAsync(x => x.Id == transactionId);
 
@@ -265,15 +278,15 @@ namespace SponsorY.DataAccess.Survices
 		public async Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetallCompletedTransactionsAsync(string userId)
 		{
 			var model = await context.Transactions
-			.Where(x => x.Youtuber.AppUserId == userId && x.IsCompleted == true)
+			.Where(x => x.YoutuberTransactions.Select(x => x.Youtuber.AppUserId).FirstOrDefault() == userId && x.IsCompleted == true)
 			.Select(x => new YoutuberAwaitTransactionViewModel
 			{
 				MoneyOffer = x.TransferMoveney,
 				QuntityClips = x.QuntityClips,
 				TransactionId = x.Id,
-				CompanyName = x.Sponsorship.CompanyName,
-				Product = x.Sponsorship.Product,
-				ProductUrl = x.Sponsorship.Url
+				CompanyName = x.SponsorshipTransactions.Select(s => s.Sponsorship.CompanyName).FirstOrDefault(),
+				Product = x.SponsorshipTransactions.Select(s => s.Sponsorship.Product).FirstOrDefault(),
+				ProductUrl = x.SponsorshipTransactions.Select(s => s.Sponsorship.Url).FirstOrDefault(),
 			})
 			.ToListAsync();
 

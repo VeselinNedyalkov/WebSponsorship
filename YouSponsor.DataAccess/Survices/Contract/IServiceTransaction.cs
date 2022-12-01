@@ -11,10 +11,11 @@ namespace SponsorY.DataAccess.Survices.Contract
 	public interface IServiceTransaction
 	{
 		decimal GetTotalPrice(int quantity, decimal PricePerClip);
-		Task<TransactionViewModel> CreatedTransactionViewModelAsync(int ChanelId, int SponsorId);
+		Task<TransactionViewModel> CreatedTransactionViewModelAsync(int youId, int SponsorId);
 
-		Task<Transaction> GetTransactionAsync(int TranslId);
-		Task UpdateTransaction(Transaction model);
+		Task<Transaction> GetTransactionAsync(Guid TranslId);
+		Task UpdateCompletedTransactionAsync(Transaction model, int SponsorId, int ChanelId);
+		Task UpdateTransactionAsync(Transaction model);
 		Task<FindChanelViewModel> GetFindModelAsync(int SponsorId);
 		Task<Transaction> CreateTransactionAsync(TransactionViewModel model,string userId);
 
@@ -22,10 +23,12 @@ namespace SponsorY.DataAccess.Survices.Contract
 
 		Task DeleteNotCompletedTransactions();
 
-		Task<TransactionViewModel> EditTransactionAsync(int TransId);
+		Task<TransactionViewModel> EditTransactionAsync(Guid TransId);
 
 		Task EditSaveAsync(TransactionViewModel model, string userId);
 
-		void DeleteTransactionAsync(int TransId);
+		void DeleteTransactionAsync(Guid TransId);
+
+		Task RemoveMoneyFromSponsorAsync(int SponsorId, decimal Amount);
 	}
 }

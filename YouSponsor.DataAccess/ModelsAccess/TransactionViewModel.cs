@@ -35,6 +35,6 @@ namespace SponsorY.DataAccess.ModelsAccess
 
 		public decimal TotalPrice { get; set; }
 
-		public int? TransactionId { get; set; }
+		public Guid? TransactionId { get; set; }
 	}
 }

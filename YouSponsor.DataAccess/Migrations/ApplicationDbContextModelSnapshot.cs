@@ -275,9 +275,6 @@ namespace SponsorY.DataAccess.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<int?>("TransactionId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
@@ -288,16 +285,31 @@ namespace SponsorY.DataAccess.Migrations
 
                     b.HasIndex("AppUserId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Sponsorships");
+                });
+
+            modelBuilder.Entity("SponsorY.DataAccess.Models.SponsorshipTransaction", b =>
+                {
+                    b.Property<int>("SponsorId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TransactionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SponsorId", "TransactionId");
+
+                    b.HasIndex("TransactionId");
+
+                    b.ToTable("SponsorshipTransaction");
                 });
 
             modelBuilder.Entity("SponsorY.DataAccess.Models.Transaction", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("HasAccepted")
                         .HasColumnType("bit");
@@ -306,9 +318,6 @@ namespace SponsorY.DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("QuntityClips")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SponsorshipId")
                         .HasColumnType("int");
 
                     b.Property<bool>("SuccessfulCreated")
@@ -321,16 +330,7 @@ namespace SponsorY.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("YoutuberId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("SponsorshipId")
-                        .IsUnique();
-
-                    b.HasIndex("YoutuberId")
-                        .IsUnique();
 
                     b.ToTable("Transactions");
                 });
@@ -392,9 +392,6 @@ namespace SponsorY.DataAccess.Migrations
                     b.Property<int>("Subscribers")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TransactionId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -409,6 +406,21 @@ namespace SponsorY.DataAccess.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Youtubers");
+                });
+
+            modelBuilder.Entity("SponsorY.DataAccess.Models.YoutuberTransaction", b =>
+                {
+                    b.Property<int>("YoutuberId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TransactionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("YoutuberId", "TransactionId");
+
+                    b.HasIndex("TransactionId");
+
+                    b.ToTable("YoutuberTransaction");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -470,26 +482,34 @@ namespace SponsorY.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("SponsorY.DataAccess.Models.Transaction", b =>
-                {
-                    b.HasOne("SponsorY.DataAccess.Models.Sponsorship", "Sponsorship")
-                        .WithOne("Transaction")
-                        .HasForeignKey("SponsorY.DataAccess.Models.Transaction", "SponsorshipId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("SponsorY.DataAccess.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SponsorY.DataAccess.Models.Youtuber", "Youtuber")
-                        .WithOne("Transaction")
-                        .HasForeignKey("SponsorY.DataAccess.Models.Transaction", "YoutuberId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SponsorY.DataAccess.Models.SponsorshipTransaction", b =>
+                {
+                    b.HasOne("SponsorY.DataAccess.Models.Sponsorship", "Sponsorship")
+                        .WithMany("SponsorshipTransactions")
+                        .HasForeignKey("SponsorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SponsorY.DataAccess.Models.Transaction", "Transaction")
+                        .WithMany("SponsorshipTransactions")
+                        .HasForeignKey("TransactionId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Sponsorship");
 
-                    b.Navigation("Youtuber");
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("SponsorY.DataAccess.Models.UserInfo", b =>
@@ -522,6 +542,25 @@ namespace SponsorY.DataAccess.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("SponsorY.DataAccess.Models.YoutuberTransaction", b =>
+                {
+                    b.HasOne("SponsorY.DataAccess.Models.Transaction", "Transaction")
+                        .WithMany("YoutuberTransactions")
+                        .HasForeignKey("TransactionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SponsorY.DataAccess.Models.Youtuber", "Youtuber")
+                        .WithMany("YoutuberTransactions")
+                        .HasForeignKey("YoutuberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Transaction");
+
+                    b.Navigation("Youtuber");
+                });
+
             modelBuilder.Entity("SponsorY.DataAccess.Models.AppUser", b =>
                 {
                     b.Navigation("Sponsorships");
@@ -531,12 +570,19 @@ namespace SponsorY.DataAccess.Migrations
 
             modelBuilder.Entity("SponsorY.DataAccess.Models.Sponsorship", b =>
                 {
-                    b.Navigation("Transaction");
+                    b.Navigation("SponsorshipTransactions");
+                });
+
+            modelBuilder.Entity("SponsorY.DataAccess.Models.Transaction", b =>
+                {
+                    b.Navigation("SponsorshipTransactions");
+
+                    b.Navigation("YoutuberTransactions");
                 });
 
             modelBuilder.Entity("SponsorY.DataAccess.Models.Youtuber", b =>
                 {
-                    b.Navigation("Transaction");
+                    b.Navigation("YoutuberTransactions");
                 });
 #pragma warning restore 612, 618
         }
