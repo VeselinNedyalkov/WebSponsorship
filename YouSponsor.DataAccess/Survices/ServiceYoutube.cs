@@ -219,13 +219,6 @@ namespace SponsorY.DataAccess.Survices
 			var sponsor = await context.Sponsorships.FirstOrDefaultAsync(x => x.Id == sponsorId);
 
 
-
-			if (sponsor.Wallet - transaction.TransferMoveney < 0)
-			{
-				throw new ArgumentException("Not enought money");
-			}
-
-			sponsor.Wallet -= transaction.TransferMoveney;
 			youtuber.Wallet += transaction.TransferMoveney;
 			string userId = youtuber.AppUserId;
 
@@ -233,7 +226,6 @@ namespace SponsorY.DataAccess.Survices
 
 			user.Wallet += youtuber.Wallet;
 
-			context.Sponsorships.Update(sponsor);
 			context.Youtubers.Update(youtuber);
 			context.Users.Update(user);
 			await context.SaveChangesAsync();
@@ -242,7 +234,12 @@ namespace SponsorY.DataAccess.Survices
 		public async Task TransactionDenialAsync(Guid transactionId)
 		{
 			var transaction = await context.Transactions.FirstOrDefaultAsync(x => x.Id == transactionId);
+			var sponsorId = transaction.SponsorshipTransactions.Select(x => x.SponsorId).FirstOrDefault();
+			var sponsor = await context.Sponsorships.FirstOrDefaultAsync(x => x.Id == sponsorId);
 
+			sponsor.Wallet += transaction.TransferMoveney;
+
+			context.Sponsorships.Update(sponsor);
 			context.Transactions.Remove(transaction);
 			await context.SaveChangesAsync();
 		}

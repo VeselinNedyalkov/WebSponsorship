@@ -64,9 +64,8 @@ namespace SponsorY.Areas.Transaction.Controllers
 
             if (sponsor.Wallet < transaction.TransferMoveney)
             {
-
-                return View(new ErrorViewModel { RequestId = $"{sponsor.Wallet} Not enought! You need to increase your money for sponsorship!" });
-            }
+				return View("Error", new ErrorViewModel { RequestId = $"{sponsor.Wallet} Not enought! You need to increase your money for sponsorship!" });
+			}
 
             await tranService.RemoveMoneyFromSponsorAsync(SponsorId, transaction.TransferMoveney);
 
@@ -114,6 +113,11 @@ namespace SponsorY.Areas.Transaction.Controllers
             var transaction = await tranService.GetTransactionAsync(TranslId);
             transaction.QuntityClips -= 1;
 
+            if (transaction.QuntityClips < 1)
+            {
+                transaction.QuntityClips = 1;
+
+			}
 
 			TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(ChanelId, SponsorId);
 
@@ -139,10 +143,11 @@ namespace SponsorY.Areas.Transaction.Controllers
 			}
             catch
             {
-				return View(new ErrorViewModel { RequestId = $"Transaction has a problem" });
+				return View("Error", new ErrorViewModel { RequestId = $"Transaction has a problem" });
+
 			}
 
-            return View(model);
+			return View(model);
 		}
 
         [HttpPost]
@@ -158,7 +163,8 @@ namespace SponsorY.Areas.Transaction.Controllers
 			}
 			catch
             {
-				return View(new ErrorViewModel { RequestId = $"Edith not successful" });
+				return View("Error", new ErrorViewModel { RequestId = $"Edith not successful" });
+
 			}
 
             return RedirectToAction(nameof(Requested));
@@ -175,7 +181,8 @@ namespace SponsorY.Areas.Transaction.Controllers
 			}
 			catch
 			{
-				return View(new ErrorViewModel { RequestId = $"Problem with deleting the transaction" });
+				return View("Error", new ErrorViewModel { RequestId = $"Problem with deleting the transaction" });
+
 			}
 
 			return RedirectToAction(nameof(Requested));

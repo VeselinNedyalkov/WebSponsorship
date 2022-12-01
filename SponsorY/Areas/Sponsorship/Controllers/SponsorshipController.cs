@@ -168,7 +168,7 @@ namespace SponsorY.Areas.Sponsorship.Controllers
 			}
             catch
             {
-				return View(new ErrorViewModel { RequestId = "Something go wrong!" });
+				return View("Error", new ErrorViewModel { RequestId = "Something go wrong!" });
 
 			}
 

@@ -115,7 +115,8 @@ namespace SponsorY.Areas.Youtube.Controllers
 			}
 			catch
 			{
-				return View(new ErrorViewModel { RequestId = "Ops something go wrong" });
+				return View("Error", new ErrorViewModel { RequestId = "Ops something go wrong" });
+
 
 			}
 
@@ -132,7 +133,8 @@ namespace SponsorY.Areas.Youtube.Controllers
 			}
 			catch (Exception ex)
 			{
-				return View(new ErrorViewModel { RequestId = ex.Message });
+				return View("Error", new ErrorViewModel { RequestId = ex.Message });
+
 			}
 
 			return RedirectToAction(nameof(TransAwait));
@@ -147,9 +149,9 @@ namespace SponsorY.Areas.Youtube.Controllers
 			}
 			catch (Exception ex)
 			{
-				return View(new ErrorViewModel { RequestId = ex.Message });
-			}
+				return View("Error", new ErrorViewModel { RequestId = ex.Message });
 
+			}
 			return RedirectToAction(nameof(TransAwait));
 		}
 
@@ -164,7 +166,8 @@ namespace SponsorY.Areas.Youtube.Controllers
 			}
 			catch
 			{
-				return View(new ErrorViewModel { RequestId = "Something go wrong" });
+				return View("Error", new ErrorViewModel { RequestId = "Something go wrong" });
+
 
 			}
 
@@ -183,7 +186,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 			}
 			catch (Exception e)
 			{
-				return View(new ErrorViewModel { RequestId = e.Message });
+				return View("Error", new ErrorViewModel { RequestId = e.Message });
 
 			}
 
@@ -201,7 +204,7 @@ namespace SponsorY.Areas.Youtube.Controllers
 			}
 			catch
 			{
-				return View(new ErrorViewModel { RequestId = "Something go wrong"});
+				return View("Error", new ErrorViewModel { RequestId = "Something go wrong" });
 
 			}
 

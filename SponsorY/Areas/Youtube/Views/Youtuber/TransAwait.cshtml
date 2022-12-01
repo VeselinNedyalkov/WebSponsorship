@@ -11,11 +11,11 @@
 	<thead class="text-muted">
 		<tr>
 			<th scope="col">
-				Product 
-			</th >
+				Product
+			</th>
 			<th scope="col">
 				Company Name
-			</th >
+			</th>
 			<th scope="col">
 				Product Name
 			</th>
@@ -25,37 +25,39 @@
 			<th scope="col">
 				Money offer
 			</th>
-			<th ></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody class="text-muted">
 		@foreach (var ch in Model)
 		{
-				<tr class="table-info text-muted text-center">
-					<td>
-						<img src="@ch.ProductUrl">
-					</td>
-					<td>
-						<center>@ch.CompanyName </center>
-					</td>
-					<td>
-						<center>@ch.Product</center>
-					</td>
-					<td>
-						<center>@ch.QuntityClips</center>
-					</td>
-					<td>
-						<center>@ch.MoneyOffer</center>
-					</td>
-					<td>
-						<div class="w-75 btn-group" role="group">
-						<a class="btn btn-success" asp-area="Youtube" asp-controller="Youtuber" asp-action="Accept" asp-route-TransId="@ch.TransactionId"><i class="bi bi-bookmark-check"></i> Accept</a>
-						</div>
-						<div class="w-75 btn-group" role="group">
-						<a class="btn btn-danger" asp-area="Youtube" asp-controller="Youtuber" asp-action="Denial" asp-route-TransId="@ch.TransactionId"><i class="bi bi-bookmark-x"></i> Denial</a>
-						</div>
-					</td>
-				</tr>
+			<tr class="table-info text-muted text-center">
+				<td>
+					<img src="@ch.ProductUrl">
+				</td>
+				<td>
+					<center>@ch.CompanyName </center>
+				</td>
+				<td>
+					<center>@ch.Product</center>
+				</td>
+				<td>
+					<center>@ch.QuntityClips</center>
+				</td>
+				<td>
+					<center>@ch.MoneyOffer</center>
+				</td>
+				<td>
+					<div class="w-75 btn-group" role="group">
+						<a class="btn btn-success" asp-area="Youtube" asp-controller="Youtuber" asp-action="Accept"
+					   asp-route-TransId="@ch.TransactionId"><i class="bi bi-bookmark-check"></i> Accept</a>
+					</div>
+					<div class="w-75 btn-group" role="group">
+						<a class="btn btn-danger" asp-area="Youtube" asp-controller="Youtuber" asp-action="Denial"
+					   asp-route-TransId="@ch.TransactionId"><i class="bi bi-bookmark-x"></i> Denial</a>
+					</div>
+				</td>
+			</tr>
 		}
 	</tbody>
 </table>

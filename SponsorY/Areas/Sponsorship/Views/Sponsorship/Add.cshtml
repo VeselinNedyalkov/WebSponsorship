@@ -12,22 +12,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.CompanyName">CompanyName</label>
-                <input class="form-control " autocomplete="CompanyName" aria-required="true" asp-for="@Model.CompanyName" />
+                <input class="form-control " autocomplete="Company name" aria-required="true" placeholder="Enter company name" />
                 <span asp-validation-for="@Model.CompanyName" class="text-danger"></span>
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.Url">Url for picture of the product</label>
-                <input class="form-control " autocomplete="Url" aria-required="true" asp-for="@Model.Url" />
+                <input class="form-control " autocomplete="Url" aria-required="true" placeholder="Enter product url" />
                 <span asp-validation-for="@Model.Url" class="text-danger"></span>
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.Product">Product Name</label>
-                <input class="form-control" type="text" autocomplete="Subscribers" aria-required="true" asp-for="@Model.Product" />
+                <input class="form-control" type="text" autocomplete="Subscribers" aria-required="true" placeholder="Product name" />
                 <span asp-validation-for="@Model.Product" class="text-danger"></span>
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.Wallet">Add budget for sponsorship</label>
-                <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" asp-for="@Model.Wallet" />
+                <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" placeholder="Enter yout budget $" />
                 <span asp-validation-for="@Model.Wallet" class="text-danger"></span>
             </div>
             <div class="list-group mb-3 text-center">

@@ -11,23 +11,23 @@
             <h2 class="text-muted">Add Chanel</h2>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="text-center mb-3">
-                <label asp-for="@Model.ChanelName">ChanelName</label>
-                <input class="form-control " autocomplete="ChanelName" aria-required="true" asp-for="@Model.ChanelName" />
+                <label asp-for="@Model.ChanelName">Chanel name</label>
+                <input class="form-control " autocomplete="ChanelName" aria-required="true" placeholder="Enter chanel name" asp-for="@Model.ChanelName" />
                 <span asp-validation-for="@Model.ChanelName" class="text-danger"></span>
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.Url">Chanel Url</label>
-                <input class="form-control " autocomplete="Url" aria-required="true" asp-for="@Model.Url" />
+                <input class="form-control " autocomplete="Url" aria-required="true" placeholder="Enter chanel URL" asp-for="@Model.Url" />
                 <span asp-validation-for="@Model.Url" class="text-danger"></span>
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.Subscribers">Subscribers</label>
-                <input class="form-control" type="number" autocomplete="Subscribers" aria-required="true" asp-for="@Model.Subscribers" />
+                <input class="form-control" type="number" autocomplete="Subscribers" aria-required="true"  placeholder="Numbers subscribers" />
                 <span asp-validation-for="@Model.Subscribers" class="text-danger"></span>
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.PricePerClip">Add price per clip</label>
-                <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" asp-for="@Model.PricePerClip" />
+                <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" placeholder="$ per clip"  />
                 <span asp-validation-for="@Model.PricePerClip" class="text-danger"></span>
             </div>
              <div class="list-group mb-3 text-center">

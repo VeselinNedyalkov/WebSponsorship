@@ -36,7 +36,7 @@ namespace SponsorY.Areas.Menu.Controllers
 			}
 			catch 
             {
-				return View(new ErrorViewModel { RequestId = $"Information about user was not updated" });
+				return View("Error", new ErrorViewModel { RequestId = $"Information about user was not updated" });
 
 			}
 
@@ -81,7 +81,7 @@ namespace SponsorY.Areas.Menu.Controllers
 			}
             catch
             {
-				return View(new ErrorViewModel { RequestId = $"Someting go wrong" });
+				return View("Error", new ErrorViewModel { RequestId = $"Someting go wrong" });
 
 			}
 
