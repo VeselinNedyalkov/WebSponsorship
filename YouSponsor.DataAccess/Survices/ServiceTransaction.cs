@@ -267,11 +267,11 @@ namespace SponsorY.DataAccess.Survices
 
 			if (modelInput.Sorting == 0)
 			{
-				model.Youtubers.OrderBy(x => x.PricePerClip);
+                model.Youtubers = model.Youtubers.OrderBy(x => x.PricePerClip);
 			}
 			else
 			{
-				model.Youtubers.OrderByDescending(x => x.PricePerClip);
+                model.Youtubers = model.Youtubers.OrderByDescending(x => x.PricePerClip);
 			}
 
 			return model;

@@ -12,7 +12,7 @@
 			<div class="form-group">
 				<label asp-for="CategoryName"></label>
 				<select asp-for="CategoryName" class="form-control">
-					<option value="">All</option>
+					<option value="1">all</option>
 					@foreach (var category in Model.Categories)
 					{
 						<option value="@category.Id">@category.CategoryName</option>
