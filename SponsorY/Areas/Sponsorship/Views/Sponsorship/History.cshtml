@@ -1,0 +1,34 @@
+﻿@using SponsorY.DataAccess.ModelsAccess;
+@model IEnumerable<SponsorHistoryViewModel>
+
+@{
+	ViewData["Title"] = "Requested";
+}
+
+<partial name="_TempData" />
+<h2 class="col-md-4 offset-md-4">Completed transactions:</h2>
+
+
+
+<div class="text-center row">
+	@foreach (var spon in Model)
+	{
+		<div class="card col-4" style="width: 20rem; ">
+
+			<div class="card-body">
+				<img src="/Pic/Completed.jpg" width="150" height="150"><img>
+				<p class="mb-0">Product name: @spon.Product</p>
+				<p class="mb-0">Chanel name: @spon.ChanelName</p>
+				<p class="mb-0">Chanel url: <a href="@spon.ChanelUrl">Go to chanel</a></p>
+				<p class="mb-0">Subscribers @spon.Subscribers</p>
+				<p class="mb-0">Price per clip: @spon.PricePerClip $</p>
+				<p class="mb-0">Total cost: @spon.TotalPrice</p>
+			</div>
+		</div>
+	}
+
+	<div class="w-75 btn-group" role="group">
+		<a class="btn btn-outline-primary" asp-area="Sponsorship" asp-controller="Sponsorship"
+		   asp-action="Main">Back</a>
+	</div>
+</div>

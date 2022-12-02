@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HEKpyceK/7oUClNIfH28Jb03PsUS6CS0WK8dbkBOt9s=",
+  "Hash": "AS3vBiNN0aHD3jt3BblediOcVEXEhyJmSvqHNMEhECE=",
   "Source": "SponsorY",
   "BasePath": "_content/SponsorY",
   "Mode": "Default",
@@ -2123,6 +2123,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\Pic\\YoutubLogo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\wwwroot\\Pic\\Completed.jpg",
+      "SourceId": "SponsorY",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\wwwroot\\",
+      "BasePath": "_content/SponsorY",
+      "RelativePath": "Pic/Completed.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pic\\Completed.jpg"
     },
     {
       "Identity": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\wwwroot\\Pic\\Sponsor.jpg",

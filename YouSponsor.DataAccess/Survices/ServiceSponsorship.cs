@@ -139,5 +139,25 @@ namespace SponsorY.DataAccess.Survices
 
 			await context.SaveChangesAsync();
 		}
+
+		public async Task<IEnumerable<SponsorHistoryViewModel>> TakeAllCompletedTransactions(string userId)
+		{
+            var model = await context.Transactions
+                .Where(x => x.UserSponsorId == userId && x.IsCompleted == true)
+                .Select(s => new SponsorHistoryViewModel
+                {
+                    Product = s.SponsorshipTransactions.Select(x => x.Sponsorship.Product).FirstOrDefault(),
+                    CompanyUrl = s.SponsorshipTransactions.Select(x => x.Sponsorship.Url).FirstOrDefault(),
+                    ChanelName = s.YoutuberTransactions.Select(x => x.Youtuber.ChanelName).FirstOrDefault(),
+                    ChanelUrl = s.YoutuberTransactions.Select(x => x.Youtuber.Url).FirstOrDefault(),
+                    Subscribers = s.YoutuberTransactions.Select(x => x.Youtuber.Subscribers).FirstOrDefault(),
+                    PricePerClip = s.YoutuberTransactions.Select(x => x.Youtuber.PricePerClip).FirstOrDefault(),
+                    SponroshipsClipsNum = s.QuntityClips,
+                    TotalPrice = s.TransferMoveney
+                })
+                .ToListAsync();
+
+            return model;
+		}
 	}
 }

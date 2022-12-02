@@ -139,7 +139,7 @@ namespace SponsorY.Areas.Sponsorship.Controllers
 			return RedirectToAction(nameof(Main));
 		}
 
-        public async Task<IActionResult> Remove(int SponsorId, SponsorViewModel model)
+        public async Task<IActionResult> Withdraw(int SponsorId, SponsorViewModel model)
         {
 			try
 			{
@@ -159,7 +159,32 @@ namespace SponsorY.Areas.Sponsorship.Controllers
 			return RedirectToAction(nameof(Main));
 		}
 
-        public async Task<IActionResult> Delete(int DeleteId)
+        public async Task<IActionResult> History()
+        {
+            IEnumerable<SponsorHistoryViewModel> model = null;
+
+			try
+            {
+				var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+                model = await sponsorService.TakeAllCompletedTransactions(userId);
+
+			}
+            catch
+            {
+				var error = new ErrorViewModel
+				{
+					RequestId = "Check again"
+				};
+
+				return View("Error", error);
+			}
+
+
+            return View(model);
+		}
+
+
+		public async Task<IActionResult> Delete(int DeleteId)
         {
             try
             {

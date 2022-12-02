@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - YouSponsor</title>
+	<title>@ViewData["Title"] Web sponsorship</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/YouSponsor.styles.css" asp-append-version="true" />
@@ -45,6 +45,7 @@
 								<div class="dropdown-menu">
 									<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
 									<a class="dropdown-item" asp-area="Transaction" asp-controller="Transaction" asp-action="Requested"> Request transaction</a>
+									<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="History"> Transaction history</a>
 								</div>
 							</li>
 							<li class="nav-item">
