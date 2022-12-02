@@ -16,29 +16,34 @@ namespace SponsorY.Areas.Transaction.Controllers
 
         private readonly IServiceTransaction tranService;
         private readonly IServiceSponsorship sponsorService;
+        private readonly IServiceCategory categoryService;
 
 
         public TransactionController(IServiceTransaction _tranService,
-            IServiceSponsorship _sponsorService
-            )
+            IServiceSponsorship _sponsorService,
+			IServiceCategory _categoryService
+			)
         {
             tranService = _tranService;
             sponsorService = _sponsorService;
+            categoryService = _categoryService;
         }
 
-        public async Task<IActionResult> Find(int SponsorId)
+        public async Task<IActionResult> Find(int SponsorId, FindChanelViewModel modelInput)
         {
-            FindChanelViewModel model = await tranService.GetFindModelAsync(SponsorId);
+            FindChanelViewModel model = null;
+
+
+			if (modelInput.Sorting == null)
+            {
+				model = await tranService.GetFindModelAsync(SponsorId);
+			}
+            else
+            {
+				model = await tranService.ReworkModelAsync(modelInput, SponsorId);
+            }
 
             return View(model);
-        }
-
-        [HttpPost]
-        public IActionResult Find(FindChanelViewModel model, int SponsorId)
-        {
-            model.SponsorshipId = SponsorId;
-
-            return RedirectToAction("Search", model);
         }
 
         public async Task<IActionResult> Details(int ChanelId, int SponsorId)

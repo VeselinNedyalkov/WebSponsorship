@@ -17,5 +17,6 @@ namespace SponsorY.DataAccess.ModelsAccess
 
 		public string CategoryName { get; set; } = null!;
 
+		public int? Sorting { get; set; }
 	}
 }

@@ -22,12 +22,12 @@
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.Subscribers">Subscribers</label>
-                <input class="form-control" type="number" autocomplete="Subscribers" aria-required="true"  placeholder="Numbers subscribers" />
+                <input class="form-control" type="number" autocomplete="Subscribers" aria-required="true"  placeholder="Numbers subscribers" asp-for="@Model.Subscribers"/>
                 <span asp-validation-for="@Model.Subscribers" class="text-danger"></span>
             </div>
             <div class="text-center mb-3">
                 <label asp-for="@Model.PricePerClip">Add price per clip</label>
-                <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" placeholder="$ per clip"  />
+                <input class="form-control" type="number" autocomplete="PricePerClip" aria-required="true" placeholder="$ per clip"  asp-for="@Model.PricePerClip"/>
                 <span asp-validation-for="@Model.PricePerClip" class="text-danger"></span>
             </div>
              <div class="list-group mb-3 text-center">

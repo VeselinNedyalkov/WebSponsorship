@@ -35,5 +35,11 @@ namespace SponsorY.DataAccess.Survices
         {
             return await context.Categories.Where(x => x.Id == catId).Select(x => x.CategoryName).FirstOrDefaultAsync();
         }
-    }
+
+		public async Task<int> GetIdByNameAsync(string Name)
+		{
+            var catId = await context.Categories.Where(x => x.CategoryName == Name).Select(x => x.Id).FirstOrDefaultAsync();
+            return catId;
+		}
+	}
 }

@@ -250,5 +250,31 @@ namespace SponsorY.DataAccess.Survices
 			context.Sponsorships.Update(sponsor);
 			await context.SaveChangesAsync();
 		}
+
+		public async Task<FindChanelViewModel> ReworkModelAsync(FindChanelViewModel modelInput, int SponsorId)
+		{
+			var category = await categoryService.GetAllCategoryAsync();
+			int catId = int.Parse(modelInput.CategoryName);
+			var youtubers = await youtubeService.GetChanelWithCategoryAsync(catId);
+
+			FindChanelViewModel model = new FindChanelViewModel
+			{
+				Youtubers = youtubers,
+				Categories = category,
+				SponsorshipId = SponsorId,
+				CategoryName = modelInput.CategoryName
+			};
+
+			if (modelInput.Sorting == 0)
+			{
+				model.Youtubers.OrderBy(x => x.PricePerClip);
+			}
+			else
+			{
+				model.Youtubers.OrderByDescending(x => x.PricePerClip);
+			}
+
+			return model;
+		}
 	}
 }

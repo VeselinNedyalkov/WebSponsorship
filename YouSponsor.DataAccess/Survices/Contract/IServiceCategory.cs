@@ -15,5 +15,7 @@ namespace SponsorY.DataAccess.Survices.Contract
         Task<IEnumerable<Category>> GetAllCategoryAsync();
 
         Task<string> GetCategoryNameAsync(int catId);
+
+        Task<int> GetIdByNameAsync(string Name);
     }
 }

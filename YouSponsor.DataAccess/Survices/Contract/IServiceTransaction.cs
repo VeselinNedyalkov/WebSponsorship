@@ -30,5 +30,7 @@ namespace SponsorY.DataAccess.Survices.Contract
 		void DeleteTransactionAsync(Guid TransId);
 
 		Task RemoveMoneyFromSponsorAsync(int SponsorId, decimal Amount);
+
+		Task<FindChanelViewModel> ReworkModelAsync(FindChanelViewModel modelInput,int SponsorId);
 	}
 }

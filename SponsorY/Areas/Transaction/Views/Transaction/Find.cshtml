@@ -5,7 +5,41 @@
 	ViewData["Title"] = "Find Chanel";
 }
 
-<h2>Youtube chanels base on - @Model.CategoryName</h2>
+
+<form asp-action="Search">
+	<div class="row">
+		<div class="form-group col-md-3 d-flex justify-content-between">
+			<div class="form-group">
+				<label asp-for="CategoryName"></label>
+				<select asp-for="CategoryName" class="form-control">
+					<option value="">All</option>
+					@foreach (var category in Model.Categories)
+					{
+						<option value="@category.Id">@category.CategoryName</option>
+					}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group col-md-3">
+			<div class="form-group">
+				<label asp-for="Sorting"></label>
+				<select asp-for="Sorting" class="form-control">
+					<option value="0">Lowest price per clip first</option>
+					<option value="1">Highest price per clip first</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="form-group mt-4 p-2">
+				<input type="submit" value="Search" class="btn btn-primary" asp-route-SponsorId=@Model.SponsorshipId />
+			</div>
+		</div>
+	</div>
+</form>
+
+
 
 <table class="table table-bordered table-hover" style="width:100%">
 	<thead class="text-muted">
@@ -53,9 +87,16 @@
 		}
 	</tbody>
 </table>
+@*chek here is it working properly*@
+@if (!Model.Youtubers.Any())
+{
+	<h2 class="text-center">No chanel found by the given criteria!</h2>
+}
 <div class="row pt-4 btn-group" role="group">
 	<a class="btn btn-primary" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main"> Back</a>
 </div>
+
+
 
 
 
