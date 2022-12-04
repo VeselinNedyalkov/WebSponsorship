@@ -26,7 +26,15 @@ namespace SponsorY.DataAccess.Survices
             context.SaveChanges();
         }
 
-        public async Task<IEnumerable<Category>> GetAllCategoryAsync()
+		public async Task DeleteCategoryAsync(int DeleteId)
+		{
+            var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == DeleteId);
+
+            context.Categories.Remove(category);
+            await context.SaveChangesAsync();
+		}
+
+		public async Task<IEnumerable<Category>> GetAllCategoryAsync()
         {
             return  await context.Categories.ToListAsync();
         }

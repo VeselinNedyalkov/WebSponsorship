@@ -17,5 +17,8 @@ namespace SponsorY.DataAccess.Survices.Contract
         Task<string> GetCategoryNameAsync(int catId);
 
         Task<int> GetIdByNameAsync(string Name);
-    }
+
+        Task DeleteCategoryAsync(int DeleteId);
+
+	}
 }

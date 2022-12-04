@@ -327,7 +327,6 @@ namespace SponsorY.DataAccess.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UserSponsorId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

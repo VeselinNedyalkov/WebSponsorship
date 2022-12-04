@@ -9,8 +9,8 @@ using System.Security.Claims;
 namespace SponsorY.Areas.Sponsorship.Controllers
 {
     [Area("Sponsorship")]
-    [Authorize]
-    public class SponsorshipController : Controller
+	[Authorize(Roles = "sponsor,admin")]
+	public class SponsorshipController : Controller
     {
         private readonly IServiceCategory categoryService;
         private readonly IServiceSponsorship sponsorService;

@@ -13,18 +13,21 @@ namespace SponsorY.Areas.User.Controllers
 
     public class UserController : Controller
     {
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
         private readonly IServiceUser serviceUser;
 
-        public UserController(
+        public UserController(RoleManager<IdentityRole> _roleManager,
             UserManager<AppUser> _userManager,
             SignInManager<AppUser> _signInManager,
             IServiceUser _serviceUser)
         {
+            roleManager = _roleManager;
             userManager = _userManager;
             signInManager = _signInManager;
             serviceUser = _serviceUser;
+
         }
 
         [HttpGet]
@@ -76,6 +79,21 @@ namespace SponsorY.Areas.User.Controllers
                 };
 
                 return View("Error", error);
+            }
+
+
+            switch (model.Role)
+            {
+                case 0:
+                    await this.userManager.AddToRoleAsync(user, "youtuber");
+                    break;
+
+                case 1:
+                    await this.userManager.AddToRoleAsync(user, "sponsor");
+                    break;
+
+                default:
+                    break;
             }
 
             foreach (var item in result.Errors)

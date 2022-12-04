@@ -6,6 +6,7 @@ using SponsorY.DataAccess.Survices.Contract;
 using SponsorY.DataAccess.Survices;
 using SponsorY.Extension;
 using SponsorY.ModelBinders;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,11 +25,15 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequireLowercase = false;
 })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddAplicationServices();
 
-
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+});
 
 builder.Services.ConfigureApplicationCookie(options =>
 {

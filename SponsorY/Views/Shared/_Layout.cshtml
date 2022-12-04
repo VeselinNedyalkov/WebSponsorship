@@ -26,32 +26,51 @@
 							<li class="nav-item">
 								<a class="nav-link " asp-area="Home" asp-controller="Home" asp-action="Main">Main</a>
 							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-									Youtubers
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
-									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="TransAwait"> Transaction Awaiting</a>
-									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="History"> Transaction history</a>
-									<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Finances"> Finances</a>
-									
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-									Sponsorhips
-								</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
-									<a class="dropdown-item" asp-area="Transaction" asp-controller="Transaction" asp-action="Requested"> Request transaction</a>
-									<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="History"> Transaction history</a>
-								</div>
-							</li>
+							@if (User.IsInRole("youtuber") || User.IsInRole("admin"))
+							{
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+										Youtubers
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
+										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="TransAwait"> Transaction Awaiting</a>
+										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="History"> Transaction history</a>
+										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Finances"> Finances</a>
+
+									</div>
+								</li>
+							}
+							@if (User.IsInRole("sponsor") || User.IsInRole("admin"))
+							{
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+										Sponsorhips
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
+										<a class="dropdown-item" asp-area="Transaction" asp-controller="Transaction" asp-action="Requested"> Request transaction</a>
+										<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="History"> Transaction history</a>
+									</div>
+								</li>
+							}
+
 							<li class="nav-item">
 								<a class="nav-link" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
 							</li>
+							@if (User.IsInRole("admin"))
+							{
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+										Admin tools
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" asp-area="Admin" asp-controller="Admin" asp-action="DeleteCat"><i class="bi bi-trash"></i>  Delete Category</a>
+										<a class="dropdown-item" asp-area="Admin" asp-controller="Admin" asp-action="Statistic"><i class="bi bi-info-square"></i> Statistics</a>
+									</div>
+								</li>
 
+							}
 						}
 						else
 						{
@@ -68,7 +87,7 @@
 					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 					</form>*@
 
-					
+
 
 					@if (User?.Identity?.IsAuthenticated ?? false)
 					{

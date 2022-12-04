@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SponsorY.Areas.User.Models;
 using SponsorY.DataAccess.Models;
@@ -9,14 +10,16 @@ using System.Security.Claims;
 namespace SponsorY.Areas.Youtube.Controllers
 {
 	[Area("Youtube")]
-	[Authorize]
+	[Authorize(Roles = "youtuber,admin")]
 	public class YoutuberController : Controller
 	{
-		private readonly IServiceYoutub youtubService;
+        private readonly IServiceYoutub youtubService;
 		private readonly IServiceCategory categoryService;
-		public YoutuberController(IServiceYoutub _userService, IServiceCategory _categoryService)
+		public YoutuberController(
+            IServiceYoutub _userService,
+			IServiceCategory _categoryService)
 		{
-			youtubService = _userService;
+            youtubService = _userService;
 			categoryService = _categoryService;
 		}
 

@@ -26,6 +26,8 @@ namespace SponsorY.Areas.User.Models
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; } = null!;
 
+        public int Role { get; set; }
+
         public bool IsDeleted { get; set; } = false;
     }
 }

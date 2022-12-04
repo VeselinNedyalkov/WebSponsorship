@@ -34,6 +34,15 @@
                 <input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.ConfirmPassword" />
                 <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
             </div>
+            <div class="text-center mb-3">
+                <div class="form-group">
+                    <label asp-for="Role">Using this chanel as:</label>
+                    <select asp-for="Role" class="form-control">
+                        <option value="0">Youtuber</option>
+                        <option value="1">Sponsor</option>
+                    </select>
+                </div>
+            </div>
             <div class="text-center">
                 <button id="registerSubmit" type="submit" class="btn btn-primary" >Register</button>
             </div>

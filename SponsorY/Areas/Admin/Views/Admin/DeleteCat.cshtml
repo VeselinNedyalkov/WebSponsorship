@@ -1,0 +1,35 @@
+﻿@model DelCategoryViewModel
+
+@{
+	ViewData["Title"] = "Delete Categories";
+}
+
+<h2>Select category to delete</h2>
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th scope="col">
+				Category name
+			</th>
+			<th scope="col">Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var ct in Model.Categories)
+		{
+			<tr class="table-info text-muted text-center">
+				<td>
+					@ct.CategoryName
+				</td>
+				<td>
+					<div class="w-75 btn-group" role="group">
+						<form  method="post">
+							<a class="btn btn-danger" asp-action="Delete" asp-route-DeleteId=@ct.Id><i class="bi bi-x-circle"></i> Delete</a>
+						</form>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
