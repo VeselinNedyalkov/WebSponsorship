@@ -30,12 +30,12 @@
 							{
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-										Youtubers
+										<i class="bi bi-youtube"></i> Youtubers
 									</a>
 									<div class="dropdown-menu">
 										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Main">  Youtube chanels Info</a>
-										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="TransAwait"> Transaction Awaiting</a>
-										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="History"> Transaction history</a>
+										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="TransAwait"> Sponsorship offers</a>
+										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="History"> Sponsorship history</a>
 										<a class="dropdown-item" asp-area="Youtube" asp-controller="Youtuber" asp-action="Finances"> Finances</a>
 
 									</div>
@@ -45,24 +45,26 @@
 							{
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-										Sponsorhips
+										<i class="bi bi-cash-stack"></i> Sponsorhips
 									</a>
 									<div class="dropdown-menu">
 										<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Main">  Sponsorship Info</a>
 										<a class="dropdown-item" asp-area="Transaction" asp-controller="Transaction" asp-action="Requested"> Request transaction</a>
-										<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="History"> Transaction history</a>
+										<a class="dropdown-item" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="History"> Sponsorship history</a>
 									</div>
 								</li>
 							}
 
 							<li class="nav-item">
-								<a class="nav-link" asp-area="Category" asp-controller="Category" asp-action="Add"> Add category</a>
+								<a class="nav-link" asp-area="Category" asp-controller="Category" asp-action="Add">
+									<i class="bi bi-plus-square"></i>	Add category
+								</a>
 							</li>
 							@if (User.IsInRole("admin"))
 							{
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-										Admin tools
+										<i class="bi bi-exclamation-triangle-fill"></i> Admin tools
 									</a>
 									<div class="dropdown-menu">
 										<a class="dropdown-item" asp-area="Admin" asp-controller="Admin" asp-action="DeleteCat"><i class="bi bi-trash"></i>  Delete Category</a>
@@ -95,11 +97,11 @@
 						<ul>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-									Menu
+								<i class="bi bi-sliders"></i> Menu
 								</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="AddUserInfo"> <i class="bi bi-info-square"></i> User Info</a>
-									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="Settings"><i class="bi bi-gear"></i>	Setting</a>
+									<a class="dropdown-item" asp-area="Menu" asp-controller="Settings" asp-action="Settings"><i class="bi bi-gear"></i>	Settings</a>
 									<a class="dropdown-item" asp-area="Menu" asp-controller="Menu" asp-action="Delete"> <i class="bi bi-x-circle"></i> Delete account</a>
 								</div>
 							</li>

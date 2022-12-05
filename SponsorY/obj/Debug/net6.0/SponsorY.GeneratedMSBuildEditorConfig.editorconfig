@@ -52,10 +52,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xIb21lXE1haW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Home/Views/Home/Settings.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xIb21lXFNldHRpbmdzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Home/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -108,8 +104,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xNZW51XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Menu/Views/Menu/Settings.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xNZW51XFNldHRpbmdzLmNzaHRtbA==
+[C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Menu/Views/Settings/Settings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xTZXR0aW5nc1xTZXR0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Vesko/Desktop/EXAM/Project/SponsorY/SponsorY/Areas/Menu/Views/_ViewImports.cshtml]

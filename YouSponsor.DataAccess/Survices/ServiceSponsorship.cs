@@ -143,7 +143,7 @@ namespace SponsorY.DataAccess.Survices
 		public async Task<IEnumerable<SponsorHistoryViewModel>> TakeAllCompletedTransactions(string userId)
 		{
             var model = await context.Transactions
-                .Where(x => x.UserSponsorId == userId && x.IsCompleted == true)
+                .Where(x => x.AppUserId == userId && x.IsCompleted == true)
                 .Select(s => new SponsorHistoryViewModel
                 {
                     Product = s.SponsorshipTransactions.Select(x => x.Sponsorship.Product).FirstOrDefault(),

@@ -24,7 +24,7 @@ namespace SponsorY.DataAccess.Models
 		public virtual ICollection<YoutuberTransaction> YoutuberTransactions { get; set; } = new List<YoutuberTransaction>();
 
 
-		public string? UserSponsorId { get; set; } 
+		public string? AppUserId { get; set; } 
         public bool SuccessfulCreated { get; set; }
 
         public bool HasAccepted { get; set; }

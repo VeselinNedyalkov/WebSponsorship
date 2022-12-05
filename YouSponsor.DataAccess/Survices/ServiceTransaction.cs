@@ -69,7 +69,7 @@ namespace SponsorY.DataAccess.Survices
 			{
 				TransferMoveney = model.TotalPrice,
 				QuntityClips = model.QuantityClips,
-				UserSponsorId = userId,
+				AppUserId = userId,
 				SuccessfulCreated = false,
 				HasAccepted = false,
 			};
@@ -96,7 +96,7 @@ namespace SponsorY.DataAccess.Survices
 				Id = trans.Id,
 				TransferMoveney = model.TotalPrice,
 				QuntityClips = model.QuantityClips,
-				UserSponsorId = userId,
+				AppUserId = userId,
 				SuccessfulCreated = trans.SuccessfulCreated,
 				SponsorshipTransactions = trans.SponsorshipTransactions,
 				YoutuberTransactions = trans.YoutuberTransactions,
@@ -166,7 +166,7 @@ namespace SponsorY.DataAccess.Survices
 
 			//check
 			IEnumerable<NotAcceptedTransactionViewModel> model = await context.Transactions
-				.Where(x => x.UserSponsorId == userId && x.HasAccepted == false)
+				.Where(x => x.AppUserId == userId && x.HasAccepted == false)
 				.Select(x => new NotAcceptedTransactionViewModel
 				{
 					Id = x.Id,
