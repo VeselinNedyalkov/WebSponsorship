@@ -1,4 +1,4 @@
-﻿using SponsorY.DataAccess.ModelsAccess;
+﻿using SponsorY.DataAccess.ModelsAccess.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SponsorY.DataAccess.Survices.Contract
 {
-	public interface IServiceMenu
+    public interface IServiceMenu
 	{
 		Task<UserInfoViewModel> GetUserInfo(string userId);
 	}

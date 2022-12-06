@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SponsorY.Areas.User.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Sponsor;
+using SponsorY.DataAccess.ModelsAccess.Transaction;
 using SponsorY.DataAccess.Survices.Contract;
 using System.Diagnostics;
 using System.Security.Claims;

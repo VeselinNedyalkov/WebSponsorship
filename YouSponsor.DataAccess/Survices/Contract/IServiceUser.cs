@@ -1,4 +1,4 @@
-﻿using SponsorY.DataAccess.ModelsAccess;
+﻿using SponsorY.DataAccess.ModelsAccess.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;

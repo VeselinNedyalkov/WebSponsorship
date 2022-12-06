@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
 using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Youtube;
 using SponsorY.DataAccess.Survices.Contract;
 using System.Collections.Generic;
 using System.Data;
 
 namespace SponsorY.DataAccess.Survices
 {
-	public class ServiceYoutube : IServiceYoutub
+    public class ServiceYoutube : IServiceYoutub
 	{
 		private readonly ApplicationDbContext context;
 		private readonly IServiceCategory categorySerivece;

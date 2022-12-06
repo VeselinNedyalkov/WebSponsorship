@@ -1,7 +1,7 @@
 ﻿using static SponsorY.Utility.DataConstant.CategoryConstants;
 using System.ComponentModel.DataAnnotations;
 
-namespace SponsorY.DataAccess.ModelsAccess
+namespace SponsorY.DataAccess.ModelsAccess.Categories
 {
     public class CategoryViewModel
     {

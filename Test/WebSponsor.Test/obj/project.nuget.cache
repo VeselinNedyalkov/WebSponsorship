@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QYVUA1jOQzSpQzsF52fbWZ2fAJimSt/6hZ15iOiNYveGq0kcrdVK2eZ+Cj8D8LAmTBfPmskgpFwe44tU6Y1lww==",
+  "dgSpecHash": "FH1CaXe6DlxzokM4fsLSpM5dHB0NYDKphPgTL937L9dRXGDtPRkj/XMwlBj0UubJaYsV0C0XkN+TbANx/cDIIw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\Test\\WebSponsor.Test\\WebSponsor.Test.csproj",
   "expectedPackageFiles": [
@@ -39,9 +39,10 @@
     "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.diasymreader\\1.3.0\\microsoft.diasymreader.1.3.0.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.dotnet.scaffolding.shared\\6.0.10\\microsoft.dotnet.scaffolding.shared.6.0.10.nupkg.sha512",
-    "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.10\\microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
-    "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.10\\microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
-    "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.10\\microsoft.entityframeworkcore.analyzers.6.0.10.nupkg.sha512",
+    "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.11\\microsoft.entityframeworkcore.6.0.11.nupkg.sha512",
+    "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.11\\microsoft.entityframeworkcore.abstractions.6.0.11.nupkg.sha512",
+    "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.11\\microsoft.entityframeworkcore.analyzers.6.0.11.nupkg.sha512",
+    "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.11\\microsoft.entityframeworkcore.inmemory.6.0.11.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.10\\microsoft.entityframeworkcore.relational.6.0.10.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.10\\microsoft.entityframeworkcore.sqlserver.6.0.10.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",

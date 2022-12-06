@@ -1,5 +1,5 @@
 ﻿using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Sponsor;
 using System;
 using System.Collections.Generic;
 using System.Linq;

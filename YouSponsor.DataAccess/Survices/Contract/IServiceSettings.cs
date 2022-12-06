@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SponsorY.DataAccess.ModelsAccess
+namespace SponsorY.DataAccess.Survices.Contract
 {
-	public class YoutubeFinancesViewModel
+	public interface IServiceSettings
 	{
-		public decimal Wallet { get; set; }
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Sponsor;
+using SponsorY.DataAccess.ModelsAccess.Transaction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SponsorY.DataAccess.Survices.Contract
 {
-	public interface IServiceTransaction
+    public interface IServiceTransaction
 	{
 		decimal GetTotalPrice(int quantity, decimal PricePerClip);
 		Task<TransactionViewModel> CreatedTransactionViewModelAsync(int youId, int SponsorId);

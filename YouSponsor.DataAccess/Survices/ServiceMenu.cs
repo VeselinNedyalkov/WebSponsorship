@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.User;
 using SponsorY.DataAccess.Survices.Contract;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SponsorY.DataAccess.Survices
 {
-	public class ServiceMenu : IServiceMenu
+    public class ServiceMenu : IServiceMenu
 	{
 		private readonly ApplicationDbContext context;
 

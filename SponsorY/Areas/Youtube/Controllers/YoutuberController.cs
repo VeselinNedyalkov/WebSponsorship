@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SponsorY.Areas.User.Models;
 using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Youtube;
 using SponsorY.DataAccess.Survices.Contract;
 using System.Security.Claims;
 
 namespace SponsorY.Areas.Youtube.Controllers
 {
-	[Area("Youtube")]
+    [Area("Youtube")]
 	[Authorize(Roles = "youtuber,admin")]
 	public class YoutuberController : Controller
 	{

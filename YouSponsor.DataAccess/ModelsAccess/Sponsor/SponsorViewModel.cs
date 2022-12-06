@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SponsorY.DataAccess.ModelsAccess
+namespace SponsorY.DataAccess.ModelsAccess.Sponsor
 {
     public class SponsorViewModel
     {
@@ -17,11 +17,11 @@ namespace SponsorY.DataAccess.ModelsAccess
         [StringLength(CompanyNameMaxLenght)]
         public string CompanyName { get; set; } = null!;
 
-		[Required]
+        [Required]
         [StringLength(ProductMaxLenght)]
         public string Product { get; set; } = null!;
 
-		public IEnumerable<Category>? Categories { get; set; }
+        public IEnumerable<Category>? Categories { get; set; }
 
         public int CategoryId { get; set; }
 
@@ -35,5 +35,5 @@ namespace SponsorY.DataAccess.ModelsAccess
 
         public string AppUserId { get; set; } = null!;
 
-	}
+    }
 }

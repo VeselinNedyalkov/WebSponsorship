@@ -1,9 +1,9 @@
 ﻿using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Youtube;
 
 namespace SponsorY.DataAccess.Survices.Contract
 {
-	public interface IServiceYoutub
+    public interface IServiceYoutub
 
 	{
 		Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync(string userId);

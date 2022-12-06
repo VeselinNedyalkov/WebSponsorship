@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
 using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Sponsor;
+using SponsorY.DataAccess.ModelsAccess.Transaction;
 using SponsorY.DataAccess.Survices.Contract;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace SponsorY.DataAccess.Survices
 {
-	public class ServiceTransaction : IServiceTransaction
+    public class ServiceTransaction : IServiceTransaction
 	{
 		private readonly ApplicationDbContext context;
 		private readonly IServiceYoutub youtubeService;

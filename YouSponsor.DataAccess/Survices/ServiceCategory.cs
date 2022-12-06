@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
 using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.ModelsAccess.Categories;
 using SponsorY.DataAccess.Survices.Contract;
 
 namespace SponsorY.DataAccess.Survices

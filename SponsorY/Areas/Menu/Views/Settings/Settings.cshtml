@@ -1,13 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Settings";
+	ViewData["Title"] = "Settings";
 }
 
 
-<div class="btn-group-vertical  position: fixed-left">
-    <button type="button" class="btn btn-primary">Button</button>
-    <button type="button" class="btn btn-primary">Button</button>
-    <button type="button" class="btn btn-primary">Button</button>
-    <button type="button" class="btn btn-primary">Button</button>
-    <button type="button" class="btn btn-primary">Button</button>
-    <button type="button" class="btn btn-primary">Button</button>
+
+<div class="row">
+	<div class="col-md-4 offset-md-4">
+		<div class="btn-group-vertical  position: fixed-left">
+			<a class="btn btn-primary" asp-area="Menu" asp-controller="Settings" asp-action="ChangePass">Change pasword</a>
+
+			@* <button type="button" class="btn btn-primary">Button</button>
+			<button type="button" class="btn btn-primary">Button</button>
+			<button type="button" class="btn btn-primary">Button</button>
+			<button type="button" class="btn btn-primary">Button</button>
+			<button type="button" class="btn btn-primary">Button</button>*@
+		</div>
+	</div>
 </div>

@@ -6,7 +6,7 @@ using static SponsorY.Utility.DataConstant.UserInfoConstants;
 using static SponsorY.Utility.DataConstant.UserInfoError;
 
 
-namespace SponsorY.DataAccess.ModelsAccess
+namespace SponsorY.DataAccess.ModelsAccess.User
 {
     public class UserInfoViewModel
     {

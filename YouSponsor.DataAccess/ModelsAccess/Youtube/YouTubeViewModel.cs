@@ -1,9 +1,8 @@
-﻿
-using SponsorY.DataAccess.Models;
+﻿using SponsorY.DataAccess.Models;
 using System.ComponentModel.DataAnnotations;
 using static SponsorY.Utility.DataConstant.YoutuberConstants;
 
-namespace SponsorY.DataAccess.ModelsAccess
+namespace SponsorY.DataAccess.ModelsAccess.Youtube
 {
     public class YouTubeViewModel
     {
@@ -13,10 +12,10 @@ namespace SponsorY.DataAccess.ModelsAccess
         [StringLength(ChanelNameMaxLenght)]
         public string ChanelName { get; set; } = null!;
 
-		[Required]
+        [Required]
         public string Url { get; set; } = null!;
 
-		[Required]
+        [Required]
         public int Subscribers { get; set; }
 
         [Required]
@@ -28,10 +27,10 @@ namespace SponsorY.DataAccess.ModelsAccess
 
         public string Category { get; set; } = null!;
 
-		public Guid? TransferId { get; set; }
+        public Guid? TransferId { get; set; }
 
         public int CategoryId { get; set; }
 
         public string AppUserId { get; set; } = null!;
-	}
+    }
 }

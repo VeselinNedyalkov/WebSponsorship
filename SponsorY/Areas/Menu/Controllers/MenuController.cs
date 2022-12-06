@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SponsorY.DataAccess.ModelsAccess;
 using SponsorY.DataAccess.Survices;
 using System.Security.Claims;
 using SponsorY.DataAccess.Survices.Contract;
 using SponsorY.Areas.User.Models;
+using SponsorY.DataAccess.ModelsAccess.User;
 
 namespace SponsorY.Areas.Menu.Controllers
 {

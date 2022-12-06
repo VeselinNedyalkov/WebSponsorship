@@ -15,6 +15,7 @@ namespace SponsorY.Extension
             services.AddScoped<IServiceTransaction, ServiceTransaction>();
             services.AddScoped<IServiceMenu, ServiceMenu>();
             services.AddScoped<IServiceAdmin, ServiceAdmin>();
+            services.AddScoped<IServiceSettings, ServiceSettings>();
 
             return services;
         }
