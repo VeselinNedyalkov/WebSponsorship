@@ -7,7 +7,6 @@ using System.Diagnostics;
 namespace SponsorY.Areas.Home.Controllers
 {
     [Area("Home")]
-    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

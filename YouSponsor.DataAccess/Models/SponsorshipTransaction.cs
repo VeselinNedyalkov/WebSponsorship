@@ -11,11 +11,11 @@ namespace SponsorY.DataAccess.Models
 	{
 		[ForeignKey(nameof(Sponsorship))]
 		public int SponsorId { get; set; }
-		public Sponsorship Sponsorship { get; set; }
+		public Sponsorship Sponsorship { get; set; } = null!;
 
 		[ForeignKey(nameof(Transaction))]
 
 		public Guid TransactionId { get; set; }
-		public Transaction Transaction { get; set; }
+		public Transaction Transaction { get; set; } = null!;
 	}
 }

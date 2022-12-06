@@ -13,12 +13,12 @@ namespace SponsorY.DataAccess.ModelsAccess.Settings
 		[Required]
 		[StringLength(PasswordMaxLength, MinimumLength = PasswordMinLength)]
 		[DataType(DataType.Password)]
-		public string NewPassword { get; set; }
+		public string NewPassword { get; set; } = null!;
 
         [Compare(nameof(NewPassword))]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; } = null!;
 
-        public bool IsPassCorrect { get; set; } = false;
+		public string? Error { get; set; }
 	}
 }

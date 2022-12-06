@@ -9,10 +9,10 @@ using System.Security.Claims;
 
 namespace SponsorY.Areas.Transaction.Controllers
 {
-    [Authorize]
     [Area("Transaction")]
+	[Authorize(Roles = "sponsor,admin")]
 
-    public class TransactionController : Controller
+	public class TransactionController : Controller
     {
 
         private readonly IServiceTransaction tranService;
@@ -30,7 +30,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             categoryService = _categoryService;
         }
 
-        public async Task<IActionResult> Find(int SponsorId, FindChanelViewModel modelInput)
+		public async Task<IActionResult> Find(int SponsorId, FindChanelViewModel modelInput)
         {
             FindChanelViewModel model = null;
 
@@ -47,7 +47,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Details(int ChanelId, int SponsorId)
+		public async Task<IActionResult> Details(int ChanelId, int SponsorId)
         {
             TransactionViewModel model = await tranService.CreatedTransactionViewModelAsync(ChanelId, SponsorId);
 
@@ -63,7 +63,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Submit(Guid TranslId, int SponsorId , int ChanelId)
+		public async Task<IActionResult> Submit(Guid TranslId, int SponsorId , int ChanelId)
         {
             var transaction = await tranService.GetTransactionAsync(TranslId);
             var sponsor = await sponsorService.GetSponsorsEditAsync(SponsorId);
@@ -85,7 +85,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return RedirectToAction(nameof(Requested));
         }
 
-        public async Task<IActionResult> Requested()
+		public async Task<IActionResult> Requested()
         {
             var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
             var model = await tranService.GetAllUnaceptedTransaction(userId);
@@ -93,7 +93,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Plus(Guid TranslId, int SponsorId, int ChanelId)
+		public async Task<IActionResult> Plus(Guid TranslId, int SponsorId, int ChanelId)
         {
             
             var transaction = await tranService.GetTransactionAsync(TranslId);
@@ -114,7 +114,7 @@ namespace SponsorY.Areas.Transaction.Controllers
             return View(nameof(Details), model);
         }
 
-        public async Task<IActionResult> Minus(Guid TranslId, int SponsorId, int ChanelId)
+		public async Task<IActionResult> Minus(Guid TranslId, int SponsorId, int ChanelId)
         {
             var transaction = await tranService.GetTransactionAsync(TranslId);
             transaction.QuntityClips -= 1;

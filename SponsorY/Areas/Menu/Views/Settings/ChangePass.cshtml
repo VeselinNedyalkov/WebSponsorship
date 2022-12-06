@@ -12,28 +12,25 @@
 		<form id="changePassword" method="post">
 			<hr />
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="text-center mb-3">
+				<label asp-for="@Model.Password">Enter your password</label>
+				<input class="form-control " autocomplete="password" aria-required="true" asp-for="@Model.Password" />
+				<span asp-validation-for="@Model.Password" class="text-danger"></span>
+			</div>
+			<div class="text-center mb-3">
+				<p class="text-danger">@Model.Error</p>
+			</div>
+			<div class="text-center mb-3">
+				<label asp-for="@Model.NewPassword">New Password</label>
+				<input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.NewPassword" />
+				<span asp-validation-for="@Model.NewPassword" class="text-danger"></span>
+			</div>
+			<div class="text-center mb-3">
+				<label asp-for="@Model.ConfirmPassword">Confirm Password</label>
+				<input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.ConfirmPassword" />
+				<span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+			</div>
 
-			@if (!Model.IsPassCorrect)
-			{
-				<div class="text-center mb-3">
-					<label asp-for="@Model.Password">Enter your password</label>
-					<input class="form-control " autocomplete="password" aria-required="true" asp-for="@Model.Password" />
-					<span asp-validation-for="@Model.Password" class="text-danger"></span>
-				</div>
-			}
-			else
-			{
-				<div class="text-center mb-3">
-					<label asp-for="@Model.NewPassword">New Password</label>
-					<input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.NewPassword" />
-					<span asp-validation-for="@Model.NewPassword" class="text-danger"></span>
-				</div>
-				<div class="text-center mb-3">
-					<label asp-for="@Model.ConfirmPassword">Confirm Password</label>
-					<input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.ConfirmPassword" />
-					<span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
-				</div>
-			}
 			<div class="text-center">
 				<button id="registerSubmit" type="submit" class="btn btn-primary">Submit</button>
 			</div>

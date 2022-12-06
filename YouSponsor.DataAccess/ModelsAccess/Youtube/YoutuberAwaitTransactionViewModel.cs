@@ -11,9 +11,9 @@ namespace SponsorY.DataAccess.ModelsAccess.Youtube
         public decimal MoneyOffer { get; set; }
         public int QuntityClips { get; set; }
         public Guid TransactionId { get; set; }
-        public string CompanyName { get; set; }
-        public string Product { get; set; }
+        public string CompanyName { get; set; } = null!;
+		public string Product { get; set; } = null!;
 
-        public string? ProductUrl { get; set; }
+		public string? ProductUrl { get; set; }
     }
 }

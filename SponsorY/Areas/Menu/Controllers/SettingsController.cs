@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SponsorY.Areas.User.Models;
 using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess.Settings;
 using SponsorY.DataAccess.Survices.Contract;
@@ -42,21 +43,35 @@ namespace SponsorY.Areas.Menu.Controllers
 
 			if (!ModelState.IsValid)
 			{
-				if (await UserManager.CheckPasswordAsync(user, model.Password))
-				{
-					model.IsPassCorrect = true;
-				}
-				else
-				{
-					ModelState.AddModelError("Wrong password", "Wrong password");
-				}
+				ModelState.AddModelError("Wrong password", "Wrong password");
+
 				return View(model);
 			}
 			else
 			{
-				await UserManager.ChangePasswordAsync(user, model.Password, model.NewPassword);
+				try
+				{
+					if (await UserManager.CheckPasswordAsync(user, model.Password))
+					{
+						await UserManager.ChangePasswordAsync(user, model.Password, model.NewPassword);
+						TempData["success"] = "Password successfully changed";
+					}
+					else
+					{
+						model.Error = "* Wrong password *";
+					}
+				}
+				catch
+				{
+					var error = new ErrorViewModel
+					{
+						RequestId = "Sorry problem"
+					};
 
-				return View();
+					return View("Error", error);
+				}
+
+				return View(model);
 
 			}
 

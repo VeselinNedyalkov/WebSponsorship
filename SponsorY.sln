@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SponsorY.DataAccess", "YouS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SponsY.Utility", "YouSponsor.Utility\SponsY.Utility.csproj", "{4A3F27C3-C6E0-462A-9E04-8F902E288383}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSponsor.Test", "Test\WebSponsor.Test\WebSponsor.Test.csproj", "{3D02DB56-EFE4-44FA-945D-32C2F225C66A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorY.Test", "SponsorY.Test\SponsorY.Test.csproj", "{4BE20D3C-4878-4163-BB16-91F445EB9376}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{4A3F27C3-C6E0-462A-9E04-8F902E288383}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A3F27C3-C6E0-462A-9E04-8F902E288383}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A3F27C3-C6E0-462A-9E04-8F902E288383}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D02DB56-EFE4-44FA-945D-32C2F225C66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D02DB56-EFE4-44FA-945D-32C2F225C66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D02DB56-EFE4-44FA-945D-32C2F225C66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D02DB56-EFE4-44FA-945D-32C2F225C66A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE20D3C-4878-4163-BB16-91F445EB9376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE20D3C-4878-4163-BB16-91F445EB9376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE20D3C-4878-4163-BB16-91F445EB9376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE20D3C-4878-4163-BB16-91F445EB9376}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
