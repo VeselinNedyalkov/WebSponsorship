@@ -29,7 +29,7 @@ namespace SponsorY.Test
 				Url = "Url",
 				Subscribers = 12,
 				PricePerClip = 10,
-				Wallet = 0,
+				Wallet = 5,
 				CategoryId = 1,
 				AppUserId = "1"
 			};
@@ -41,7 +41,7 @@ namespace SponsorY.Test
 				Url = "Url",
 				Subscribers = 12,
 				PricePerClip = 10,
-				Wallet = 0,
+				Wallet = 10,
 				CategoryId = 1,
 				AppUserId = "1"
 			};
@@ -163,7 +163,71 @@ namespace SponsorY.Test
 		[Fact]
 		public async void TestGetAllMoneyFormWallet()
 		{
+			var opitionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+		.UseInMemoryDatabase("test4");
+			var dbContext = new ApplicationDbContext(opitionBuilder.Options);
+			IServiceCategory categorySerivece = new ServiceCategory(dbContext);
+			var youtubeService = new ServiceYoutube(dbContext, categorySerivece);
 
+			AppUser user = new AppUser
+			{
+				Id = "1",
+				UserName = "test",
+				Email = "test",
+				Wallet = 15,
+			};
+
+			dbContext.Users.Add(user);
+			dbContext.SaveChanges();
+
+			var result = await youtubeService.GetAllFinancesaAsync("1");
+
+			Assert.Equal(15, result.Wallet);
+		}
+
+		[Fact]
+		public void TestReduceMoneyFromUserWhenWitdraw()
+		{
+			var opitionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+		.UseInMemoryDatabase("test5");
+			var dbContext = new ApplicationDbContext(opitionBuilder.Options);
+			IServiceCategory categorySerivece = new ServiceCategory(dbContext);
+			var youtubeService = new ServiceYoutube(dbContext, categorySerivece);
+
+			AppUser user = new AppUser
+			{
+				Id = "1",
+				UserName = "test",
+				Email = "test",
+				Wallet = 2000,
+			};
+
+			AppUser user1 = new AppUser
+			{
+				Id = "2",
+				UserName = "test",
+				Email = "test",
+				Wallet = 2000,
+			};
+
+			dbContext.Users.Add(user);
+			dbContext.SaveChanges();
+
+			YoutubeFinancesViewModel model = new YoutubeFinancesViewModel
+			{
+				Wallet = 2000
+			};
+			YoutubeFinancesViewModel model1 = new YoutubeFinancesViewModel
+			{
+				Wallet = 3000
+			};
+
+			youtubeService.WithdrawMOneyAsync(user.Id, model);
+
+			var userMoney = dbContext.Users.Where(x => x.Id == user.Id).Select(x => x.Wallet).FirstOrDefault();
+
+			Assert.Equal(0, userMoney);
+			Assert.ThrowsAsync<InvalidOperationException>(() => youtubeService.WithdrawMOneyAsync(user1.Id, model1));
 		}
 	}
 }

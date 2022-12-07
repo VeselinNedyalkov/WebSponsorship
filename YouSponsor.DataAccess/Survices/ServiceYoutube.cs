@@ -263,7 +263,6 @@ namespace SponsorY.DataAccess.Survices
 				})
 				.FirstOrDefaultAsync();
 
-
 			return usersFinances;
 		}
 

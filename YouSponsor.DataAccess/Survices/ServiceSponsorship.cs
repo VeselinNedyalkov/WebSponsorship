@@ -126,6 +126,13 @@ namespace SponsorY.DataAccess.Survices
 			return user!;
 		}
 
+		/// <summary>
+		/// Reduce the money of the sponsor with ID
+		/// </summary>
+		/// <param name="SponsorId"></param>
+		/// <param name="model"></param>
+		/// <returns></returns>
+		/// <exception cref="InvalidOperationException"></exception>
 		public async Task RemoveMoneyFromSponsorAsync(int SponsorId, SponsorViewModel model)
 		{
 			var sponsor = await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
