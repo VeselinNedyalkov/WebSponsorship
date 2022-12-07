@@ -20,16 +20,15 @@
 				<form method="post">
 					<div class="text-center mb-3">
 
-						<label asp-for="@Model.Wallet">Add / Withdraw $</label>
-						<input class="form-control" type="number"  aria-required="true" asp-for="@Model.Wallet" />
-						<span asp-validation-for="@Model.Wallet" class="text-danger"></span>
+						<label asp-for="@Model.ValueMoney">Add / Withdraw $</label>
+						<input class="form-control" type="number" aria-required="true" asp-for="@Model.ValueMoney"/>
+						<span asp-validation-for="@Model.ValueMoney" class="text-danger"></span>
 
 					</div>
 
 					<div class="text-center">
-
-						<button id="registerSubmit" type="submit" class="btn btn-outline-primary ">Add</button>
-						<button id="registerSubmit" type="submit" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Withdraw"
+						<button id="Submit" type="submit" class="btn btn-outline-primary">Add</button>
+						<button id="Submit" type="submit" asp-area="Sponsorship" asp-controller="Sponsorship" asp-action="Withdraw"
 								asp-route-SponsorId="@Model.Id" class="btn btn-outline-primary ">
 							Withdraw
 						</button>

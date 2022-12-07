@@ -27,7 +27,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\SponsorY.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\SponsorY.csproj"
+              },
+              "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -65,6 +72,241 @@
               "version": "[2.4.5, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\SponsorY.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\SponsorY.csproj",
+        "projectName": "SponsorY",
+        "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\SponsorY.csproj",
+        "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\SponsorY\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
+              },
+              "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\SponsY.Utility.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\SponsY.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
+        "projectName": "SponsorY.DataAccess",
+        "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\SponsY.Utility.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\SponsY.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\SponsY.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\SponsY.Utility.csproj",
+        "projectName": "SponsY.Utility",
+        "projectPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\SponsY.Utility.csproj",
+        "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vesko\\Desktop\\EXAM\\Project\\SponsorY\\YouSponsor.Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",

@@ -57,5 +57,11 @@
             public const int ProductMaxLenght = 120;
             public const int ProductMinLenght = 5;
         }
-    }
+
+        public class SponsorshipErrorMsg
+        {
+			public const string WalletMustBePositive = "The number must be positive!";
+		}
+
+	}
 }

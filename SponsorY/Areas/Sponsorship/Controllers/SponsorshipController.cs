@@ -110,7 +110,12 @@ namespace SponsorY.Areas.Sponsorship.Controllers
         {
 			if (SponsorId == 0)
 			{
-				return NotFound();
+				var error = new ErrorViewModel
+				{
+					RequestId = "User is not found"
+				};
+
+				return View("Error", error);
 			}
 
 			var model = await sponsorService.GetSponsorsEditAsync(SponsorId);
@@ -121,21 +126,24 @@ namespace SponsorY.Areas.Sponsorship.Controllers
         [HttpPost]
 		public async Task<IActionResult> Finances(int SponsorId,SponsorViewModel model)
 		{
-			try
-			{
-				await sponsorService.AddMoneyToSponsorAsync(SponsorId ,model);
-			}
-			catch (Exception e)
-			{
-				var error = new ErrorViewModel
+            if(model.ValueMoney > 0)
+            {
+				try
 				{
-					RequestId = e.Message
-				};
+					await sponsorService.AddMoneyToSponsorAsync(SponsorId, model);
+					TempData["success"] = "Sponsorship finances updated!";
+				}
+				catch (Exception e)
+				{
+					var error = new ErrorViewModel
+					{
+						RequestId = e.Message
+					};
 
-				return View("Error", error);
+					return View("Error", error);
+				}
 			}
-
-			TempData["success"] = "Sponsorship finances updated!";
+			
 			return RedirectToAction(nameof(Main));
 		}
 

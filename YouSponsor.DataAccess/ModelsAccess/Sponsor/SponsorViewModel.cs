@@ -1,5 +1,6 @@
 ﻿using SponsorY.DataAccess.Models;
 using static SponsorY.Utility.DataConstant.SponsorshipConstants;
+using static SponsorY.Utility.DataConstant.SponsorshipErrorMsg;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -30,10 +31,13 @@ namespace SponsorY.DataAccess.ModelsAccess.Sponsor
         public string? Url { get; set; }
 
 
-        [Range(typeof(decimal), "0.0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true)]
+        [Range(typeof(decimal), "0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true , ErrorMessage = WalletMustBePositive)]
         public decimal Wallet { get; set; } = 0;
 
-        public string AppUserId { get; set; } = null!;
+		[Range(typeof(decimal), "0", "79228162514264337593543950335", ConvertValueInInvariantCulture = true, ErrorMessage = WalletMustBePositive)]
+		public decimal ValueMoney { get; set; } = 0;
+
+		public string AppUserId { get; set; } = null!;
 
     }
 }

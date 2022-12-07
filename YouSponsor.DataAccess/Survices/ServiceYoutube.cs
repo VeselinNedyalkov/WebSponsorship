@@ -118,7 +118,12 @@ namespace SponsorY.DataAccess.Survices
 		}
 
 
-
+		/// <summary>
+		/// Save edited Youtuber
+		/// </summary>
+		/// <param name="EditId"></param>
+		/// <param name="model"></param>
+		/// <returns></returns>
 		public async Task EditYoutuberAsync(int EditId, YouTubeViewModel model)
 		{
 			var userYoutub = await TakeYoutuberAsync(EditId);
@@ -184,7 +189,6 @@ namespace SponsorY.DataAccess.Survices
 
 		public async Task<IEnumerable<YoutuberAwaitTransactionViewModel>> GetAllTransactionsAwaitingAsync(string userId)
 		{
-			//check
 			var model = await context.Transactions
 			.Where(x => x.YoutuberTransactions.Select(x => x.Youtuber.AppUserId).FirstOrDefault() == userId && x.HasAccepted == false)
 			.Select(x => new YoutuberAwaitTransactionViewModel
@@ -244,6 +248,12 @@ namespace SponsorY.DataAccess.Survices
 			await context.SaveChangesAsync();
 		}
 
+
+		/// <summary>
+		/// How much money the youtuber has
+		/// </summary>
+		/// <param name="userId"></param>
+		/// <returns></returns>
 		public async Task<YoutubeFinancesViewModel> GetAllFinancesaAsync(string userId)
 		{
 			var usersFinances = await context.Users.Where(x => x.Id == userId)

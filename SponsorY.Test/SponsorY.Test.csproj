@@ -22,4 +22,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SponsorY\SponsorY.csproj" />
+    <ProjectReference Include="..\YouSponsor.DataAccess\SponsorY.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

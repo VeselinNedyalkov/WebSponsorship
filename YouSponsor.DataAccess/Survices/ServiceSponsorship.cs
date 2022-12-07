@@ -13,151 +13,151 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SponsorY.DataAccess.Survices
 {
-    public class ServiceSponsorship : IServiceSponsorship
-    {
-        private readonly ApplicationDbContext context;
-        private readonly IServiceCategory categoryService;
+	public class ServiceSponsorship : IServiceSponsorship
+	{
+		private readonly ApplicationDbContext context;
+		private readonly IServiceCategory categoryService;
 
-        public ServiceSponsorship(ApplicationDbContext _context,
-            IServiceCategory _categoryService)
-        {
-            context = _context;
-            categoryService = _categoryService;
-        }
+		public ServiceSponsorship(ApplicationDbContext _context,
+			IServiceCategory _categoryService)
+		{
+			context = _context;
+			categoryService = _categoryService;
+		}
 
 		public async Task AddMoneyToSponsorAsync(int SponsorId, SponsorViewModel model)
 		{
 			var sponsor = await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
+			sponsor.Wallet += model.ValueMoney;
 
-            sponsor.Wallet += model.Wallet;
 
-            await context.SaveChangesAsync();
+			await context.SaveChangesAsync();
 		}
 
 		public async Task AddSponsorshipAsync(string userId, AddSponsorViewModel model)
-        {
-            Sponsorship sponsor = new Sponsorship
-            {
-                CompanyName = model.CompanyName,
-                Product = model.Product,
-                Url = model.Url,
-                Wallet = model.Wallet,
-                AppUserId = userId,
-                CategoryId = model.CategoryId
-            };
+		{
+			Sponsorship sponsor = new Sponsorship
+			{
+				CompanyName = model.CompanyName,
+				Product = model.Product,
+				Url = model.Url,
+				Wallet = model.Wallet,
+				AppUserId = userId,
+				CategoryId = model.CategoryId
+			};
 
-            await context.Sponsorships.AddAsync(sponsor);
-            context.SaveChanges();
-        }
+			await context.Sponsorships.AddAsync(sponsor);
+			context.SaveChanges();
+		}
 
 		public async Task DeleteSponsorshipOfferAsync(int DeletedId)
 		{
-            var deleteItem = await context.Sponsorships
-                .FirstOrDefaultAsync(x => x.Id == DeletedId);
+			var deleteItem = await context.Sponsorships
+				.FirstOrDefaultAsync(x => x.Id == DeletedId);
 
-            context.Sponsorships.Remove(deleteItem);
-            await context.SaveChangesAsync();
+			context.Sponsorships.Remove(deleteItem);
+			await context.SaveChangesAsync();
 		}
 
 		public async Task EditSponsorshipAsync(int EditId, SponsorViewModel model)
-        {
-            var original = await GetSponsorsEditAsync(EditId);
+		{
+			var original = await GetSponsorsEditAsync(EditId);
 
-            Sponsorship edit = new Sponsorship
-            {
-                Id = original.Id,
-                CompanyName = model.CompanyName,
-                Product = model.Product,
-                Url = model.Url,
-                Wallet = model.Wallet,
-                CategoryId= model.CategoryId,
-                AppUserId = original.AppUserId,
-            };
+			Sponsorship edit = new Sponsorship
+			{
+				Id = original.Id,
+				CompanyName = model.CompanyName,
+				Product = model.Product,
+				Url = model.Url,
+				Wallet = model.Wallet,
+				CategoryId = model.CategoryId,
+				AppUserId = original.AppUserId,
+			};
 
-            context.Sponsorships.Update(edit);
+			context.Sponsorships.Update(edit);
 			await context.SaveChangesAsync();
 		}
 
 
-        public async Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync(string userId)
-        {
-            var result = await context.Sponsorships
-                .Where(x => x.AppUserId == userId)
-                .Select(x => new SponsorViewModel
-                {
-                    Id = x.Id,
-                    CompanyName = x.CompanyName,
-                    Product = x.Product,
-                    Url = x.Url,
-                    CategoryId = x.CategoryId,
-                    Wallet = x.Wallet,
-                }).ToListAsync();
+		public async Task<IEnumerable<SponsorViewModel>> GetAllSponsorshipsAsync(string userId)
+		{
+			var result = await context.Sponsorships
+				.Where(x => x.AppUserId == userId)
+				.Select(x => new SponsorViewModel
+				{
+					Id = x.Id,
+					CompanyName = x.CompanyName,
+					Product = x.Product,
+					Url = x.Url,
+					CategoryId = x.CategoryId,
+					Wallet = x.Wallet,
+				}).ToListAsync();
 
-            foreach (var item in result)
-            {
-                item.CategoryName = await categoryService.GetCategoryNameAsync(item.CategoryId);
+			foreach (var item in result)
+			{
+				item.CategoryName = await categoryService.GetCategoryNameAsync(item.CategoryId);
 
 			}
 
-            return result;
-        }
+			return result;
+		}
 
-        public async Task<Sponsorship> GetSingelSponsorAsync(int SponsorId)
-        {
-            return await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
-        }
+		public async Task<Sponsorship> GetSingelSponsorAsync(int SponsorId)
+		{
+			return await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
+		}
 
-        public async Task<SponsorViewModel> GetSponsorsEditAsync(int id)
-        {
-            var user = await context.Sponsorships.Where(x => x.Id == id)
-                .Select(x => new SponsorViewModel
-                {
-                    Id = x.Id,
-                    CompanyName = x.CompanyName,
-                    Product = x.Product,
-                    Url = x.Url,
-                    Wallet = x.Wallet,
-                    AppUserId = x.AppUserId,
-                }).FirstOrDefaultAsync();
+		public async Task<SponsorViewModel> GetSponsorsEditAsync(int id)
+		{
+			var user = await context.Sponsorships.Where(x => x.Id == id)
+				.Select(x => new SponsorViewModel
+				{
+					Id = x.Id,
+					CompanyName = x.CompanyName,
+					Product = x.Product,
+					Url = x.Url,
+					Wallet = x.Wallet,
+					AppUserId = x.AppUserId,
+				}).FirstOrDefaultAsync();
 
-            user.CategoryName = await categoryService.GetCategoryNameAsync(user.CategoryId);
-            user.Categories = await categoryService.GetAllCategoryAsync();
+			user.CategoryName = await categoryService.GetCategoryNameAsync(user.CategoryId);
+			user.Categories = await categoryService.GetAllCategoryAsync();
 
-            return user!;
-        }
+			return user!;
+		}
 
 		public async Task RemoveMoneyFromSponsorAsync(int SponsorId, SponsorViewModel model)
 		{
 			var sponsor = await context.Sponsorships.Where(x => x.Id == SponsorId).FirstOrDefaultAsync();
 
-			sponsor.Wallet -= model.Wallet;
+			sponsor.Wallet -= model.ValueMoney;
 
-            if (sponsor.Wallet < 0)
-            {
-                throw new InvalidOperationException("You don`t have enough money!");
-            }
+			if (sponsor.Wallet < 0)
+			{
+				throw new InvalidOperationException("You don`t have enough money!");
+			}
 
 			await context.SaveChangesAsync();
 		}
 
 		public async Task<IEnumerable<SponsorHistoryViewModel>> TakeAllCompletedTransactions(string userId)
 		{
-            var model = await context.Transactions
-                .Where(x => x.AppUserId == userId && x.IsCompleted == true)
-                .Select(s => new SponsorHistoryViewModel
-                {
-                    Product = s.SponsorshipTransactions.Select(x => x.Sponsorship.Product).FirstOrDefault(),
-                    CompanyUrl = s.SponsorshipTransactions.Select(x => x.Sponsorship.Url).FirstOrDefault(),
-                    ChanelName = s.YoutuberTransactions.Select(x => x.Youtuber.ChanelName).FirstOrDefault(),
-                    ChanelUrl = s.YoutuberTransactions.Select(x => x.Youtuber.Url).FirstOrDefault(),
-                    Subscribers = s.YoutuberTransactions.Select(x => x.Youtuber.Subscribers).FirstOrDefault(),
-                    PricePerClip = s.YoutuberTransactions.Select(x => x.Youtuber.PricePerClip).FirstOrDefault(),
-                    SponroshipsClipsNum = s.QuntityClips,
-                    TotalPrice = s.TransferMoveney
-                })
-                .ToListAsync();
+			var model = await context.Transactions
+				.Where(x => x.AppUserId == userId && x.IsCompleted == true)
+				.Select(s => new SponsorHistoryViewModel
+				{
+					Product = s.SponsorshipTransactions.Select(x => x.Sponsorship.Product).FirstOrDefault(),
+					CompanyUrl = s.SponsorshipTransactions.Select(x => x.Sponsorship.Url).FirstOrDefault(),
+					ChanelName = s.YoutuberTransactions.Select(x => x.Youtuber.ChanelName).FirstOrDefault(),
+					ChanelUrl = s.YoutuberTransactions.Select(x => x.Youtuber.Url).FirstOrDefault(),
+					Subscribers = s.YoutuberTransactions.Select(x => x.Youtuber.Subscribers).FirstOrDefault(),
+					PricePerClip = s.YoutuberTransactions.Select(x => x.Youtuber.PricePerClip).FirstOrDefault(),
+					SponroshipsClipsNum = s.QuntityClips,
+					TotalPrice = s.TransferMoveney
+				})
+				.ToListAsync();
 
-            return model;
+			return model;
 		}
 	}
 }
