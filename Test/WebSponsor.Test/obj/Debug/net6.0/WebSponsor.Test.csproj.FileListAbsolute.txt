@@ -1,6 +1,0 @@
-C:\Users\Vesko\Desktop\EXAM\Project\SponsorY\Test\WebSponsor.Test\bin\Debug\net6.0\CoverletSourceRootsMapping
-C:\Users\Vesko\Desktop\EXAM\Project\SponsorY\Test\WebSponsor.Test\obj\Debug\net6.0\WebSponsor.Test.csproj.AssemblyReference.cache
-C:\Users\Vesko\Desktop\EXAM\Project\SponsorY\Test\WebSponsor.Test\obj\Debug\net6.0\WebSponsor.Test.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Vesko\Desktop\EXAM\Project\SponsorY\Test\WebSponsor.Test\obj\Debug\net6.0\WebSponsor.Test.AssemblyInfoInputs.cache
-C:\Users\Vesko\Desktop\EXAM\Project\SponsorY\Test\WebSponsor.Test\obj\Debug\net6.0\WebSponsor.Test.AssemblyInfo.cs
-C:\Users\Vesko\Desktop\EXAM\Project\SponsorY\Test\WebSponsor.Test\obj\Debug\net6.0\WebSponsor.Test.csproj.CoreCompileInputs.cache
