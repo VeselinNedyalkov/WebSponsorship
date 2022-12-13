@@ -2,9 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\SponsorY",
-    "\\SponsorY.Test",
-    "\\Test",
-    "\\Test\\WebSponsor.Test"
+    "\\SponsorY\\Areas",
+    "\\SponsorY\\Areas\\Category",
+    "\\SponsorY\\Areas\\Category\\Views",
+    "\\SponsorY\\Areas\\Category\\Views\\Category",
+    "\\YouSponsor.DataAccess",
+    "\\YouSponsor.DataAccess\\Survices"
   ],
+  "SelectedNode": "\\YouSponsor.DataAccess\\Survices\\ServiceYoutube.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ikt7gUDGH5bjLRn+hyzPidYAy4NSndaDEJXJSidgtex6U8L4JM4jqFI1gXCPzI8stIZU+8uz0/ynBg5xGJ911Q==",
+  "dgSpecHash": "/zt6pxpuONb+K5Oot+gfR4orXqz7kXKgfxFnCg6i3P1VkH8pijA5mOT+dOYLUI6IT6KfPbm34RMWDlEBfYuWhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
+  "projectFilePath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vesko\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

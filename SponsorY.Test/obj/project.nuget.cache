@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qwlV+gGfjnIJL7C7DAXuqgbFYufcR0/RcCgILAST1a2cV5LaetjK3WlowP0Aw8n6puYBbhYJmWPF4bYCCBVN6A==",
+  "dgSpecHash": "SRwf0P16aVay3eawhOrySR9dNUbxPCO82ir88sHm3wsDRn511DK1BFDQHaz+IpbFiBTqsrMmC61/RYm8jp938Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
+  "projectFilePath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vesko\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",

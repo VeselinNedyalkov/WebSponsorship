@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "us/KU2gGv+WTeiftIyXTNETlkglv4jKyWst/4jCGOxD0wyeLagOy0MP+1/4dSdEp8OEcGkRBsJE8uTbwpZahlw==",
+  "dgSpecHash": "XGbSbhDWey4SGiV+WJwndRXblWp42yA0UYHcnu9VlVPHaPmG514r8XpaMYkM6Q9qZevehBsk08Ako5blcDgrsQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vesko\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.10\\microsoft.aspnetcore.cryptography.internal.6.0.10.nupkg.sha512",

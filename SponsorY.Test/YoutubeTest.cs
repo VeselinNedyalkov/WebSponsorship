@@ -116,6 +116,9 @@ namespace SponsorY.Test
 			Assert.False(resutlt);
 		}
 
+		
+
+
 		[Fact]
 		public async void TestTakeAllYoutbersWithIdNum()
 		{
@@ -228,6 +231,61 @@ namespace SponsorY.Test
 
 			Assert.Equal(0, userMoney);
 			Assert.ThrowsAsync<InvalidOperationException>(() => youtubeService.WithdrawMOneyAsync(user1.Id, model1));
+		}
+
+		[Fact]
+		public void GetAllYoutubeChanelsFindYoutuberViewModelTest()
+		{
+
+			//Arrange
+
+			var opitionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+				.UseInMemoryDatabase("test6");
+			var dbContext = new ApplicationDbContext(opitionBuilder.Options);
+			dbContext.Categories.Add(category);
+			dbContext.Youtubers.Add(youtuber);
+			dbContext.Youtubers.Add(youtuber1);
+			dbContext.Youtubers.Add(youtuber2);
+			dbContext.SaveChanges();
+
+
+			IServiceCategory categorySerivece = new ServiceCategory(dbContext);
+			var youtubeService = new ServiceYoutube(dbContext, categorySerivece);
+
+			var result = youtubeService.FindAllYoutubersAsync();
+
+			Assert.Equal(3, result.Result.Count());
+		}
+
+
+
+		[Fact]
+		public void DeleteYoutuberWorkProperlyTest()
+		{
+
+			//Arrange
+
+			var opitionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+				.UseInMemoryDatabase("test7");
+			var dbContext = new ApplicationDbContext(opitionBuilder.Options);
+			dbContext.Categories.Add(category);
+			dbContext.Youtubers.Add(youtuber);
+			dbContext.Youtubers.Add(youtuber1);
+			dbContext.Youtubers.Add(youtuber2);
+			dbContext.SaveChanges();
+
+
+			IServiceCategory categorySerivece = new ServiceCategory(dbContext);
+			var youtubeService = new ServiceYoutube(dbContext, categorySerivece);
+
+			youtubeService.DeleteYoutuber(1);
+
+			var result = dbContext.Youtubers.ToList();
+			var deleted = dbContext.Youtubers
+				.Where(x => x.Id == 1).FirstOrDefault();
+
+			Assert.Equal(2, result.Count());
+			Assert.Equal(null, deleted);
 		}
 	}
 }

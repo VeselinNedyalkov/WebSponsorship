@@ -23,7 +23,7 @@ namespace SponsorY.DataAccess.Survices
 
 
 		/// <summary>
-		/// Get all youtube chanels 
+		/// Get all youtube chanels and return IEnumerable<YouTubeViewModel>
 		/// </summary>
 		/// <returns></returns>
 		public async Task<IEnumerable<YouTubeViewModel>> GetAllYoutubeChanelsAsync(string userId)
@@ -58,7 +58,7 @@ namespace SponsorY.DataAccess.Survices
 
 
 		/// <summary>
-		/// Add new youtuber
+		/// Add new youtuber chanel
 		/// </summary>
 		/// <param name="userId"></param>
 		/// <param name="model"></param>
@@ -82,7 +82,7 @@ namespace SponsorY.DataAccess.Survices
 		}
 
 		/// <summary>
-		/// Get youtuber for editing
+		/// Get youtuber for editing by id
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
@@ -144,6 +144,10 @@ namespace SponsorY.DataAccess.Survices
 			context.SaveChanges();
 		}
 
+		/// <summary>
+		/// Delte the youtuber by ID
+		/// </summary>
+		/// <param name="DelteId"></param>
 		public void DeleteYoutuber(int DelteId)
 		{
 			var user = context.Youtubers.Single(x => x.Id == DelteId);
@@ -152,6 +156,10 @@ namespace SponsorY.DataAccess.Survices
 			context.SaveChanges();
 		}
 
+		/// <summary>
+		/// faind all youtuber IEnumerable<FindYoutuberViewModel>
+		/// </summary>
+		/// <returns></returns>
 		public async Task<IEnumerable<FindYoutuberViewModel>> FindAllYoutubersAsync()
 		{
 			var result = await context.Youtubers
@@ -168,6 +176,11 @@ namespace SponsorY.DataAccess.Survices
 			return result;
 		}
 
+		/// <summary>
+		/// Get all chanel by category Id
+		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <returns></returns>
 		public async Task<IEnumerable<YoutubersFilterCatViewModel>> GetChanelWithCategoryAsync(int categoryId)
 		{
 			var result = await context.Youtubers

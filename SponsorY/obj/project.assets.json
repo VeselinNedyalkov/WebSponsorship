@@ -10336,11 +10336,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
+      "projectUniqueName": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
       "projectName": "SponsorY",
-      "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
+      "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
       "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\obj\\",
+      "outputPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10357,11 +10357,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
+            "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
             },
-            "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
-              "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj"
+            "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
+              "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj"
             }
           }
         }
