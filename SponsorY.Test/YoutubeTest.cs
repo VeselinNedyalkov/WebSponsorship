@@ -5,6 +5,7 @@ using SponsorY.DataAccess.ModelsAccess.Youtube;
 using SponsorY.DataAccess.Survices;
 using SponsorY.DataAccess.Survices.Contract;
 using System.Net.Http.Headers;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace SponsorY.Test
 {
@@ -14,6 +15,8 @@ namespace SponsorY.Test
 		Youtuber youtuber = null;
 		Youtuber youtuber1 = null;
 		Youtuber youtuber2 = null;
+		Sponsorship sponsor = null;
+		private Transaction transaction = null;
 		public YoutubeTest()
 		{
 			category = new Category
@@ -58,6 +61,25 @@ namespace SponsorY.Test
 				AppUserId = "2"
 			};
 
+			sponsor = new Sponsorship
+			{
+				Id = 1,
+				AppUserId = "1",
+				CategoryId = 1,
+				CompanyName = "Sponsor1",
+				Product = "Product",
+				Url = "This is URL",
+				Wallet = 50,
+			};
+
+			transaction = new Transaction
+			{
+				Id = Guid.Parse("c9df9b73-99be-43c1-82aa-d905f1aeb51c"),
+				TransferMoveney = 50,
+				QuntityClips = 5,
+				AppUserId = "1"
+			};
+			
 		}
 
 		[Fact]
@@ -218,11 +240,11 @@ namespace SponsorY.Test
 
 			YoutubeFinancesViewModel model = new YoutubeFinancesViewModel
 			{
-				Wallet = 2000
+				Value = 2000
 			};
 			YoutubeFinancesViewModel model1 = new YoutubeFinancesViewModel
 			{
-				Wallet = 3000
+				Value = 3000
 			};
 
 			youtubeService.WithdrawMOneyAsync(user.Id, model);
@@ -286,6 +308,40 @@ namespace SponsorY.Test
 
 			Assert.Equal(2, result.Count());
 			Assert.Equal(null, deleted);
+		}
+
+		[Fact]
+		public async void EditYoutuberAsyncWorkingProperlyAsyncTest()
+		{
+			var opitionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+				.UseInMemoryDatabase("test9");
+			var dbContext = new ApplicationDbContext(opitionBuilder.Options);
+			IServiceCategory categorySerivece = new ServiceCategory(dbContext);
+			var youtubeService = new ServiceYoutube(dbContext, categorySerivece);
+
+			dbContext.Categories.Add(category);
+			dbContext.Youtubers.Add(youtuber);
+			dbContext.SaveChanges();
+
+			YouTubeViewModel model = new YouTubeViewModel
+			{
+				ChanelName = "change",
+				Url = "new",
+				Subscribers = 1,
+				PricePerClip = 15
+			};
+
+			dbContext.Entry<Youtuber>(youtuber).State = EntityState.Detached;
+			await youtubeService.EditYoutuberAsync(1, model);
+
+			var result = dbContext.Youtubers
+				.Where(x => x.Id == 1)
+				.FirstOrDefault();
+
+			Assert.Equal("change", result.ChanelName);
+			Assert.Equal("new", result.Url);
+			Assert.Equal(1 , result.Subscribers);
+			Assert.Equal(15 , result.PricePerClip);
 		}
 	}
 }

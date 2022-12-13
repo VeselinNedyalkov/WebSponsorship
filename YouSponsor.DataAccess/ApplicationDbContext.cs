@@ -12,10 +12,20 @@ namespace SponsorY.Data
 {
 	public class ApplicationDbContext : IdentityDbContext<AppUser>
 	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+		private bool seedDb;
+		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, bool seed = false)
 			: base(options)
 		{
+			if (this.Database.IsRelational())
+			{
+				this.Database.Migrate();
+			}
+			else
+			{
+				this.Database.EnsureCreated();
+			}
 
+			this.seedDb = seed;
 		}
 
 		public DbSet<Category> Categories { get; set; } = null!;
@@ -64,6 +74,12 @@ namespace SponsorY.Data
 				.HasOne(st => st.Transaction)
 				.WithMany(s => s.SponsorshipTransactions)
 				.HasForeignKey(st => st.TransactionId);
+
+			if (seedDb)
+			{
+				
+			}
+
 
 			base.OnModelCreating(builder);
 		}

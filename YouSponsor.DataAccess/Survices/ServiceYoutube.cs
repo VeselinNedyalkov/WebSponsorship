@@ -140,8 +140,9 @@ namespace SponsorY.DataAccess.Survices
 				CategoryId = userYoutub.CategoryId,
 				AppUserId = userYoutub.AppUserId
 			};
+
 			context.Youtubers.Update(updated);
-			context.SaveChanges();
+			await context.SaveChangesAsync();
 		}
 
 		/// <summary>
@@ -283,12 +284,12 @@ namespace SponsorY.DataAccess.Survices
 		{
 			var user = await context.Users.FirstOrDefaultAsync(x => x.Id == userId);
 
-			if (user.Wallet < model.Wallet)
+			if (user.Wallet < model.Value)
 			{
 				throw new InvalidOperationException("Not possible to transfer more money than you have in your account");
 			}
 
-			user.Wallet -= model.Wallet;
+			user.Wallet -= model.Value;
 
 			context.Users.Update(user);
 			await context.SaveChangesAsync();

@@ -67,15 +67,19 @@ namespace SponsorY.Areas.Transaction.Controllers
         {
             var transaction = await tranService.GetTransactionAsync(TranslId);
             var sponsor = await sponsorService.GetSponsorsEditAsync(SponsorId);
+            
 
-            if (sponsor.Wallet < transaction.TransferMoveney)
+            try
             {
-				return View("Error", new ErrorViewModel { RequestId = $"{sponsor.Wallet} Not enought! You need to increase your money for sponsorship!" });
+	            await tranService.RemoveMoneyFromSponsorAsync(SponsorId, transaction.TransferMoveney);
+            }
+            catch (Exception e)
+            {
+				return View("Error", new ErrorViewModel { RequestId = e.Message});
+
 			}
 
-            await tranService.RemoveMoneyFromSponsorAsync(SponsorId, transaction.TransferMoveney);
-
-            transaction.SuccessfulCreated = true;
+			transaction.SuccessfulCreated = true;
             await tranService.UpdateCompletedTransactionAsync(transaction, SponsorId ,  ChanelId);
 
             await tranService.DeleteNotCompletedTransactions();

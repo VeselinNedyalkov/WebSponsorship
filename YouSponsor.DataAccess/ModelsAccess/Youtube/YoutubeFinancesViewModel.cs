@@ -9,5 +9,7 @@ namespace SponsorY.DataAccess.ModelsAccess.Youtube
     public class YoutubeFinancesViewModel
     {
         public decimal Wallet { get; set; }
+
+        public decimal Value { get; set;}
     }
 }

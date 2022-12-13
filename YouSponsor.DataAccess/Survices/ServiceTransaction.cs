@@ -64,8 +64,7 @@ namespace SponsorY.DataAccess.Survices
 
 			var sponsor = await context.Sponsorships.Where(x => x.Id == model.ChanelId).Select(x => x.Id).FirstOrDefaultAsync();
 			var youtuber = await context.Youtubers.Where(x => x.Id == model.ChanelId).Select(x => x.Id).FirstOrDefaultAsync();
-
-			//check
+			
 			Transaction addModel = new Transaction
 			{
 				TransferMoveney = model.TotalPrice,
@@ -106,7 +105,7 @@ namespace SponsorY.DataAccess.Survices
 			};
 
 
-
+			context.Entry(trans).State = EntityState.Detached;
 			context.Transactions.Update(edit);
 			await context.SaveChangesAsync();
 		}
@@ -245,6 +244,11 @@ namespace SponsorY.DataAccess.Survices
 		public async Task RemoveMoneyFromSponsorAsync(int SponsorId,decimal Amount)
 		{
 			var sponsor = await context.Sponsorships.FirstOrDefaultAsync(x => x.Id == SponsorId);
+
+			if (sponsor.Wallet - Amount < 0)
+			{
+				throw  new InvalidOperationException("You don`t have enough money!");
+			}
 
 			sponsor.Wallet -= Amount;
 

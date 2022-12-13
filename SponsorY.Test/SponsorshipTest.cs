@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SponsorY.Test
 {
@@ -84,6 +85,7 @@ namespace SponsorY.Test
 			Assert.Equal(2500, sponsor.Wallet);
 		}
 
+		
 
 		[Fact]
 		public async void TestingAddingSponsorToDb()
@@ -199,6 +201,42 @@ namespace SponsorY.Test
 			await serviceSporship.RemoveMoneyFromSponsorAsync(1 , model);
 
 			Assert.Equal(1500, sponsor.Wallet);
+		}
+
+		[Fact]
+		public async void EditSponsorshipAsyncWorkingProperlyTest()
+		{
+			var opitionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+				.UseInMemoryDatabase("test6");
+			var dbContext = new ApplicationDbContext(opitionBuilder.Options);
+
+			IServiceCategory categorySerivece = new ServiceCategory(dbContext);
+			var serviceSporship = new ServiceSponsorship(dbContext, categorySerivece);
+
+			dbContext.Sponsorships.Add(sponsor);
+			dbContext.SaveChanges();
+
+			SponsorViewModel model = new SponsorViewModel
+			{
+				CompanyName = "new",
+				Product = "updated",
+				Url = "new url",
+				Wallet = 111,
+				CategoryId = 5
+			};
+
+			dbContext.Entry<Sponsorship>(sponsor).State = EntityState.Detached;
+			await serviceSporship.EditSponsorshipAsync(1, model);
+
+			var result = dbContext.Sponsorships
+				.Where(x => x.Id == 1)
+				.FirstOrDefault();
+
+			Assert.Equal("new" , result.CompanyName);
+			Assert.Equal("updated", result.Product);
+			Assert.Equal("new url", result.Url);
+			Assert.Equal(111 , result.Wallet);
+			Assert.Equal(5 , result.CategoryId);
 		}
 	}
 }
