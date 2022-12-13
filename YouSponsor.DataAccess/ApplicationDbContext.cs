@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess;
+using SponsorY.DataAccess.SeedConfiguration;
 using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using static SponsorY.Utility.DataConstant.RegisterConstant;
@@ -75,9 +76,13 @@ namespace SponsorY.Data
 				.WithMany(s => s.SponsorshipTransactions)
 				.HasForeignKey(st => st.TransactionId);
 
+
+			//set seedDb = true in constructor for seeding data to DB
 			if (seedDb)
 			{
-				
+				builder.ApplyConfiguration(new CategoryConfiguration());
+				builder.ApplyConfiguration(new RoleConfiguration());
+				builder.ApplyConfiguration(new UsersConfiguration());
 			}
 
 
