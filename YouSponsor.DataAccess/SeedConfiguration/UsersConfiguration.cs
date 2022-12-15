@@ -25,6 +25,7 @@ namespace SponsorY.DataAccess.SeedConfiguration
 			{
 				new AppUser()
 				{
+					Id = "4edef44e-3985-42c3-9e03-7a39d9cab63b",
 					UserName = "AdminAccount",
 					Email = "admin@abv.bg",
 					IsDeleted= false,

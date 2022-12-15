@@ -83,6 +83,7 @@ namespace SponsorY.Data
 				builder.ApplyConfiguration(new CategoryConfiguration());
 				builder.ApplyConfiguration(new RoleConfiguration());
 				builder.ApplyConfiguration(new UsersConfiguration());
+				builder.ApplyConfiguration(new UserRolesConfiguration());
 			}
 
 
