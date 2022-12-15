@@ -47,6 +47,29 @@ namespace SponsorY.DataAccess.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "b139508b-15e9-4c2c-9424-b46c2cf71e10",
+                            ConcurrencyStamp = "9a3d7ac6-edf1-4db0-8c24-13251f867487",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "c2596b34-7e0e-4c6d-b546-662d667e180b",
+                            ConcurrencyStamp = "923fc55f-4174-4ef8-a360-9f7ec21efffb",
+                            Name = "youtuber",
+                            NormalizedName = "YOUTUBER"
+                        },
+                        new
+                        {
+                            Id = "4444ec54-3fd1-4920-88f7-ba1c4d0b0b68",
+                            ConcurrencyStamp = "a4ea60fd-e4d5-416e-b1e8-4261eed0fe3f",
+                            Name = "sponsor",
+                            NormalizedName = "SPONSOR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -136,6 +159,13 @@ namespace SponsorY.DataAccess.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "4edef44e-3985-42c3-9e03-7a39d9cab63b",
+                            RoleId = "b139508b-15e9-4c2c-9424-b46c2cf71e10"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -230,6 +260,24 @@ namespace SponsorY.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "4edef44e-3985-42c3-9e03-7a39d9cab63b",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9a4a384f-a845-4d68-91dc-8e72e9acbda2",
+                            Email = "admin@abv.bg",
+                            EmailConfirmed = false,
+                            IsDeleted = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEO4UKEhZHJEk36ujGWVEBvYOcmjrBoaUdbW0u5LoMuM23qaJ6J28lWb2r5CTOxufEA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b9bf55d8-8464-4ddb-83f5-b0871d0b3ebe",
+                            TwoFactorEnabled = false,
+                            UserName = "AdminAccount",
+                            Wallet = 0m
+                        });
                 });
 
             modelBuilder.Entity("SponsorY.DataAccess.Models.Category", b =>
@@ -248,6 +296,28 @@ namespace SponsorY.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Gaming"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "Traveling"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryName = "Sport"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryName = "History"
+                        });
                 });
 
             modelBuilder.Entity("SponsorY.DataAccess.Models.Sponsorship", b =>

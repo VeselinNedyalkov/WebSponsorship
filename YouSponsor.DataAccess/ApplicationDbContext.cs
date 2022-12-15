@@ -1,32 +1,18 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using SponsorY.DataAccess.Models;
-using SponsorY.DataAccess.ModelsAccess;
-using SponsorY.DataAccess.SeedConfiguration;
-using System.Reflection.Emit;
-using System.Security.Cryptography.X509Certificates;
 using static SponsorY.Utility.DataConstant.RegisterConstant;
 
 namespace SponsorY.Data
 {
 	public class ApplicationDbContext : IdentityDbContext<AppUser>
 	{
-		private bool seedDb;
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, bool seed = false)
+		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, bool seed = true)
 			: base(options)
 		{
-			if (this.Database.IsRelational())
-			{
-				this.Database.Migrate();
-			}
-			else
-			{
-				this.Database.EnsureCreated();
-			}
 
-			this.seedDb = seed;
 		}
 
 		public DbSet<Category> Categories { get; set; } = null!;
@@ -76,16 +62,77 @@ namespace SponsorY.Data
 				.WithMany(s => s.SponsorshipTransactions)
 				.HasForeignKey(st => st.TransactionId);
 
+			builder
+			  .Entity<Category>()
+			  .HasData(
+				new Category
+				{
+					Id = 1,
+					CategoryName = "Gaming"
+				},
+				new Category
+				{
+					Id = 2,
+					CategoryName = "Traveling"
+				},
+				new Category
+				{
+					Id = 3,
+					CategoryName = "Sport"
+				},
+				new Category
+				{
+					Id = 4,
+					CategoryName = "History"
+				}
+				);
 
-			//set seedDb = true in constructor for seeding data to DB
-			if (seedDb)
-			{
-				builder.ApplyConfiguration(new CategoryConfiguration());
-				builder.ApplyConfiguration(new RoleConfiguration());
-				builder.ApplyConfiguration(new UsersConfiguration());
-				builder.ApplyConfiguration(new UserRolesConfiguration());
-			}
+			builder
+			  .Entity<IdentityRole>()
+			  .HasData(
+				new IdentityRole()
+				{
+					Id = "b139508b-15e9-4c2c-9424-b46c2cf71e10",
+					Name = "admin",
+					NormalizedName = "ADMIN",
+				},
+				new IdentityRole()
+				{
+					Id = "c2596b34-7e0e-4c6d-b546-662d667e180b",
+					Name = "youtuber",
+					NormalizedName = "YOUTUBER",
+				},
+				new IdentityRole()
+				{
+					Id = "4444ec54-3fd1-4920-88f7-ba1c4d0b0b68",
+					Name = "sponsor",
+					NormalizedName = "SPONSOR",
+				}
+				);
 
+			PasswordHasher<AppUser> hasher = new PasswordHasher<AppUser>();
+
+			builder
+			  .Entity<AppUser>()
+			  .HasData(
+				new AppUser()
+				{
+					Id = "4edef44e-3985-42c3-9e03-7a39d9cab63b",
+					UserName = "AdminAccount",
+					Email = "admin@abv.bg",
+					PasswordHash = hasher.HashPassword(null, "123456"),
+					IsDeleted = false,
+				}
+				);
+
+			builder
+			  .Entity<IdentityUserRole<string>>()
+			  .HasData(new IdentityUserRole<string>()
+			  {
+				  RoleId = "b139508b-15e9-4c2c-9424-b46c2cf71e10",
+				  UserId = "4edef44e-3985-42c3-9e03-7a39d9cab63b"
+			  }
+			  );
 
 			base.OnModelCreating(builder);
 		}
