@@ -118,8 +118,10 @@ namespace SponsorY.Data
 				new AppUser()
 				{
 					Id = "4edef44e-3985-42c3-9e03-7a39d9cab63b",
-					UserName = "AdminAccount",
+					UserName = "Admin",
+					NormalizedUserName =  "ADMIN",
 					Email = "admin@abv.bg",
+					NormalizedEmail = "ADMIN@ABV.BG",
 					PasswordHash = hasher.HashPassword(null, "123456"),
 					IsDeleted = false,
 				}

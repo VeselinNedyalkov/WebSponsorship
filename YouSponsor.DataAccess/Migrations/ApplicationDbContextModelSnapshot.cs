@@ -52,21 +52,21 @@ namespace SponsorY.DataAccess.Migrations
                         new
                         {
                             Id = "b139508b-15e9-4c2c-9424-b46c2cf71e10",
-                            ConcurrencyStamp = "9a3d7ac6-edf1-4db0-8c24-13251f867487",
+                            ConcurrencyStamp = "f68ed3ea-dd56-427a-a148-c00634c3dd7b",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "c2596b34-7e0e-4c6d-b546-662d667e180b",
-                            ConcurrencyStamp = "923fc55f-4174-4ef8-a360-9f7ec21efffb",
+                            ConcurrencyStamp = "214552e3-6bca-4884-a739-7df054de46ed",
                             Name = "youtuber",
                             NormalizedName = "YOUTUBER"
                         },
                         new
                         {
                             Id = "4444ec54-3fd1-4920-88f7-ba1c4d0b0b68",
-                            ConcurrencyStamp = "a4ea60fd-e4d5-416e-b1e8-4261eed0fe3f",
+                            ConcurrencyStamp = "ffb4f252-8481-4a9c-bb28-cf2dcf16e3b8",
                             Name = "sponsor",
                             NormalizedName = "SPONSOR"
                         });
@@ -266,16 +266,18 @@ namespace SponsorY.DataAccess.Migrations
                         {
                             Id = "4edef44e-3985-42c3-9e03-7a39d9cab63b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9a4a384f-a845-4d68-91dc-8e72e9acbda2",
+                            ConcurrencyStamp = "57446a89-ff14-4bca-9397-68a478812607",
                             Email = "admin@abv.bg",
                             EmailConfirmed = false,
                             IsDeleted = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEO4UKEhZHJEk36ujGWVEBvYOcmjrBoaUdbW0u5LoMuM23qaJ6J28lWb2r5CTOxufEA==",
+                            NormalizedEmail = "ADMIN@ABV.BG",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOl/YtOM+oLKzyk4UXkjoxe0PGScE/TotYf7eTAyYSif+rYXd1BFMpf/Rpz6D6xr0w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b9bf55d8-8464-4ddb-83f5-b0871d0b3ebe",
+                            SecurityStamp = "74b7ce38-dfdd-4c31-acf5-90e3f75ae9f6",
                             TwoFactorEnabled = false,
-                            UserName = "AdminAccount",
+                            UserName = "Admin",
                             Wallet = 0m
                         });
                 });

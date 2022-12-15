@@ -322,15 +322,15 @@ namespace SponsorY.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4444ec54-3fd1-4920-88f7-ba1c4d0b0b68", "a4ea60fd-e4d5-416e-b1e8-4261eed0fe3f", "sponsor", "SPONSOR" },
-                    { "b139508b-15e9-4c2c-9424-b46c2cf71e10", "9a3d7ac6-edf1-4db0-8c24-13251f867487", "admin", "ADMIN" },
-                    { "c2596b34-7e0e-4c6d-b546-662d667e180b", "923fc55f-4174-4ef8-a360-9f7ec21efffb", "youtuber", "YOUTUBER" }
+                    { "4444ec54-3fd1-4920-88f7-ba1c4d0b0b68", "ffb4f252-8481-4a9c-bb28-cf2dcf16e3b8", "sponsor", "SPONSOR" },
+                    { "b139508b-15e9-4c2c-9424-b46c2cf71e10", "f68ed3ea-dd56-427a-a148-c00634c3dd7b", "admin", "ADMIN" },
+                    { "c2596b34-7e0e-4c6d-b546-662d667e180b", "214552e3-6bca-4884-a739-7df054de46ed", "youtuber", "YOUTUBER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "IsDeleted", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Wallet" },
-                values: new object[] { "4edef44e-3985-42c3-9e03-7a39d9cab63b", 0, "9a4a384f-a845-4d68-91dc-8e72e9acbda2", "admin@abv.bg", false, false, false, null, null, null, "AQAAAAEAACcQAAAAEO4UKEhZHJEk36ujGWVEBvYOcmjrBoaUdbW0u5LoMuM23qaJ6J28lWb2r5CTOxufEA==", null, false, "b9bf55d8-8464-4ddb-83f5-b0871d0b3ebe", false, "AdminAccount", 0m });
+                values: new object[] { "4edef44e-3985-42c3-9e03-7a39d9cab63b", 0, "57446a89-ff14-4bca-9397-68a478812607", "admin@abv.bg", false, false, false, null, "ADMIN@ABV.BG", "ADMIN", "AQAAAAEAACcQAAAAEOl/YtOM+oLKzyk4UXkjoxe0PGScE/TotYf7eTAyYSif+rYXd1BFMpf/Rpz6D6xr0w==", null, false, "74b7ce38-dfdd-4c31-acf5-90e3f75ae9f6", false, "Admin", 0m });
 
             migrationBuilder.InsertData(
                 table: "Categories",
