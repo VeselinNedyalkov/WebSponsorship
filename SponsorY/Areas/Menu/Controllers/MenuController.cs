@@ -71,6 +71,10 @@ namespace SponsorY.Areas.Menu.Controllers
 
 		}
 
+        public IActionResult Delete()
+        {
+            return View();
+        }
 
 		public async Task<IActionResult> DeleteUser()
 		{
@@ -87,13 +91,5 @@ namespace SponsorY.Areas.Menu.Controllers
 
 			return RedirectToAction("Logout", "User", new { area = "User" });
 		}
-
-		//TO DO
-		public IActionResult Settings()
-        {
-
-
-            return View();
-        }
     }
 }
