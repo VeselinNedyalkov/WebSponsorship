@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ganss.Xss;
+using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
 using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess.Categories;
@@ -9,8 +10,9 @@ namespace SponsorY.DataAccess.Survices
     public class ServiceCategory : IServiceCategory
     {
         private readonly ApplicationDbContext context;
+		private readonly HtmlSanitizer sanitize = new HtmlSanitizer();
 
-        public ServiceCategory(ApplicationDbContext _context)
+		public ServiceCategory(ApplicationDbContext _context)
         {
             context = _context;
         }
@@ -19,7 +21,7 @@ namespace SponsorY.DataAccess.Survices
         {
             Category category = new Category
             {
-                CategoryName = model.CategoryName,
+                CategoryName = sanitize.Sanitize(model.CategoryName),
             };
 
             await context.Categories.AddAsync(category);

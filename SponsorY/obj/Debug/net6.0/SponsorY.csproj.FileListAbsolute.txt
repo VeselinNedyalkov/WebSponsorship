@@ -1392,3 +1392,6 @@ C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY\obj\Debug\n
 C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY\obj\Debug\net6.0\SponsorY.pdb
 C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY\obj\Debug\net6.0\SponsorY.genruntimeconfig.cache
 C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY\obj\Debug\net6.0\ref\SponsorY.dll
+C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY\bin\Debug\net6.0\AngleSharp.dll
+C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY\bin\Debug\net6.0\AngleSharp.Css.dll
+C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY\bin\Debug\net6.0\HtmlSanitizer.dll

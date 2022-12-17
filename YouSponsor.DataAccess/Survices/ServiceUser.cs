@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ganss.Xss;
+using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
 using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess.User;
@@ -13,8 +14,8 @@ namespace SponsorY.DataAccess.Survices
 {
     public class ServiceUser : IServiceUser
     {
-
-        private readonly ApplicationDbContext context;
+		private readonly HtmlSanitizer sanitize = new HtmlSanitizer();
+		private readonly ApplicationDbContext context;
 
         public ServiceUser(ApplicationDbContext _context)
         {
@@ -34,10 +35,10 @@ namespace SponsorY.DataAccess.Survices
             UserInfo addUser = new UserInfo
             {
                 Id = 1,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
+                FirstName = sanitize.Sanitize(model.FirstName),
+                LastName = sanitize.Sanitize(model.LastName),
                 Age = model.Age,
-                Country = model.Country,
+                Country = sanitize.Sanitize(model.Country),
                 AppUserId = userId,
             };
 

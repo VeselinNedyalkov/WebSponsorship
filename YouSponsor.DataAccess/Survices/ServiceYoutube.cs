@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ganss.Xss;
+using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
 using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess.Youtube;
@@ -12,7 +13,7 @@ namespace SponsorY.DataAccess.Survices
 	{
 		private readonly ApplicationDbContext context;
 		private readonly IServiceCategory categorySerivece;
-
+		private readonly HtmlSanitizer sanitize = new HtmlSanitizer();
 		public ServiceYoutube(ApplicationDbContext _context,
 			IServiceCategory _categorySerivece)
 		{
@@ -65,11 +66,12 @@ namespace SponsorY.DataAccess.Survices
 		/// <returns></returns>
 		public async Task AddYoutubChanelAsync(string userId, AddYoutViewModel model)
 		{
+			
 
 			Youtuber chanel = new Youtuber
 			{
-				ChanelName = model.ChanelName,
-				Url = model.Url,
+				ChanelName = sanitize.Sanitize(model.ChanelName),
+				Url = sanitize.Sanitize(model.Url),
 				Subscribers = model.Subscribers,
 				PricePerClip = model.PricePerClip,
 				Wallet = 0,
@@ -132,8 +134,8 @@ namespace SponsorY.DataAccess.Survices
 			var updated = new Youtuber
 			{
 				Id = userYoutub.Id,
-				ChanelName = model.ChanelName,
-				Url = model.Url,
+				ChanelName = sanitize.Sanitize(model.ChanelName),
+				Url = sanitize.Sanitize(model.Url),
 				Subscribers = model.Subscribers,
 				PricePerClip = model.PricePerClip,
 				Wallet = userYoutub.Wallet,

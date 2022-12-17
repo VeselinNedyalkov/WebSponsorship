@@ -9,7 +9,7 @@ namespace SponsorY.Data
 {
 	public class ApplicationDbContext : IdentityDbContext<AppUser>
 	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, bool seed = true)
+		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 			: base(options)
 		{
 

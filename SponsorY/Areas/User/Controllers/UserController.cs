@@ -27,7 +27,6 @@ namespace SponsorY.Areas.User.Controllers
             userManager = _userManager;
             signInManager = _signInManager;
             serviceUser = _serviceUser;
-
         }
 
         [HttpGet]

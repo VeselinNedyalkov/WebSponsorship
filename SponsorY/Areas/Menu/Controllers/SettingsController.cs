@@ -71,7 +71,7 @@ namespace SponsorY.Areas.Menu.Controllers
 					return View("Error", error);
 				}
 
-				return View(model);
+				return RedirectToAction("Index", "Home", new { area = "Home" });
 
 			}
 

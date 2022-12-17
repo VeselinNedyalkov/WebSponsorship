@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ganss.Xss;
+using Microsoft.EntityFrameworkCore;
 using SponsorY.Data;
 using SponsorY.DataAccess.Models;
 using SponsorY.DataAccess.ModelsAccess.Sponsor;
@@ -17,6 +18,7 @@ namespace SponsorY.DataAccess.Survices
 	{
 		private readonly ApplicationDbContext context;
 		private readonly IServiceCategory categoryService;
+		private readonly HtmlSanitizer sanitize = new HtmlSanitizer();
 
 		public ServiceSponsorship(ApplicationDbContext _context,
 			IServiceCategory _categoryService)
@@ -38,9 +40,9 @@ namespace SponsorY.DataAccess.Survices
 		{
 			Sponsorship sponsor = new Sponsorship
 			{
-				CompanyName = model.CompanyName,
-				Product = model.Product,
-				Url = model.Url,
+				CompanyName = sanitize.Sanitize(model.CompanyName),
+				Product = sanitize.Sanitize(model.Product),
+				Url = sanitize.Sanitize(model.Url),
 				Wallet = model.Wallet,
 				AppUserId = userId,
 				CategoryId = model.CategoryId
@@ -66,9 +68,9 @@ namespace SponsorY.DataAccess.Survices
 			Sponsorship edit = new Sponsorship
 			{
 				Id = original.Id,
-				CompanyName = model.CompanyName,
-				Product = model.Product,
-				Url = model.Url,
+				CompanyName = sanitize.Sanitize(model.CompanyName),
+				Product = sanitize.Sanitize(model.Product),
+				Url = sanitize.Sanitize(model.Url),
 				Wallet = model.Wallet,
 				CategoryId = model.CategoryId,
 				AppUserId = original.AppUserId,
