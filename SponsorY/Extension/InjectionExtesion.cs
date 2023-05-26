@@ -7,7 +7,6 @@ namespace SponsorY.Extension
     {
         public static IServiceCollection AddAplicationServices(this IServiceCollection services)
         {
-
             services.AddScoped<IServiceYoutub, ServiceYoutube>();
             services.AddScoped<IServiceUser, ServiceUser>();
             services.AddScoped<IServiceSponsorship, ServiceSponsorship>();

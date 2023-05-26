@@ -1063,3 +1063,6 @@ C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY.Test\obj\De
 C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY.Test\obj\Debug\net6.0\SponsorY.Test.pdb
 C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY.Test\obj\Debug\net6.0\SponsorY.Test.genruntimeconfig.cache
 C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY.Test\obj\Debug\net6.0\ref\SponsorY.Test.dll
+C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY.Test\bin\Debug\net6.0\AngleSharp.dll
+C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY.Test\bin\Debug\net6.0\AngleSharp.Css.dll
+C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY.Test\bin\Debug\net6.0\HtmlSanitizer.dll

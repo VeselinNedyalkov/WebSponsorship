@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rjshvpBCRBA0rW5oiwtCEx+vwYKNCIwUO6oKEzZaspu276jAqF/TEIflxL9jlVBv+xO/acvYe8Nmq0/5sWpAbA==",
+  "dgSpecHash": "/FLWdaz7zkK1Vk3gdrTcGqOUpmrq+QALcKKL7khk1BIZ7llDrSJXachspkJdUZW2R5eiHwt05LgqLCoxghCi2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
+  "projectFilePath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vesko\\.nuget\\packages\\anglesharp\\0.17.1\\anglesharp.0.17.1.nupkg.sha512",
     "C:\\Users\\Vesko\\.nuget\\packages\\anglesharp.css\\0.16.4\\anglesharp.css.0.16.4.nupkg.sha512",

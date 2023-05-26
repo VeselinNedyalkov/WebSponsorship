@@ -9,249 +9,265 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SponsorY
 build_property.RootNamespace = SponsorY
-build_property.ProjectDir = C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY\
+build_property.ProjectDir = C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Vesko\source\repos\VeselinNedyalkov\WebSponsorship\SponsorY
+build_property.MSBuildProjectDirectory = C:\Users\Vesko\Source\Repos\VeselinNedyalkov\WebSponsorship\SponsorY
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/Admin/DeleteCat.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/Admin/DeleteCat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRGVsZXRlQ2F0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/Admin/Statistic.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/Admin/Statistic.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU3RhdGlzdGljLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Category/Views/Category/Add.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Category/Views/Category/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2F0ZWdvcnlcVmlld3NcQ2F0ZWdvcnlcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Category/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Category/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2F0ZWdvcnlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Category/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Category/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2F0ZWdvcnlcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/Home/Index.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/Home/Main.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/Home/Main.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xIb21lXE1haW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/Home/PageNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xIb21lXFBhZ2VOb3RGb3VuZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Home/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSG9tZVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Menu/AddUserInfo.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Menu/AddUserInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xNZW51XEFkZFVzZXJJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Menu/Delete.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Menu/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xNZW51XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Settings/ChangePass.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Settings/ChangePass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xTZXR0aW5nc1xDaGFuZ2VQYXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Settings/Settings.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/Settings/Settings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xTZXR0aW5nc1xTZXR0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Menu/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Add.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/AddMoneyFromCard.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/AddMoneyFromCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcQWRkTW9uZXlGcm9tQ2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Edit.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Finances.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Finances.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcRmluYW5jZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/History.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/History.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcSGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Main.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/Sponsorship/Main.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcU3BvbnNvcnNoaXBcTWFpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Sponsorship/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3BvbnNvcnNoaXBcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Accept.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Accept.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cQWNjZXB0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Details.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Edit.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Find.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Find.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cRmluZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Requested.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/Transaction/Requested.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcVHJhbnNhY3Rpb25cUmVxdWVzdGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Transaction/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJhbnNhY3Rpb25cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/User/Login.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xVc2VyXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/User/Register.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xVc2VyXFJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/User/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Add.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Edit.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Finances.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Finances.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxGaW5hbmNlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/History.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/History.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxIaXN0b3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Main.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/Main.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxNYWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/TransAwait.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/Youtuber/TransAwait.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xZb3V0dWJlclxUcmFuc0F3YWl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Areas/Youtube/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcWW91dHViZVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/Error.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/Error400.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yNDAwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/Error401.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yNDAxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/Error404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yNDA0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_TempData.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_TempData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UZW1wRGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/_ViewImports.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/_ViewStart.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vesko/source/repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_Layout.cshtml]
+[C:/Users/Vesko/Source/Repos/VeselinNedyalkov/WebSponsorship/SponsorY/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zea0m0ku5v

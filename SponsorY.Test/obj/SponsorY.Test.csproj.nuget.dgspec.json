@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj": {}
+    "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj": {
+    "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
+        "projectUniqueName": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
         "projectName": "SponsorY.Test",
-        "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
+        "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\SponsorY.Test.csproj",
         "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\obj\\",
+        "outputPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY.Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj": {
-                "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj"
+              "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj"
               },
-              "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
+              "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
               }
             }
           }
@@ -88,18 +88,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj": {
+    "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
+        "projectUniqueName": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
         "projectName": "SponsorY",
-        "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
+        "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\SponsorY.csproj",
         "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\obj\\",
+        "outputPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\SponsorY\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -110,17 +110,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
+              "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj"
               },
-              "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
-                "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj"
+              "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj"
               }
             }
           }
@@ -181,18 +182,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
+    "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
         "projectName": "SponsorY.DataAccess",
-        "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
+        "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\SponsorY.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -209,8 +210,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
-                "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj"
+              "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
+                "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj"
               }
             }
           }
@@ -272,18 +273,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
+    "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj",
+        "projectUniqueName": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj",
         "projectName": "SponsY.Utility",
-        "projectPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj",
+        "projectPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\SponsY.Utility.csproj",
         "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vesko\\source\\repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\obj\\",
+        "outputPath": "C:\\Users\\Vesko\\Source\\Repos\\VeselinNedyalkov\\WebSponsorship\\YouSponsor.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vesko\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -327,7 +328,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
