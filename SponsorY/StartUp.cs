@@ -17,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+//set the password option / Add roles
 builder.Services.AddDefaultIdentity<AppUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -30,18 +31,20 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
 
 builder.Services.AddAplicationServices();
 
+//set security token
 builder.Services.AddControllersWithViews(options =>
 {
     options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
 });
 
-
+//set cookies
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/User/Login";
     options.LoginPath = "/User/Logout";
 });
 
+//ModelBinder for using . or, as . for decimal and double
 builder.Services.AddControllersWithViews().AddMvcOptions(options =>
 {
 	options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
@@ -58,6 +61,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
+    //TO DO custom error page for 404
     app.UseExceptionHandler("/Home/Error/500");
 	app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
 	app.UseHsts();
