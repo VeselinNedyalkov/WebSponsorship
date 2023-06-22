@@ -1,7 +1,7 @@
 # WebSponsorship
  SoftUni ASP.NET 
  
--MVC project
+<p>-MVC project</p>
 -followed SOLID
 -using MSSQL 
 -using Entity Framwork
